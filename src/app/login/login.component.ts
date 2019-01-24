@@ -18,6 +18,6 @@ export class LoginComponent implements OnInit {
 
   loginUser() : void {
     this.successLogin = true;
-}
+  }
 
 }
