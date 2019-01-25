@@ -1,3 +1,8 @@
-<p>
-  register works!
-</p>
+<form (submit)="registerUser()">
+  <input type="text" placeholder="Username" [(ngModel)]="username" name="username" />
+  <input type="password" placeholder="Password" [(ngModel)]="password" name="password" /> 
+  <button type="submit" class="btn btn-success">Register</button>
+  <div *ngIf="successLogin" class="alert alert-danger" role="alert">
+    Error al crear un usuario
+</div>
+</form>
