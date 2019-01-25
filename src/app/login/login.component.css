@@ -12,6 +12,12 @@ form {
     margin: 1em;
   }
 
+  .link:hover { color: #98CB00; }
+
+  a:visited {
+    color: #9c29a1; 
+  }
+
   .button{
     all: unset;
     background: #98CB00;
@@ -21,6 +27,7 @@ form {
     padding: 0.5em;
     width: 20vh;
     margin: 1em 0;
+    cursor:pointer;
   }
   
   input {
