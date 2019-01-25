@@ -1,18 +1,31 @@
 form {
-    border-radius: 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .alert {
-    margin: 1em;
-  }
-  
-  input {
-    all: unset;
-    border-bottom: 1px solid grey;
-    margin: 1em 0;
-    padding: 0.5em;
-  }
-  
+  border-radius: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img{
+  margin: 0.8em;
+}
+.alert {
+  margin: 1em;
+}
+
+.button{
+  all: unset;
+  background: #98CB00;
+  border-radius: 1em;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5em;
+  width: 20vh;
+  margin: 1em 0;
+}
+
+input {
+  all: unset;
+  border-bottom: 1px solid grey;
+  margin: 1em 0;
+  padding: 0.5em;
+}

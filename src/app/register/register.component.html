@@ -1,8 +1,10 @@
 <form (submit)="registerUser()">
-  <input type="text" placeholder="Username" [(ngModel)]="username" name="username" />
-  <input type="password" placeholder="Password" [(ngModel)]="password" name="password" /> 
-  <button type="submit" class="btn btn-success">Register</button>
-  <div *ngIf="successLogin" class="alert alert-danger" role="alert">
-    Error al crear un usuario
-</div>
+    <img class="img" src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
+    <input type="text" placeholder="Nombre de usuario" [(ngModel)]="username" name="username" />
+    <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
+    <button type="submit" class="button">Registrarse</button>
+    <div *ngIf="successLogin" class="alert alert-danger" role="alert">
+      Error al registarse
+    </div>
+    <span>Ya estás registrado? <a routerLink="/login">Login</a></span>
 </form>
