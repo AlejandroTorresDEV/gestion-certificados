@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   successLogin :boolean;
+  loanding: boolean;
 
   constructor(private router: Router,private authService:AuthServiceService) { }
 
@@ -19,14 +20,16 @@ export class LoginComponent implements OnInit {
 
   loginUser(): void {
       const { username, password } = this;
-
+      this.loanding = true;
       this.authService
       .loginUser(username, password)
       .then(() => {
+        this.loanding = false;
         console.log("Vamos pa admin");
         this.router.navigate(['/admin']);
       })
       .catch(error => {
+        this.loanding = false;
         this.successLogin = true;
       });
   }

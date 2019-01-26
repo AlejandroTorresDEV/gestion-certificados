@@ -12,6 +12,11 @@ form {
     margin: 1em;
   }
 
+  .spinnerImg{
+    padding-top: 10em;
+    text-align: center;
+  }
+
   .link:hover { color: #98CB00; }
 
   a:visited {
