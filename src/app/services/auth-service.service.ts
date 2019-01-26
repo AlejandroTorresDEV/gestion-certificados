@@ -9,20 +9,23 @@ export class AuthServiceService {
 
   jwt: string = localStorage.getItem('jwt');
 
-  constructor(private http: HttpClient,private router:Router) { }
+  constructor(private http: HttpClient,private router:Router) { 
+    
+  }
 
   loginUser(username :String,password :String){
+    console.log(username,password);
     const body = { username, password };
 
     return new Promise((resolve, reject) => {
       this.http
-        .post('https://localhost:5001/api/auth', body)
+        .post('/api/auth', body)
         .toPromise()
         .then(() => {
           console.log("Existe")
         })
         .catch(maybeNotAndError => {
-          console.log(maybeNotAndError);
+          console.log("No existe");
         });
     });
   }
