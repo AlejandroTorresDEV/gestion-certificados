@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
       .loginUser(username, password)
       .then(() => {
         this.loanding = false;
-        console.log("Vamos pa admin");
         this.router.navigate(['/admin']);
       })
       .catch(error => {
