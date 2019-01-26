@@ -31,8 +31,9 @@ export class AuthServiceService {
     });
   }
 
-  registerUser(){
-
+  registerUser(username: string, password: string) : any{
+    const body = { username, password };
+    return this.http.post('/api/users', body).toPromise();
   }
 
   logOutUser(){
