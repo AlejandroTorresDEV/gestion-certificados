@@ -13,18 +13,19 @@ export class AuthServiceService {
     
   }
 
-  loginUser(username :String,password :String){
-    console.log(username,password);
+  loginUser(username :String,password :String) : any{
     const body = { username, password };
 
     return new Promise((resolve, reject) => {
       this.http
         .post('/api/auth', body)
         .toPromise()
-        .then(() => {
-          console.log("Existe")
+        .then( res => {
+            console.log(res);
+            resolve('NICE');
         })
-        .catch(maybeNotAndError => {
+        .catch(error => {
+          reject('Try again');
           console.log("No existe");
         });
     });

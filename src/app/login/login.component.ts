@@ -17,17 +17,18 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginUser() : void {
-    const { username, password } = this;
+  loginUser(): void {
+      const { username, password } = this;
 
-    this.authService
-    .loginUser(username, password)
-    .then(() => {
-      this.router.navigate(['/admin']);
-    })
-    .catch(error => {
-      this.successLogin = true;
-    });
-}
+      this.authService
+      .loginUser(username, password)
+      .then(() => {
+        console.log("Vamos pa admin");
+        this.router.navigate(['/admin']);
+      })
+      .catch(error => {
+        this.successLogin = true;
+      });
+  }
 
 }
