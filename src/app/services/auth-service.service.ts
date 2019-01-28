@@ -21,12 +21,14 @@ export class AuthServiceService {
         .post('/api/auth', body)
         .toPromise()
         .then( res => {
-            console.log(res);
-            resolve('NICE');
+          if(res.statusCode === 200){
+            resolve(res.statusCode);
+          }else if (res.statusCode === 204){
+            resolve(res.statusCode);
+          }
         })
         .catch(error => {
-          reject('Try again');
-          console.log("No existe");
+          reject("No existe");
         });
     });
   }

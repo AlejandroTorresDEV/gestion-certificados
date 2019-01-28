@@ -23,9 +23,14 @@ export class LoginComponent implements OnInit {
       this.loanding = true;
       this.authService
       .loginUser(username, password)
-      .then(() => {
+      .then(res => {
         this.loanding = false;
-        this.router.navigate(['/admin']);
+        console.log(res);
+        if(res === 200){
+          this.router.navigate(['/admin']);
+        }else{
+          this.successLogin = true;
+        }
       })
       .catch(error => {
         this.loanding = false;
