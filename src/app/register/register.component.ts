@@ -10,6 +10,7 @@ import { AuthServiceService } from ".././services/auth-service.service";
 export class RegisterComponent implements OnInit {
   username: string;
   password: string;
+  email: string;
   successLogin :boolean;
   loanding: boolean;
 
@@ -19,10 +20,10 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() : void {
-    const { username, password } = this;
+    const { username, email, password } = this;
     this.loanding = true;
     this.authService
-        .registerUser(username, password)
+        .registerUser(username,email, password)
         .then(res => {
           this.loanding = false;
             console.log("exito");
