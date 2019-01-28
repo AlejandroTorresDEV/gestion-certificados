@@ -20,19 +20,21 @@ export class AuthServiceService {
       this.http
         .post('/api/auth', body)
         .toPromise()
-        .then( res => {
-            console.log(res);
-            resolve('NICE');
+        .then( (res: {statusCode: number}) => {
+          if(res.statusCode === 200){
+            resolve(res.statusCode);
+          }else if (res.statusCode === 204){
+            resolve(res.statusCode);
+          } 
         })
         .catch(error => {
-          reject('Try again');
-          console.log("No existe");
+          reject(404);
         });
     });
   }
 
-  registerUser(username: string, password: string) : any{
-    const body = { username, password };
+  registerUser(username: string,email: string, password: string) : any{
+    const body = { username,email, password };
     return this.http.post('/api/users', body).toPromise();
   }
 
