@@ -34,7 +34,7 @@ export class AuthServiceService {
   }
 
   registerUser(username: string,email: string, password: string) : any{
-    const body = { username,email, password };
+    const body = { username,email,password };
     return this.http.post('/api/users', body).toPromise();
   }
 
