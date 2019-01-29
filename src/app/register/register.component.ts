@@ -27,7 +27,11 @@ export class RegisterComponent implements OnInit {
         .registerUser(username,email,password)
         .then(res => {
           this.loanding = false;
+<<<<<<< HEAD
           console.log(res);
+=======
+          //this.successRegister = true;
+>>>>>>> feature-register
         })
         .catch(error => {
           console.log(error);

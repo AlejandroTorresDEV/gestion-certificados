@@ -20,10 +20,10 @@ export class AuthServiceService {
       this.http
         .post('/api/auth', body)
         .toPromise()
-        .then( (res: {statusCode: number}) => {
+        .then( (res: {statusCode: number,jwt: string}) => {
           if(res.statusCode === 200){
             resolve(res.statusCode);
-            localStorage.setItem('jwt', "sddssddsjsdhjhdshdshds");
+            localStorage.setItem('jwt',res.jwt);
           }else if (res.statusCode === 204){
             resolve(res.statusCode);
           }
@@ -35,7 +35,7 @@ export class AuthServiceService {
   }
 
   registerUser(username: string,email: string, password: string) : any{
-    const body = { username,email, password };
+    const body = { username,email,password };
     return this.http.post('/api/users', body).toPromise();
   }
 
