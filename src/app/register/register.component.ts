@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   password: string;
   email: string;
   successLogin :boolean;
+  successRegister :boolean;
   loanding: boolean;
 
   constructor(private router: Router,private authService:AuthServiceService) { }
@@ -23,13 +24,13 @@ export class RegisterComponent implements OnInit {
     const { username, email, password } = this;
     this.loanding = true;
     this.authService
-        .registerUser(username,email, password)
+        .registerUser(username,email,password)
         .then(res => {
           this.loanding = false;
-            console.log("exito");
+          console.log(res);
         })
         .catch(error => {
-          console.log("no existo");
+          console.log(error);
           this.loanding = false;
           this.successLogin = true;
         });
