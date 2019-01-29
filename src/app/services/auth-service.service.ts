@@ -39,7 +39,6 @@ export class AuthServiceService {
     return this.http.post('/api/users', body).toPromise();
   }
 
-
   getToken(): boolean {
     let jwt = localStorage.getItem("jwt");
     if (jwt!==null) {
