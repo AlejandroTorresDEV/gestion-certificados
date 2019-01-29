@@ -4,6 +4,7 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { AdminComponent } from "./admin/admin.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { UserViewComponent } from './user-view/user-view.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+  },
+  {
+    path: 'user-view',
+    component: UserViewComponent,
   },
   {
     path: '',

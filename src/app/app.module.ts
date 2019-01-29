@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdminComponent } from './admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'; 
+import { UserViewComponent } from './user-view/user-view.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NavbarComponent,
     AdminComponent,
     PageNotFoundComponent,
+    UserViewComponent
   ],
   imports: [
     BrowserModule,
