@@ -1,0 +1,15 @@
+<div class="spinnerImg" *ngIf="loanding" class="spinnerImg">
+  <img src="assets/spinner.gif"  />
+</div>
+
+<form *ngIf="!loanding" (submit)="loginUser()">
+    <img class="img" src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
+  <input type="text" placeholder="Nombre de usuario" [(ngModel)]="username" name="username" />
+  <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
+  <button type="submit" class="button">Entrar</button>
+  <div *ngIf="successLogin" class="alert alert-danger" role="alert">
+    Error al entrar al sistema
+  </div>
+  <span>No estás registrado? <a class="link" routerLink="/register">Registarse</a></span>
+</form>
+
