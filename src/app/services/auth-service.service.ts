@@ -23,6 +23,7 @@ export class AuthServiceService {
         .then( (res: {statusCode: number}) => {
           if(res.statusCode === 200){
             resolve(res.statusCode);
+            localStorage.setItem('jwt', "sddssddsjsdhjhdshdshds");
           }else if (res.statusCode === 204){
             resolve(res.statusCode);
           }
@@ -36,6 +37,16 @@ export class AuthServiceService {
   registerUser(username: string,email: string, password: string) : any{
     const body = { username,email, password };
     return this.http.post('/api/users', body).toPromise();
+  }
+
+
+  getToken(): boolean {
+    let jwt = localStorage.getItem("jwt");
+    if (jwt!==null) {
+        return true;
+    }else{
+      return false;
+    }
   }
 
   logOutUser(){
