@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserViewComponent implements OnInit {
 
+  data: {
+    nombre  :"alex"
+  }
+
   constructor() { }
 
   ngOnInit() {
