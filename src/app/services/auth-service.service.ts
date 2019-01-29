@@ -20,9 +20,10 @@ export class AuthServiceService {
       this.http
         .post('/api/auth', body)
         .toPromise()
-        .then( (res: {statusCode: number}) => {
+        .then( (res: {statusCode: number,jwt: string}) => {
           if(res.statusCode === 200){
             resolve(res.statusCode);
+            localStorage.setItem('jwt',res.jwt);
           }else if (res.statusCode === 204){
             resolve(res.statusCode);
           } 
