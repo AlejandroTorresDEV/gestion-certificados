@@ -1,6 +1,11 @@
-<form (submit)="registerUser()">
+<div class="spinnerImg" *ngIf="loanding" class="spinnerImg">
+  <img src="assets/spinner.gif"  />
+</div>
+
+<form *ngIf="!loanding" (submit)="registerUser()">
     <img class="img" src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
     <input type="text" placeholder="Nombre de usuario" [(ngModel)]="username" name="username" />
+    <input type="email" placeholder="Escribe tu email" [(ngModel)]="email" name="email" />
     <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
     <button type="submit" class="button">Registrarse</button>
     <div *ngIf="successLogin" class="alert alert-danger" role="alert">

@@ -19,24 +19,27 @@ export class AuthServiceService {
       this.http
         .post('/api/auth', body)
         .toPromise()
-        .then( res => {
+        .then( (res: {statusCode: number,jwt: string}) => {
           if(res.statusCode === 200){
             resolve(res.statusCode);
+            localStorage.setItem('jwt',res.jwt);
           }else if (res.statusCode === 204){
             resolve(res.statusCode);
-          }
+          } 
         })
         .catch(error => {
-          reject("No existe");
+          reject(404);
         });
     });
   }
 
-  registerUser(){
-
+  registerUser(username: string,email: string, password: string) : any{
+    const body = { username,email,password };
+    return this.http.post('/api/users', body).toPromise();
   }
 
   logOutUser(){
-
+    localStorage.removeItem('jwt');
+    this.router.navigate['/login'];
   }
 }
