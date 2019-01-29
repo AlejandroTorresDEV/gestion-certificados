@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
         this.loanding = false;
         console.log(res);
         if(res === 200){
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/user-view']);
         }else{
           this.successLogin = true;
         }
