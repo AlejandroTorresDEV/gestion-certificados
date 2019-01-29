@@ -5,23 +5,25 @@ import { RegisterComponent } from "./register/register.component";
 import { AdminComponent } from "./admin/admin.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { UserViewComponent } from './user-view/user-view.component';
+import { AuthGuard } from './guards/auth.guard';
+import { RedirectGuard } from "./guards/redirect.guard";
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent, canActivate: [RedirectGuard],
   },
   {
     path: 'register',
-    component: RegisterComponent,
+    component: RegisterComponent, canActivate: [RedirectGuard],
   },
   {
     path: 'admin',
-    component: AdminComponent,
+    component: AdminComponent, canActivate : [AuthGuard],
   },
   {
     path: 'user-view',
-    component: UserViewComponent,
+    component: UserViewComponent,  canActivate : [AuthGuard],
   },
   {
     path: '',

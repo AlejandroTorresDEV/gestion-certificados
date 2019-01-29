@@ -23,6 +23,7 @@ export class AuthServiceService {
         .then( (res: {statusCode: number}) => {
           if(res.statusCode === 200){
             resolve(res.statusCode);
+            localStorage.setItem('jwt', "sddssddsjsdhjhdshdshds");
           }else if (res.statusCode === 204){
             resolve(res.statusCode);
           }
@@ -31,6 +32,15 @@ export class AuthServiceService {
           reject(404);
         });
     });
+  }
+
+  getToken(): boolean {
+    let jwt = localStorage.getItem("jwt");
+    if (jwt!==null) {
+        return true;
+    }else{
+      return false;
+    }
   }
 
   registerUser(){
