@@ -40,6 +40,6 @@ export class AuthServiceService {
 
   logOutUser(){
     localStorage.removeItem('jwt');
-    this.router.navigate['/login'];
+    this.router.navigate(['/login']);
   }
 }
