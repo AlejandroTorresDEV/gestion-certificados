@@ -7,6 +7,7 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RedirectGuard } from "./guards/redirect.guard";
 import { ProfileComponent } from './profile/profile.component';
+
 const routes: Routes = [
   {
     path: 'login',

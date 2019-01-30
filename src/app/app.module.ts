@@ -11,8 +11,6 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,10 +19,8 @@ import { ProfileComponent } from './profile/profile.component';
     NavbarComponent,
     PageNotFoundComponent,
     UserViewComponent,
-    UserViewComponent,
     NavbarComponent,
     ProfileComponent
-
   ],
   imports: [
     BrowserModule,
