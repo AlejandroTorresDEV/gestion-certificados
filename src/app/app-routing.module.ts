@@ -17,6 +17,10 @@ const routes: Routes = [
     component: RegisterComponent, canActivate: [RedirectGuard],
   },
   {
+    path: 'profile',
+    component: ProfileComponent, canActivate : [AuthGuard],
+  },
+  {
     path: 'user-view',
     component: UserViewComponent,  canActivate : [AuthGuard],
   },
@@ -34,10 +38,6 @@ const routes: Routes = [
     redirectTo: '404',
     pathMatch: 'full',
   },
-  {
-    path: 'register',
-    component: RegisterComponent,
-  }
 ];
 
 @NgModule({
