@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AdminComponent } from './admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'; 
 import { UserViewComponent } from './user-view/user-view.component';
+
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,9 @@ import { UserViewComponent } from './user-view/user-view.component';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    AdminComponent,
     PageNotFoundComponent,
-    UserViewComponent
+    UserViewComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
