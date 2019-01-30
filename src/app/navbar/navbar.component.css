@@ -13,6 +13,10 @@ nav {
     text-decoration: none;
   }
 
+  .logOut {
+    color: white !important;
+    cursor: pointer;
+  }
   .active {
     border-bottom: solid 4px white;
   }
