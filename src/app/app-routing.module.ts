@@ -2,9 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
+<<<<<<< HEAD
 import { AdminComponent } from "./admin/admin.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
+=======
+import { ProfileComponent } from './profile/profile.component';
+>>>>>>> feature-profile
 const routes: Routes = [
   {
     path: 'login',
@@ -13,6 +17,7 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+<<<<<<< HEAD
   },
   {
     path: 'admin',
@@ -32,6 +37,9 @@ const routes: Routes = [
     redirectTo: '404',
     pathMatch: 'full',
   },
+=======
+  }
+>>>>>>> feature-profile
 ];
 
 @NgModule({
