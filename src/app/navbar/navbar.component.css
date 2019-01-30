@@ -2,16 +2,21 @@ nav {
     padding: 1em;
     margin: 1em;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     background:#98CB00   ;
   }
 
   a {
+    padding-bottom: 0.05em;
     color: white;
     margin: 1em;
     text-decoration: none;
   }
 
+  .logOut {
+    color: white !important;
+    cursor: pointer;
+  }
   .active {
-    border-bottom: solid 4px black;
+    border-bottom: solid 4px white;
   }
