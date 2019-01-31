@@ -55,6 +55,10 @@ input {
   align-content: center;
 }
 
+span{
+  margin: 1em;
+}
+
 .inputs{
   padding-top: 0.5em;
 }
