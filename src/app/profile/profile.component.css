@@ -6,7 +6,9 @@ form {
     background-color: #f4f5f7;
     width: 50vh;
     margin: auto;
+    margin-bottom: 3em;
   }
+
   h1{
     margin: 0.5em;
     font-weight: bold;
