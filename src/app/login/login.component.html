@@ -2,13 +2,12 @@
   <img src="assets/spinner.gif" />
 </div>
 
-<div class="img">
+<div *ngIf="!loanding" class="img">
   <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
 </div>
 
 <form *ngIf="!loanding" (submit)="loginUser()">
   <div class="inputs">
-
     <input type="text" placeholder="Nombre de usuario" [(ngModel)]="username" name="username" />
     <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
   </div>
