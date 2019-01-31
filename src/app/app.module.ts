@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserViewComponent } from './user-view/user-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
