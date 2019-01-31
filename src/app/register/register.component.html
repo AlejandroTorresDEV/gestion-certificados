@@ -2,11 +2,17 @@
   <img src="assets/spinner.gif"  />
 </div>
 
+<div class="img">
+    <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
+</div>
+
+
 <form *ngIf="!loanding" (submit)="registerUser()">
-    <img class="img" src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
-    <input type="text" placeholder="Nombre de usuario" [(ngModel)]="username" name="username" />
-    <input type="email" placeholder="Escribe tu email" [(ngModel)]="email" name="email" />
-    <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
+    <div class="inputs">
+      <input type="text" placeholder="Nombre de usuario" [(ngModel)]="username" name="username" />
+      <input type="email" placeholder="Escribe tu email" [(ngModel)]="email" name="email" />
+      <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
+    </div>
     <button type="submit" class="button">Registrarse</button>
     <div *ngIf="successLogin" class="alert alert-danger" role="alert">
       Error al registarse
