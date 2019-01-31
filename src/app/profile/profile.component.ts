@@ -21,15 +21,8 @@ export class ProfileComponent implements OnInit {
   }
 
   saveUserJira(){
-    const newJira: Jira = {
-      username: this.email,
-      password: this.password,
-      url: this.url,
-      proyect: this.proyecto,
-      componente: this.componente
-    };
 
-    this.jiraService.saveUserJira(newJira)  .then(res => {
+    this.jiraService.saveUserJira(this.email,this.password,this.url,this.proyecto,this.componente).then(res => {
       console.log(res);
       //this.successRegister = true;
     })
