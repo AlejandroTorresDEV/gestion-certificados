@@ -1,0 +1,44 @@
+form {
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1{
+    margin: 1em;
+    font-weight: bold;
+    color: #98CB00;   
+  }
+  
+  .img{
+    margin: 0.8em;
+  }
+  .alert {
+    margin: 1em;
+  }
+  
+  .link:hover { color: #98CB00; }
+  
+  a:visited {
+    color: #9c29a1; 
+  }
+  
+  .button{
+    all: unset;
+    background: #98CB00;
+    border-radius: 1em;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
+    width: 20vh;
+    margin: 1em 0;
+    cursor:pointer;
+  }
+  
+  input {
+    all: unset;
+    border-bottom: 1px solid grey;
+    margin: 1em 0;
+    padding: 0.5em;
+  }
+  
