@@ -12,8 +12,8 @@ export class ProfileComponent implements OnInit {
   url: string;
   proyecto: string;
   componente: string;
-
-  successLogin :boolean;
+  successSave :boolean;
+  errorSave : boolean;
 
   constructor(private jiraService: ProfileJiraService) { }
 
@@ -23,11 +23,11 @@ export class ProfileComponent implements OnInit {
   saveUserJira(){
     this.jiraService.saveUserJira(this.email,this.password,this.url,this.proyecto,this.componente).then(res => {
       console.log(res);
-      //this.successRegister = true;
+      this.successSave = true;
     })
     .catch(error => {
       console.log(error);
-      this.successLogin = true;
+      this.errorSave = true;
     });;
 
   }
