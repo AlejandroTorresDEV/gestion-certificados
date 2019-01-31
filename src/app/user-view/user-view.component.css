@@ -18,6 +18,10 @@
     padding: 15px;
   }
 
+  i{
+    color:black;
+  }
+
   th{
       color: white;
       font-size: 1em;

@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserViewComponent implements OnInit {
 
-  data : [
-    {
-    nombreCliente : "Ayuntamiento"
-    }
-  ]
+  colours = [
+    {ayuntamiento : "white"},
+    {ayuntamiento: "blue"},
+    {ayuntamiento: "red"},
+    {ayuntamiento: "yellow"},
+    {ayuntamiento : "white"},
+    {ayuntamiento: "blue"},
+    {ayuntamiento: "red"}
+  ];
 
   constructor() { }
 
