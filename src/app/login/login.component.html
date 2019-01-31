@@ -1,13 +1,16 @@
-<div class="img">
-    <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
+<div class="spinnerImg" *ngIf="loanding" class="spinnerImg">
+  <img src="assets/spinner.gif" />
 </div>
 
-<form (submit)="loginUser()">
-    <div class="inputs">
+<div *ngIf="!loanding" class="img">
+  <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
+</div>
 
+<form *ngIf="!loanding" (submit)="loginUser()">
+  <div class="inputs">
     <input type="text" placeholder="Nombre de usuario" [(ngModel)]="username" name="username" />
-  <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
-</div>
+    <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
+  </div>
 
   <button type="submit" class="button">Entrar</button>
   <div *ngIf="successLogin" class="alert alert-danger" role="alert">
@@ -15,4 +18,3 @@
   </div>
   <span>No estás registrado? <a class="link" routerLink="/register">Registarse</a></span>
 </form>
-
