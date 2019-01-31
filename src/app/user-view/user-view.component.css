@@ -20,6 +20,10 @@
 
   i{
     color:black;
+    cursor: pointer;
+  }
+  i:hover{
+    transform: scale(1.1);
   }
 
   th{
