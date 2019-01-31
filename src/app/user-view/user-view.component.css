@@ -1,0 +1,26 @@
+.grid-container {
+    overflow:scroll;
+    margin: 1em;
+   height: 50vh;
+ }
+
+ table{
+    width: 100%;
+ }
+ table, th, td {
+    border-bottom: 2px solid white;
+    text-align: center;
+    border-collapse: collapse;
+    background:#98CB00; 
+  }
+  th, td {
+      color:white;
+    padding: 15px;
+  }
+
+  th{
+      color: white;
+      font-size: 1em;
+  }
+
+
