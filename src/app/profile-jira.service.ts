@@ -14,6 +14,7 @@ export class ProfileJiraService {
 
   saveUserJira(cuentaJira : Jira ){
     console.log("Cuneta --->"+cuentaJira);
+    return this.http.post('/api/jira', cuentaJira).toPromise();
   }
 
 }

@@ -25,11 +25,19 @@ export class ProfileComponent implements OnInit {
       email: this.email,
       password: this.password,
       url: this.url,
-      proyecto: this.proyecto,
+      proyect: this.proyecto,
       componente: this.componente
     };
 
-    console.log(newJira);
+    this.jiraService.saveUserJira(newJira)  .then(res => {
+      console.log(res);
+      //this.successRegister = true;
+    })
+    .catch(error => {
+      console.log(error);
+      this.successLogin = true;
+    });;
+
   }
 
 }

@@ -1,7 +1,7 @@
 export interface Jira {
-    email: string;
+    username: string;
     password: string;
     url: string;
-    proyecto: string;
+    proyect: string;
     componente: string;
   }
