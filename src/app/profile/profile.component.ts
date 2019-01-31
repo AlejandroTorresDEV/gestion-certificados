@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileJiraService} from '../profile-jira.service'
+import { Jira } from "../interfaces/Jira";
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -20,7 +21,15 @@ export class ProfileComponent implements OnInit {
   }
 
   saveUserJira(){
-    console.log(this.email,this.password,this.url,this.proyecto,this.componente);
+    const newJira: Jira = {
+      email: this.email,
+      password: this.password,
+      url: this.url,
+      proyecto: this.proyecto,
+      componente: this.componente
+    };
+
+    console.log(newJira);
   }
 
 }
