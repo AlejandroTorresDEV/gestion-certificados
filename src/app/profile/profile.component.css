@@ -3,6 +3,9 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #f4f5f7;
+    width: 50vh;
+    margin: auto;
   }
   h1{
     margin: 0.5em;
@@ -24,22 +27,33 @@ form {
     color: #9c29a1; 
   }
   
-  .button{
+  button{
     all: unset;
     background: #98CB00;
     border-radius: 1em;
     flex-direction: column;
-    align-items: center;
     padding: 0.5em;
+    text-align: center;
     width: 20vh;
+    align-content: center;
     margin: 1em 0;
     cursor:pointer;
+    color: antiquewhite;
   }
   
   input {
     all: unset;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid gray;
+    background-color: whitesmoke;
+    border-radius: 5px ;
     margin: 0.5em 0;
     padding: 0.5em;
+    display: block;
+    align-content: center;
   }
+
+.inputs{
+  padding-top: 0.5em;
+}
+  
   
