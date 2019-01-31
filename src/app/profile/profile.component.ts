@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {ProfileJiraService} from '../profile-jira.service'
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
 
   successLogin :boolean;
 
-  constructor() { }
+  constructor(private jiraService: ProfileJiraService) { }
 
   ngOnInit() {
   }
