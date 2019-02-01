@@ -1,21 +1,32 @@
+<!--Imagen spinner de carga-->
 <div class="spinnerImg" *ngIf="loanding" class="spinnerImg">
-    <img src="assets/spinner.gif"  />
+  <img src="assets/spinner.gif" />
+</div>
+
+
+<!--Imagen logo-->
+<div *ngIf="!loanding" class="img">
+  <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
+</div>
+
+<!--Formulario de registro-->
+<form *ngIf="!loanding" (submit)="registerUser()">
+
+  <div class="inputs">
+    <input type="text" placeholder="Nombre de usuario" [(ngModel)]="username" name="username" />
+    <input type="email" placeholder="Escribe tu email" [(ngModel)]="email" name="email" />
+    <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
   </div>
-  
-  <div class="img">
-      <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
+
+  <button type="submit" class="button">Registrarse</button>
+
+  <div *ngIf="successLogin" class="alert alert-danger" role="alert">
+    Error al registarse
   </div>
-  
-  
-  <form *ngIf="!loanding" (submit)="registerUser()">
-      <div class="inputs">
-        <input type="text" placeholder="Nombre de usuario" [(ngModel)]="username" name="username" />
-        <input type="email" placeholder="Escribe tu email" [(ngModel)]="email" name="email" />
-        <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
-      </div>
-      <button type="submit" class="button">Registrarse</button>
-      <div *ngIf="successLogin" class="alert alert-danger" role="alert">
-        Error al registarse
-      </div>
-      <span>Ya estás registrado? <a routerLink="/login">Login</a></span>
-  </form>
+
+</form>
+
+<!--Span de aviso de registro-->
+<div *ngIf="!loanding" class="goToLogin">
+  <span>Ya estás registrado? <a class="link" routerLink="/login">Login</a></span>
+</div>
