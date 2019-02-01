@@ -13,10 +13,13 @@ form {
 
 
 .img{
-  padding-top: 1.5em;
-  text-align: center;
-  width: 70vh;
+  padding-top:1em;
+  width: 60vh;
   margin: auto;
+}
+
+.img img{
+  width: 60vh;
 }
 
 .noRegistrado {
