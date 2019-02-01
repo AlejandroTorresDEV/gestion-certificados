@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserViewComponent } from './user-view/user-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CreateCertificateComponent } from './create-certificate/create-certificate.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProfileComponent } from './profile/profile.component';
     PageNotFoundComponent,
     UserViewComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    CreateCertificateComponent
   ],
   imports: [
     BrowserModule,
