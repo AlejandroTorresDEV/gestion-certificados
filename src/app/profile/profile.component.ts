@@ -14,10 +14,14 @@ export class ProfileComponent implements OnInit {
   componente: string;
   successSave :boolean;
   errorSave : boolean;
+  editing : boolean;
+  jiraExistente :boolean;
 
   constructor(private jiraService: ProfileJiraService) { }
 
   ngOnInit() {
+   this.email = "hola";
+   this.jiraExistente = true;
   }
 
   saveUserJira(){
@@ -31,6 +35,9 @@ export class ProfileComponent implements OnInit {
       this.errorSave = true;
     });;
 
+  }
+  cambiar(){
+    this.editing = !this.editing;
   }
 
 }

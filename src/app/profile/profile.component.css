@@ -54,7 +54,9 @@ form {
     display: block;
     align-content: center;
   }
-
+.modificar{
+  text-align: center;
+}
 .inputs{
   padding-top: 0.5em;
 }
