@@ -7,6 +7,7 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RedirectGuard } from "./guards/redirect.guard";
 import { ProfileComponent } from './profile/profile.component';
+import { CreateCertificateComponent } from './create-certificate/create-certificate.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'user-view',
     component: UserViewComponent,  canActivate : [AuthGuard],
+  },
+  {
+    path:'create-certificate',
+    component: CreateCertificateComponent , canActivate : [AuthGuard],
   },
   {
     path: '',

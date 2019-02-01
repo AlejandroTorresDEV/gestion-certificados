@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class="spinnerImg" *ngIf="loanding" class="spinnerImg">
+  <img src="assets/spinner.gif" />
+</div>
+
+<form *ngIf="!loanding" (submit)="loginUser()">
+  <div class="inputs">
+    <h5>Crear certificado</h5>
+    <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
+    <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
+    <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
+    <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
+    <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
+  </div>
+
+  <button type="submit" class="button">Crear</button>
+  <div *ngIf="successLogin" class="alert alert-danger" role="alert">
+    Error al entrar al sistema
+  </div>
+</form>
