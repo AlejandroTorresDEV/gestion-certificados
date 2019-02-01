@@ -12,9 +12,14 @@ form {
 }
 
 
-img {
-  margin-top: 1.5em;
-  width: 55vh;
+.img{
+  padding-top:1em;
+  width: 60vh;
+  margin: auto;
+}
+
+.img img{
+  width: 60vh;
 }
 
 .noRegistrado {
@@ -72,3 +77,9 @@ span {
 .inputs {
   padding-top: 0.5em;
 }
+
+.spinnerImg{
+  padding-top: 10em;
+  text-align: center;
+}
+
