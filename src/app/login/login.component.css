@@ -4,44 +4,10 @@ form {
   flex-direction: column;
   align-items: center;
   background-color: #f4f5f7;
-  width: 60vh;
+  width: 50vh;
   margin: auto;
-  padding-top: 2em;
   margin-bottom: 1em;
   margin-top: 2em;
-}
-
-
-.img{
-  padding-top:1em;
-  width: 60vh;
-  margin: auto;
-}
-
-.img img{
-  width: 60vh;
-}
-
-.noRegistrado {
-  padding: 1em;
-  width: 60vh;
-  border-radius: 2em;
-  background-color: #f4f5f7;
-  text-align: center;
-  margin: auto;
-  margin-bottom: 2em;
-}
-
-.alert {
-  margin: 1em;
-}
-
-.link:hover {
-  color: #98CB00;
-}
-
-a:visited {
-  color: #9c29a1;
 }
 
 button {
@@ -69,8 +35,34 @@ input {
   align-content: center;
 }
 
-span {
+/* Clases imagenes*/
+.img{
+  padding-top:1em;
+  width: 60vh;
+  margin: auto;
+}
+
+.img img{
+  width: 60vh;
+}
+
+.spinnerImg{
+  padding-top: 10em;
   text-align: center;
+}
+
+/*Clases de span de registro*/
+.noRegistrado {
+  padding: 1em;
+  width: 50vh;
+  border-radius: 2em;
+  background-color: #f4f5f7;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 2em;
+}
+
+.alert {
   margin: 1em;
 }
 
@@ -78,8 +70,11 @@ span {
   padding-top: 0.5em;
 }
 
-.spinnerImg{
-  padding-top: 10em;
-  text-align: center;
+.link:hover {
+  color: #98CB00;
+}
+
+a:visited {
+  color: #9c29a1;
 }
 
