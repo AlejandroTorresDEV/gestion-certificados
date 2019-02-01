@@ -3,8 +3,8 @@
 </div>
 
 <div *ngIf="!loanding" class="img">
-  <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
-</div>
+    <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
+  </div>
 
 <form *ngIf="!loanding" (submit)="loginUser()">
   <div class="inputs">
@@ -16,5 +16,8 @@
   <div *ngIf="successLogin" class="alert alert-danger" role="alert">
     Error al entrar al sistema
   </div>
-  <span>No estás registrado? <a class="link" routerLink="/register">Registarse</a></span>
 </form>
+
+<div *ngIf="!loanding" class="noRegistrado">
+    <span>No estás registrado? <a class="link" routerLink="/register">Registarse</a></span>
+</div>
