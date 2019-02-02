@@ -7,10 +7,10 @@ import { HttpClient } from '@angular/common/http';
 export class AuthServiceService {
 
   jwt: string = localStorage.getItem('jwt');
-
-  constructor(private http: HttpClient,private router:Router) { 
-    
-  }
+  rol: string = localStorage.getItem('rol');
+  name: string = localStorage.getItem('name');
+  
+  constructor(private http: HttpClient,private router:Router) {}
 
   loginUser(username :String,password :String) : any{
     const body = { username, password };
@@ -21,6 +21,7 @@ export class AuthServiceService {
         .toPromise()
         .then( (res: {statusCode: number,jwt: string}) => {
           if(res.statusCode === 200){
+            this.guardarPlayload(res);
             resolve(res.statusCode);
             localStorage.setItem('jwt',res.jwt);
           }else if (res.statusCode === 204){
@@ -31,6 +32,15 @@ export class AuthServiceService {
           reject(404);
         });
     });
+  }
+
+  guardarPlayload(res){
+    let playload = res.jwt.split('.')[1];
+    let obj = JSON.parse(atob(playload));
+    localStorage.setItem('rol',obj.rol);
+    localStorage.setItem('name',obj.name);
+    localStorage.setItem('id',obj.id);
+    localStorage.setItem('jwt',res.jwt);
   }
 
   registerUser(username: string,email: string, password: string) : any{
@@ -51,4 +61,5 @@ export class AuthServiceService {
     localStorage.removeItem('jwt');
     this.router.navigate(['/login']);
   }
+  
 }
