@@ -2,15 +2,18 @@ form {
   border-radius: 2em;
   display: flex;
   flex-direction: column;
+  padding-top: 2em;
+  text-align: center;
   align-items: center;
   background-color: #f4f5f7;
   width: 50vh;
   margin: auto;
   margin-bottom: 1em;
   margin-top: 2em;
+  font-weight: bold;
 }
 
-button {
+.form-group  button {
   all: unset;
   background: #98CB00;
   border-radius: 1em;
@@ -24,7 +27,7 @@ button {
   color: antiquewhite;
 }
 
-input {
+.form-group input {
   all: unset;
   border-bottom: 1px solid gray;
   background-color: whitesmoke;

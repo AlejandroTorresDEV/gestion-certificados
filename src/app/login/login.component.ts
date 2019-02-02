@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+    this.username = this.registerForm.value.username;
+    this.password = this.registerForm.value.password;
       const { username, password } = this;
       this.loanding = true;
       this.authService
