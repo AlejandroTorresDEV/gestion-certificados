@@ -1,6 +1,6 @@
 <!--Formulario para crear una cuenta de 
     Jira cuando el usaurio no tiene asociada una-->
-<form *ngIf="jiraExistente" (submit)="saveUserJira()">
+<form *ngIf="!jiraExistente" (submit)="saveUserJira()">
 
   <div class="inputs">
     <h5>Cuenta de Jira</h5>
@@ -23,10 +23,9 @@
 
 </form>
 
-
 <!--Formulario para modficicar una cuenta de 
     Jira cuando el usaurio tiene asociada una-->
-<form *ngIf="!jiraExistente" (submit)="updateUserJira()">
+<form *ngIf="jiraExistente" (submit)="updateUserJira()">
   <button (click)="cambiarEdicion()">Modificar Jira</button>
 
   <!--Si no se esta editando se mostraran los datos en texto plano-->
@@ -54,7 +53,6 @@
   </div>
 
   <button type="submit">Guardar</button>
-
   <!--Mensajes de error -->
   <div *ngIf="errorSave" class="alert alert-danger" role="alert">
     Error al guardar la cuenta de jira

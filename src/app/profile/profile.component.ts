@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileJiraService} from '../profile-jira.service'
 import { Jira } from "../interfaces/Jira";
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -17,21 +18,32 @@ export class ProfileComponent implements OnInit {
   errorSave : boolean;
   editing : boolean;
   jiraExistente :boolean;
-
+  id : string;
   constructor(private jiraService: ProfileJiraService) { }
 
   ngOnInit() {
-    if(this.jiraService.getUserJira()){
+    this.id  = localStorage.getItem('id');
+    console.log(this.id);
+    //console.log(this.jiraService.getUserJira(this.id).then());
+
+    this.jiraService.getUserJira(this.id).then(res => {
+      this.jiraExistente = true;
+    })
+    .catch(error => {
+      this.jiraExistente = false;
+    });;
+
+   /* if(this.jiraService.getUserJira(this.id)){
       this.jiraExistente = false;
     }else{
       this.jiraExistente = true;
-    }
+    }*/
   }
 
   saveUserJira(){
     const saveAccountJira: Jira = 
     {  
-      user_id : "1",
+      user_id : this.id,
       username : this.username,
       password: this.password,
       url: this.url,
