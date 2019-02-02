@@ -17,5 +17,8 @@ export class ProfileJiraService {
     return this.http.post('/api/jira', body).toPromise();
   }
 
+  getUserJira() :any{
+    return this.http.get('/api/jira/'+"1").toPromise();
+  }
   
 }
