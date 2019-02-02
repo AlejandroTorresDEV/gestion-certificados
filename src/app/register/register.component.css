@@ -1,6 +1,8 @@
 form {
+  padding-top: 2em;
   border-radius: 2em;
   display: flex;
+  text-align: center;
   flex-direction: column;
   align-items: center;
   background-color: #f4f5f7;

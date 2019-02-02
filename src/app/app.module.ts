@@ -11,7 +11,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CreateCertificateComponent } from './create-certificate/create-certificate.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -24,14 +23,14 @@ import { BrowserModule } from '@angular/platform-browser';
     NavbarComponent,
     ProfileComponent,
     CreateCertificateComponent,
-    BrowserModule,
-    ReactiveFormsModule
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

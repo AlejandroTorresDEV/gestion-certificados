@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from ".././services/auth-service.service";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -14,13 +15,33 @@ export class RegisterComponent implements OnInit {
   successLogin :boolean;
   successRegister :boolean;
   loanding: boolean;
+  registerForm: FormGroup;
+  submitted = false;
 
-  constructor(private router: Router,private authService:AuthServiceService) { }
+  constructor(private router: Router,private authService:AuthServiceService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+  });
+  }
+
+  get f() { return this.registerForm.controls; }
+
+  getFormsControls() : any{
+    return this.registerForm.controls;
   }
 
   registerUser() : void {
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
+    this.email = this.registerForm.value.email;
+    this.username = this.registerForm.value.username;
+    this.password = this.registerForm.value.password;
     const { username, email, password } = this;
     this.loanding = true;
     this.authService
@@ -28,7 +49,6 @@ export class RegisterComponent implements OnInit {
         .then(res => {
           this.loanding = false;
           console.log(res);
-          //this.successRegister = true;
         })
         .catch(error => {
           console.log(error);
