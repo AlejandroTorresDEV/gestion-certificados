@@ -7,8 +7,6 @@ import { Jira } from "../interfaces/Jira";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  
-  accountJira : Jira [];
 
   username : string;
   password : string;
@@ -23,7 +21,11 @@ export class ProfileComponent implements OnInit {
   constructor(private jiraService: ProfileJiraService) { }
 
   ngOnInit() {
-   this.jiraExistente = true;
+    if(this.jiraService.getUserJira()){
+      this.jiraExistente = false;
+    }else{
+      this.jiraExistente = true;
+    }
   }
 
   saveUserJira(){
@@ -48,7 +50,23 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUserJira(){
-
+    const updateAccountJira: Jira = 
+    {  
+      user_id : "1",
+      username : this.username,
+      password: this.password,
+      url: this.url,
+      proyect: this.proyecto,
+      componente: this.componente
+    }
+    this.jiraService.saveUserJira(updateAccountJira).then(res => {
+      console.log(res);
+      this.successSave = true;
+    })
+    .catch(error => {
+      console.log(error);
+      this.errorSave = true;
+    });;
   }
 
   cambiarEdicion(){
