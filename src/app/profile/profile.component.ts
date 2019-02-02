@@ -59,8 +59,6 @@ export class ProfileComponent implements OnInit {
     }
     this.jiraService.saveUserJira(updateAccountJira).then(res => {
       console.log(res);
-       let element : Jira[] = res;
-       console.log(element);
       this.successSave = true;
     })
     .catch(error => {
@@ -75,7 +73,8 @@ export class ProfileComponent implements OnInit {
 
   getUserJira(){
     this.jiraService.getUserJira(this.id).then(res => {
-
+      let element : Jira[] = res;
+      console.log(element);
       this.jiraExistente = true;
     })
     .catch( () => {
