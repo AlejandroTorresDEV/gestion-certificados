@@ -27,33 +27,29 @@
 <!--Formulario para modficicar una cuenta de 
     Jira cuando el usaurio tiene asociada una-->
 <form *ngIf="jiraExistente" (submit)="updateUserJira()">
-  <button (click)="cambiarEdicion()">Modificar Jira</button>
 
   <!--Si no se esta editando se mostraran los datos en texto plano-->
   <div [hidden]="editing" class="modificar">
-    <h5>Modificar de Jira</h5>
-    <label>Email</label><br>
-    <span>{{email}}</span><br>
-    <label>Password</label><br>
-    <span>{{password}}</span><br>
-    <label>Url</label><br>
-    <span>{{email}}</span><br>
-    <label>Nombre del proyecto</label><br>
-    <span>{{email}}</span><br>
-    <label>Componente</label><br>
-    <span>{{email}}</span><br>
+    <h5>Cuenta de Jira</h5>
+    <label>Email : <input value="{{username}}" disabled /></label> <br>
+    <label>Password : <input value="{{password}}" disabled /></label> <br>   
+    <label>Url : <input value="{{url}}" disabled /></label> <br>  
+    <label>Proyecto : <input value="{{proyecto}}" disabled /> </label>
+    <label>Componente : <input value="{{componente}}" disabled /></label><br>
+    <button (click)="cambiarEdicion()">Modificar Jira</button>
   </div>
 
   <!--Si se esta editando se mostraran los datos en un input-->
   <div [hidden]="!editing" class="modificar">
-    <input type="email" placeholder="Email de Jira" [(ngModel)]="email" name="email" />
+    <h5>Modificar Jira</h5>
+    <input class="modificar" type="email" placeholder="Email de Jira" [(ngModel)]="username" name="email" />
     <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" />
     <input type="text" placeholder="Url" [(ngModel)]="url" name="password" />
     <input type="text" placeholder="Nombre del proyecto" [(ngModel)]="proyecto" name="proyecto" />
-    <input type="text" placeholder="Componente" [(ngModel)]="componente" name="componente" />
+    <input type="text" placeholder="Componente" [(ngModel)]="componente" name="componente" /> <br>
+    <button (click)="cambiarEdicion()" type="submit">Guardar</button>
   </div>
 
-  <button type="submit">Guardar</button>
   <!--Mensajes de error -->
   <div *ngIf="errorSave" class="alert alert-danger" role="alert">
     Error al guardar la cuenta de jira

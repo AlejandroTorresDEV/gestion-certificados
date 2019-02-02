@@ -11,6 +11,7 @@ export class ProfileJiraService {
   constructor(private http: HttpClient,private router:Router) { }
 
   saveUserJira(body : Jira) : any{
+    console.log(body);
     return this.http.post('/api/jira', body).toPromise();
   }
 
@@ -23,10 +24,6 @@ export class ProfileJiraService {
           reject(404);
         });
     });
-  }
-
-  updateUserJira(id,body : Jira){
-    return this.http.put('/api/jira/'+body.id, body).toPromise();
   }
 
 }

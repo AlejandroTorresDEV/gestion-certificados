@@ -8,7 +8,6 @@ import { Jira } from "../interfaces/Jira";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
   username : string;
   password : string;
   url: string;
@@ -19,22 +18,20 @@ export class ProfileComponent implements OnInit {
   editing : boolean;
   jiraExistente :boolean;
   id : string;
+  jiraId: string;
+
   constructor(private jiraService: ProfileJiraService) { }
 
   ngOnInit() {
     this.id  = localStorage.getItem('id');
     console.log(this.id);
-    this.jiraService.getUserJira(this.id).then(res => {
-      this.jiraExistente = true;
-    })
-    .catch(error => {
-      this.jiraExistente = false;
-    });;
+    this.getUserJira();
   }
 
   saveUserJira(){
     const saveAccountJira: Jira = 
     {  
+      id : this.jiraId,
       user_id : this.id,
       username : this.username,
       password: this.password,
@@ -56,14 +53,15 @@ export class ProfileComponent implements OnInit {
   updateUserJira(){
     const updateAccountJira: Jira = 
     {  
-      user_id : "1",
+      id : this.jiraId,
+      user_id : this.id,
       username : this.username,
       password: this.password,
       url: this.url,
       proyect: this.proyecto,
       componente: this.componente
     }
-    this.jiraService.saveUserJira(updateAccountJira).then(res => {
+    this.jiraService.updateUserJira(this.id,updateAccountJira).then(res => {
       console.log(res);
       this.successSave = true;
     })
@@ -75,6 +73,22 @@ export class ProfileComponent implements OnInit {
 
   cambiarEdicion(){
     this.editing = !this.editing;
+  }
+
+  getUserJira(){
+    this.jiraService.getUserJira(this.id).then(res => {
+      let element : Jira = res;
+      this.jiraId = element.id;
+      this.username = element.username;
+      this.password = element.password;
+      this.url = element.url;
+      this.proyecto = element.proyect;
+      this.componente = element.componente;
+      this.jiraExistente = true;
+    })
+    .catch( () => {
+      this.jiraExistente = false;
+    });
   }
 
 }
