@@ -37,7 +37,7 @@ form {
     color: #9c29a1; 
   }
   
-  button{
+  .form-group button{
     all: unset;
     background: #98CB00;
     border-radius: 1em;
@@ -51,7 +51,7 @@ form {
     color: antiquewhite;
   }
   
-  input {
+  .form-group input {
     all: unset;
     border-bottom: 1px solid gray;
     background-color: whitesmoke;

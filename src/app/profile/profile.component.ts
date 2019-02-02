@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileJiraService} from '../services/profile-jira.service'
 import { Jira } from "../interfaces/Jira";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -19,13 +20,16 @@ export class ProfileComponent implements OnInit {
   jiraExistente :boolean;
   id : string;
   jiraId: string;
+  registerForm: FormGroup;
+  submitted = false;
 
-  constructor(private jiraService: ProfileJiraService) { }
+  constructor(private jiraService: ProfileJiraService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.id  = localStorage.getItem('id');
     console.log(this.id);
     this.getUserJira();
+    this.generateRegisterFormModel();
   }
 
   saveUserJira(){
@@ -51,6 +55,10 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUserJira(){
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
     const updateAccountJira: Jira = 
     {  
       id : this.jiraId,
@@ -89,6 +97,20 @@ export class ProfileComponent implements OnInit {
     .catch( () => {
       this.jiraExistente = false;
     });
+  }
+
+  generateRegisterFormModel() {
+    this.registerForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      url: ['', Validators.required],
+      proyecto: ['', Validators.required],
+      componente: ['', Validators.required]
+    });
+  }
+
+  getFormsControls(): any {
+    return this.registerForm.controls;
   }
 
 }
