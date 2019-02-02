@@ -12,9 +12,10 @@ export class ProfileJiraService {
   }
 
 
-  saveUserJira(username,password,url,proyect,componente ) : any{
-    const body = {username,password,url,proyect,componente};
+  saveUserJira(body : Jira) : any{
+    console.log(body);
     return this.http.post('/api/jira', body).toPromise();
   }
 
+  
 }

@@ -1,57 +1,65 @@
 <app-navbar></app-navbar>
-
+<!--Formulario para crear una cuenta de 
+    Jira cuando el usaurio no tiene asociada una-->
 <form *ngIf="jiraExistente" (submit)="saveUserJira()">
-<div class="inputs">
+
+  <div class="inputs">
     <h5>Cuenta de Jira</h5>
+    <input type="email" placeholder="Email de Jira" [(ngModel)]="username" name="email" />
+    <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" />
+    <input type="text" placeholder="Url" [(ngModel)]="url" name="password" />
+    <input type="text" placeholder="Nombre del proyecto" [(ngModel)]="proyecto" name="proyecto" />
+    <input type="text" placeholder="Componente" [(ngModel)]="componente" name="componente" />
+  </div>
+
+  <button type="submit">Guardar</button>
+
+  <!--Mensajes de error -->
+  <div *ngIf="errorSave" class="alert alert-danger" role="alert">
+    Error al guardar la cuenta de jira
+  </div>
+  <div *ngIf="successSave" class="alert alert-success" role="alert">
+    Cuenta de Jira guardada correctamente.
+  </div>
+
+</form>
+
+<!--Formulario para modficicar una cuenta de 
+    Jira cuando el usaurio tiene asociada una-->
+<form *ngIf="!jiraExistente" (submit)="updateUserJira()">
+  <button (click)="cambiarEdicion()">Modificar Jira</button>
+
+  <!--Si no se esta editando se mostraran los datos en texto plano-->
+  <div [hidden]="editing" class="modificar">
+    <h5>Modificar de Jira</h5>
+    <label>Email</label><br>
+    <span>{{email}}</span><br>
+    <label>Password</label><br>
+    <span>{{password}}</span><br>
+    <label>Url</label><br>
+    <span>{{email}}</span><br>
+    <label>Nombre del proyecto</label><br>
+    <span>{{email}}</span><br>
+    <label>Componente</label><br>
+    <span>{{email}}</span><br>
+  </div>
+
+  <!--Si se esta editando se mostraran los datos en un input-->
+  <div [hidden]="!editing" class="modificar">
     <input type="email" placeholder="Email de Jira" [(ngModel)]="email" name="email" />
     <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" />
     <input type="text" placeholder="Url" [(ngModel)]="url" name="password" />
     <input type="text" placeholder="Nombre del proyecto" [(ngModel)]="proyecto" name="proyecto" />
     <input type="text" placeholder="Componente" [(ngModel)]="componente" name="componente" />
-</div>
-  
-<button type="submit">Guardar</button>
+  </div>
 
+  <button type="submit">Guardar</button>
+  <!--Mensajes de error -->
   <div *ngIf="errorSave" class="alert alert-danger" role="alert">
     Error al guardar la cuenta de jira
   </div>
   <div *ngIf="successSave" class="alert alert-success" role="alert">
-      Cuenta de Jira guardada correctamente.
-    </div>
+    Cuenta de Jira guardada correctamente.
+  </div>
+  
 </form>
-
-<form *ngIf="!jiraExistente" (submit)="saveUserJira()">
-    <button (click)="cambiar()">Modificar Jira</button>
-    <div [hidden]="editing" class="modificar">
-        <h5>Modificar de Jira</h5>
-        <label>Email</label>
-        <br>
-        <span>Emailprueba</span>
-        <br>
-        <label>Email</label>
-        <br>
-        <span>Emailprueba</span>
-        <br>
-        <label>Email</label>
-        <br>
-        <span>Emailprueba</span>
-        <br>
-    </div>
-    <div [hidden]="!editing" class="modificar">
-        <input type="email" placeholder="Email de Jira" [(ngModel)]="email" name="email" />
-        <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" />
-        <input type="text" placeholder="Url" [(ngModel)]="url" name="password" />
-        <input type="text" placeholder="Nombre del proyecto" [(ngModel)]="proyecto" name="proyecto" />
-        <input type="text" placeholder="Componente" [(ngModel)]="componente" name="componente" />
-    </div>
-      
-    <button type="submit">Guardar</button>
-    
-      <div *ngIf="errorSave" class="alert alert-danger" role="alert">
-        Error al guardar la cuenta de jira
-      </div>
-      <div *ngIf="successSave" class="alert alert-success" role="alert">
-          Cuenta de Jira guardada correctamente.
-        </div>
-    </form>
-
