@@ -5,6 +5,7 @@ form {
     align-items: center;
     background-color: #f4f5f7;
     width: 60vh;
+    text-align: center;
     margin: auto;
     margin-bottom: 3em;
     margin-top:2em;
@@ -62,6 +63,7 @@ form {
   
 
 .inputs{
+  margin: auto;
   padding-top: 0.5em;
 }
   

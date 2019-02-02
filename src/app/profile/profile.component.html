@@ -7,14 +7,14 @@
   <div *ngIf="successSave" class="alert alert-success" role="alert">
     Cuenta de Jira guardada correctamente.
   </div>
-  
+
 <!--Formulario para crear una cuenta de 
     Jira cuando el usaurio no tiene asociada una-->
 <form *ngIf="!jiraExistente" (submit)="saveUserJira()">
 
   <div class="inputs">
     <h5>Cuenta de Jira</h5>
-    <input type="email" placeholder="Email de Jira" [(ngModel)]="username" name="email" />
+    <input type="email" placeholder="Email de Jira" [(ngModel)]="username" ngModel email="true" name="email" />
     <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" />
     <input type="text" placeholder="Url" [(ngModel)]="url" name="password" />
     <input type="text" placeholder="Nombre del proyecto" [(ngModel)]="proyecto" name="proyecto" />

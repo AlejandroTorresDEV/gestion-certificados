@@ -10,6 +10,8 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CreateCertificateComponent } from './create-certificate/create-certificate.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CreateCertificateComponent } from './create-certificate/create-certific
     UserViewComponent,
     NavbarComponent,
     ProfileComponent,
-    CreateCertificateComponent
+    CreateCertificateComponent,
+    BrowserModule,
+    ReactiveFormsModule
   ],
   imports: [
     BrowserModule,
