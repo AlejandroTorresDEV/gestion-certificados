@@ -8,7 +8,6 @@ import { Jira } from "../interfaces/Jira";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
   username : string;
   password : string;
   url: string;
@@ -24,20 +23,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.id  = localStorage.getItem('id');
     console.log(this.id);
-    //console.log(this.jiraService.getUserJira(this.id).then());
-
-    this.jiraService.getUserJira(this.id).then(res => {
-      this.jiraExistente = true;
-    })
-    .catch(error => {
-      this.jiraExistente = false;
-    });;
-
-   /* if(this.jiraService.getUserJira(this.id)){
-      this.jiraExistente = false;
-    }else{
-      this.jiraExistente = true;
-    }*/
+    this.getUserJira();
   }
 
   saveUserJira(){
@@ -64,7 +50,7 @@ export class ProfileComponent implements OnInit {
   updateUserJira(){
     const updateAccountJira: Jira = 
     {  
-      user_id : "1",
+      user_id : this.id,
       username : this.username,
       password: this.password,
       url: this.url,
@@ -73,6 +59,8 @@ export class ProfileComponent implements OnInit {
     }
     this.jiraService.saveUserJira(updateAccountJira).then(res => {
       console.log(res);
+       let element : Jira[] = res;
+       console.log(element);
       this.successSave = true;
     })
     .catch(error => {
@@ -83,6 +71,16 @@ export class ProfileComponent implements OnInit {
 
   cambiarEdicion(){
     this.editing = !this.editing;
+  }
+
+  getUserJira(){
+    this.jiraService.getUserJira(this.id).then(res => {
+
+      this.jiraExistente = true;
+    })
+    .catch( () => {
+      this.jiraExistente = false;
+    });
   }
 
 }

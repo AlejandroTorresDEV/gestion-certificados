@@ -26,7 +26,6 @@
 <!--Formulario para modficicar una cuenta de 
     Jira cuando el usaurio tiene asociada una-->
 <form *ngIf="jiraExistente" (submit)="updateUserJira()">
-  <button (click)="cambiarEdicion()">Modificar Jira</button>
 
   <!--Si no se esta editando se mostraran los datos en texto plano-->
   <div [hidden]="editing" class="modificar">
@@ -41,18 +40,20 @@
     <span>{{email}}</span><br>
     <label>Componente</label><br>
     <span>{{email}}</span><br>
+    <button (click)="cambiarEdicion()">Modificar Jira</button>
   </div>
 
   <!--Si se esta editando se mostraran los datos en un input-->
   <div [hidden]="!editing" class="modificar">
+    <h5>Modificar de Jira</h5>
     <input type="email" placeholder="Email de Jira" [(ngModel)]="email" name="email" />
     <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" />
     <input type="text" placeholder="Url" [(ngModel)]="url" name="password" />
     <input type="text" placeholder="Nombre del proyecto" [(ngModel)]="proyecto" name="proyecto" />
     <input type="text" placeholder="Componente" [(ngModel)]="componente" name="componente" />
+    <button (click)="cambiarEdicion()" type="submit">Guardar</button>
   </div>
 
-  <button type="submit">Guardar</button>
   <!--Mensajes de error -->
   <div *ngIf="errorSave" class="alert alert-danger" role="alert">
     Error al guardar la cuenta de jira
