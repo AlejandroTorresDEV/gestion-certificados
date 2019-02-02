@@ -39,6 +39,7 @@ export class AuthServiceService {
     let obj = JSON.parse(atob(playload));
     localStorage.setItem('rol',obj.rol);
     localStorage.setItem('name',obj.name);
+    localStorage.setItem('id',obj.id);
     localStorage.setItem('jwt',res.jwt);
   }
 
