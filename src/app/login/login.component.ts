@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from ".././services/auth-service.service";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,20 @@ export class LoginComponent implements OnInit {
   password: string;
   successLogin :boolean;
   loanding: boolean;
+  registerForm: FormGroup;
+  submitted = false;
 
-  constructor(private router: Router,private authService:AuthServiceService) { }
+  constructor(private router: Router,private authService:AuthServiceService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.generateRegisterFormModel();
   }
 
   loginUser(): void {
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
       const { username, password } = this;
       this.loanding = true;
       this.authService
@@ -36,6 +44,17 @@ export class LoginComponent implements OnInit {
         this.loanding = false;
         this.successLogin = true;
       });
+  }
+
+  generateRegisterFormModel() {
+    this.registerForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
+  getFormsControls(): any {
+    return this.registerForm.controls;
   }
 
 }

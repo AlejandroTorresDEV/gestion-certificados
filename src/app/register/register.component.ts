@@ -12,29 +12,19 @@ export class RegisterComponent implements OnInit {
   username: string;
   password: string;
   email: string;
-  successLogin :boolean;
-  successRegister :boolean;
+  successLogin: boolean;
+  successRegister: boolean;
   loanding: boolean;
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private router: Router,private authService:AuthServiceService,private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private authService: AuthServiceService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-  });
+    this.generateRegisterFormModel();
   }
 
-  get f() { return this.registerForm.controls; }
-
-  getFormsControls() : any{
-    return this.registerForm.controls;
-  }
-
-  registerUser() : void {
+  registerUser(): void {
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;
@@ -45,16 +35,28 @@ export class RegisterComponent implements OnInit {
     const { username, email, password } = this;
     this.loanding = true;
     this.authService
-        .registerUser(username,email,password)
-        .then(res => {
-          this.loanding = false;
-          console.log(res);
-        })
-        .catch(error => {
-          console.log(error);
-          this.loanding = false;
-          this.successLogin = true;
-        });
+      .registerUser(username, email, password)
+      .then(res => {
+        this.loanding = false;
+        console.log(res);
+      })
+      .catch(error => {
+        console.log(error);
+        this.loanding = false;
+        this.successLogin = true;
+      });
+  }
+
+  generateRegisterFormModel() {
+    this.registerForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
+  getFormsControls(): any {
+    return this.registerForm.controls;
   }
 
 }

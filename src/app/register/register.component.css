@@ -12,7 +12,7 @@ form {
   margin-top: 2em;
 }
 
-button {
+.form-group button {
   all: unset;
   background: #98CB00;
   border-radius: 1em;
@@ -26,13 +26,12 @@ button {
   color: antiquewhite;
 }
 
-input {
+.form-group input {
   all: unset;
   border-bottom: 1px solid gray;
   background-color: whitesmoke;
   border-radius: 5px;
   margin: 0.5em 0;
-  padding: 0.5em;
   display: block;
   align-content: center;
 }

@@ -10,19 +10,25 @@
 
 
 <!--Formulario de registro-->
-<form *ngIf="!loanding" (submit)="loginUser()">
-  
-  <div class="inputs">
-    <input type="text" placeholder="Nombre de usuario" [(ngModel)]="username" name="username" />
-    <input type="password" placeholder="Escribe tu contraseña" [(ngModel)]="password" name="password" />
-  </div>
-
-  <button type="submit" class="button">Entrar</button>
-
-  <div *ngIf="successLogin" class="alert alert-danger" role="alert">
-    Error al entrar al sistema
-  </div>
-
+<form *ngIf="!loanding" [formGroup]="registerForm" (ngSubmit)="loginUser()">
+    <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().username.errors }" />
+        <div *ngIf="submitted && getFormsControls().username.errors" class="invalid-feedback">
+            <div *ngIf="getFormsControls().username.errors.required">Usuario is necesario</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().password.errors }" />
+        <div *ngIf="submitted && getFormsControls().password.errors" class="invalid-feedback">
+            <div *ngIf="getFormsControls().password.errors.required">Contraseña es necesaria</div>
+            <div *ngIf="getFormsControls().password.errors.minlength">El tamaño minimo es de 6</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">Entrar</button>
+    </div>
 </form>
 
 <!--Span de aviso de registro-->
