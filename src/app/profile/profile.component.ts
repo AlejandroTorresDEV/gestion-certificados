@@ -21,11 +21,7 @@ export class ProfileComponent implements OnInit {
   constructor(private jiraService: ProfileJiraService) { }
 
   ngOnInit() {
-    if(this.jiraService.getUserJira()){
-      this.jiraExistente = false;
-    }else{
-      this.jiraExistente = true;
-    }
+   
   }
 
   saveUserJira(){
