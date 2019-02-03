@@ -18,6 +18,23 @@
     padding: 15px;
   }
 
+  .listadoCertificados{
+    display: flex;
+    height: 150vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: scroll;
+    text-align: center;
+  }
+
+  .certificado{
+    margin: 1em;
+    justify-content: space-evenly;
+    width: 50vh;
+    height: 50vh;
+    background:whitesmoke;
+  }
+
   i{
     color:black;
     cursor: pointer;

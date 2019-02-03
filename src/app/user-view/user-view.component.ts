@@ -14,6 +14,13 @@ export class UserViewComponent implements OnInit {
     {ayuntamiento: "yellow"},
     {ayuntamiento : "white"},
     {ayuntamiento: "blue"},
+    {ayuntamiento: "red"},
+    {ayuntamiento : "white"},
+    {ayuntamiento: "blue"},
+    {ayuntamiento: "red"},
+    {ayuntamiento: "yellow"},
+    {ayuntamiento : "white"},
+    {ayuntamiento: "blue"},
     {ayuntamiento: "red"}
   ];
 
