@@ -26,8 +26,6 @@ form {
     margin: 1em;
   }
 
-  span{
-  }
   .modificar{
     text-align: center;
   }
@@ -67,5 +65,9 @@ form {
   margin: auto;
   padding-top: 0.5em;
 }
-  
+
+.spinnerImg{
+  padding-top: 10em;
+  text-align: center;
+}
   

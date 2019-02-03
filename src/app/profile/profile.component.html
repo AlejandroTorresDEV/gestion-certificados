@@ -1,5 +1,10 @@
 <app-navbar></app-navbar>
 
+<!--Imagen spinner de carga-->
+<div class="spinnerImg" *ngIf="loanding" class="spinnerImg">
+    <img src="assets/spinner.gif" />
+  </div>
+
 <!--Mensajes de error -->
 <div *ngIf="errorSave" class="alert alert-danger" role="alert">
   Error al guardar la cuenta de jira
@@ -9,23 +14,8 @@
 </div>
 
 <!--Formulario para crear una cuenta de 
-    Jira cuando el usaurio no tiene asociada una
-<form *ngIf="!jiraExistente" (submit)="saveUserJira()">
-
-  <div class="inputs">
-    <h5>Cuenta de Jira</h5>
-    <input type="email" placeholder="Email de Jira" [(ngModel)]="username" ngModel email="true" name="email" />
-    <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" />
-    <input type="text" placeholder="Url" [(ngModel)]="url" name="password" />
-    <input type="text" placeholder="Nombre del proyecto" [(ngModel)]="proyecto" name="proyecto" />
-    <input type="text" placeholder="Componente" [(ngModel)]="componente" name="componente" />
-  </div>
-
-  <button type="submit">Guardar</button>
-
-</form>
--->
-<!--Formulario para mostrar y actualizar la cuenta de Jira del usuario-->
+    Jira cuando el usaurio no tiene asociada una-->
+<div *ngIf="!loanding">
 <form *ngIf="!jiraExistente" [formGroup]="registerForm" (ngSubmit)="saveUserJira()">
   <div class="modificar">
     <h5>Guarda tu cuenta de Jira</h5>
@@ -127,3 +117,4 @@
       <button *ngIf="!editing" (click)="cambiarEdicion()">Modificar</button></div>
   </div>
 </form>
+</div>

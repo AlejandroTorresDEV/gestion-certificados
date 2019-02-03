@@ -22,12 +22,14 @@ export class ProfileComponent implements OnInit {
   jiraId: string;
   registerForm: FormGroup;
   submitted = false;
+  loanding: boolean;
 
   constructor(private jiraService: ProfileJiraService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.id  = localStorage.getItem('id');
     console.log(this.id);
+    this.loanding = true;
     this.getUserJira();
     this.generateRegisterFormModel();
   }
@@ -89,6 +91,7 @@ export class ProfileComponent implements OnInit {
 
   getUserJira(){
     this.jiraService.getUserJira(this.id).then(res => {
+      this.loanding = false;
       let element : Jira = res;
       this.jiraId = element.id;
       this.username = element.username;
@@ -99,6 +102,7 @@ export class ProfileComponent implements OnInit {
       this.jiraExistente = true;
     })
     .catch( () => {
+      this.loanding = false;
       this.jiraExistente = false;
     });
   }
