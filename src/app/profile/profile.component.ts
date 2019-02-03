@@ -33,6 +33,10 @@ export class ProfileComponent implements OnInit {
   }
 
   saveUserJira(){
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
     const saveAccountJira: Jira = 
     {  
       id : this.jiraId,
