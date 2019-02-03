@@ -20,6 +20,7 @@
 
   .listadoCertificados{
     display: flex;
+    width: 210vh;
     height: 150vh;
     flex-wrap: wrap;
     justify-content: center;
@@ -29,6 +30,7 @@
 
   .certificado{
     margin: 1em;
+    border-radius: 4px;
     justify-content: space-evenly;
     width: 50vh;
     height: 50vh;
