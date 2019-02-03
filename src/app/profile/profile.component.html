@@ -2,14 +2,14 @@
 
 <!--Mensajes de error -->
 <div *ngIf="errorSave" class="alert alert-danger" role="alert">
-    Error al guardar la cuenta de jira
-  </div>
-  <div *ngIf="successSave" class="alert alert-success" role="alert">
-    Cuenta de Jira guardada correctamente.
-  </div>
+  Error al guardar la cuenta de jira
+</div>
+<div *ngIf="successSave" class="alert alert-success" role="alert">
+  Cuenta de Jira guardada correctamente.
+</div>
 
 <!--Formulario para crear una cuenta de 
-    Jira cuando el usaurio no tiene asociada una-->
+    Jira cuando el usaurio no tiene asociada una
 <form *ngIf="!jiraExistente" (submit)="saveUserJira()">
 
   <div class="inputs">
@@ -23,78 +23,107 @@
 
   <button type="submit">Guardar</button>
 
-  <!--Mensajes de error -->
-  <div *ngIf="errorSave" class="alert alert-danger" role="alert">
-    Error al guardar la cuenta de jira
+</form>
+-->
+<!--Formulario para mostrar y actualizar la cuenta de Jira del usuario-->
+<form *ngIf="!jiraExistente" [formGroup]="registerForm" (ngSubmit)="saveUserJira()">
+  <div class="modificar">
+    <h5>Guarda tu cuenta de Jira</h5>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" formControlName="email" class="form-control" [(ngModel)]="username" [readonly]="!editing"
+        [ngClass]="{ 'is-invalid': submitted && getFormsControls().email.errors }" />
+      <div *ngIf="submitted && getFormsControls().email.errors" class="invalid-feedback">
+        <div *ngIf="getFormsControls().email.errors.required">Email es necesario</div>
+        <div *ngIf="getFormsControls().email.errors.email">No es un email valido</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" formControlName="password" [(ngModel)]="password" [readonly]="!editing" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getFormsControls().password.errors }" />
+      <div *ngIf="submitted && getFormsControls().password.errors" class="invalid-feedback">
+        <div *ngIf="getFormsControls().password.errors.required">Contraseña es necesaria</div>
+        <div *ngIf="getFormsControls().password.errors.minlength">El tamaño minimo es de 6</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Url</label>
+      <input type="text" formControlName="url" class="form-control" [(ngModel)]="url" [readonly]="!editing" [ngClass]="{ 'is-invalid': submitted && getFormsControls().url.errors }" />
+      <div *ngIf="submitted && getFormsControls().url.errors" class="invalid-feedback">
+        <div *ngIf="getFormsControls().url.errors.required">Username is necesario</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Proyecto</label>
+      <input type="text" formControlName="proyecto" [(ngModel)]="proyecto" [readonly]="!editing" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getFormsControls().proyecto.errors }" />
+      <div *ngIf="submitted && getFormsControls().proyecto.errors" class="invalid-feedback">
+        <div *ngIf="getFormsControls().proyecto.errors.required">Username is necesario</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Componente</label>
+      <input type="text" formControlName="componente" [(ngModel)]="componente" [readonly]="!editing" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getFormsControls().componente.errors }" />
+      <div *ngIf="submitted && getFormsControls().componente.errors" class="invalid-feedback">
+        <div *ngIf="getFormsControls().componente.errors.required">Username is necesario</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button *ngIf="editing" type="submit">Guardar</button>
+      <button *ngIf="!editing" (click)="cambiarEdicion()">Modificar</button></div>
   </div>
-  <div *ngIf="successSave" class="alert alert-success" role="alert">
-    Cuenta de Jira guardada correctamente.
-  </div>
-
 </form>
 
-<!--Formulario para modficicar una cuenta de 
-    Jira cuando el usaurio tiene asociada una
-<form *ngIf="jiraExistente" (submit)="updateUserJira()">
-  Si no se esta editando se mostraran los datos en texto plano
+<!--Formulario para mostrar y actualizar la cuenta de Jira del usuario-->
+<form *ngIf="jiraExistente" [formGroup]="registerForm" (ngSubmit)="updateUserJira()">
   <div class="modificar">
     <h5 *ngIf="editing">Modificar Jira</h5>
     <h5 *ngIf="!editing">Cuenta de Jira</h5>
-    <label>Email : <input type="email" [(ngModel)]="username" name="email" [readonly]="!editing" /></label> 
-    <label>Password : <input type="password" [(ngModel)]="password" name="password" [readonly]="!editing" /></label>
-    <label>Url : <input type="text" [(ngModel)]="url" name="url" [readonly]="!editing" /></label> <br>
-    <label>Proyecto : <input type="text" [(ngModel)]="proyecto" name="url" [readonly]="!editing" /> </label>
-    <label>Componente : <input type="text" [(ngModel)]="componente" name="proyecto" [readonly]="!editing" /></label><br>
-    <button *ngIf="editing" type="submit">Guardar</button>
-    <button *ngIf="!editing" (click)="cambiarEdicion()">Modificar Jira</button>
+    <div class="form-group">
+      <label>Email</label><br>
+      <input type="text" formControlName="email" class="form-control" [(ngModel)]="username" [readonly]="!editing"
+        [ngClass]="{ 'is-invalid': submitted && getFormsControls().email.errors }" />
+      <div *ngIf="submitted && getFormsControls().email.errors" class="invalid-feedback">
+        <div *ngIf="getFormsControls().email.errors.required">Email es necesario</div>
+        <div *ngIf="getFormsControls().email.errors.email">No es un email valido</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Password</label><br>
+      <input type="password" formControlName="password" [(ngModel)]="password" [readonly]="!editing" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getFormsControls().password.errors }" />
+      <div *ngIf="submitted && getFormsControls().password.errors" class="invalid-feedback">
+        <div *ngIf="getFormsControls().password.errors.required">Contraseña es necesaria</div>
+        <div *ngIf="getFormsControls().password.errors.minlength">El tamaño minimo es de 6</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Url</label><br>
+      <input type="text" formControlName="url" class="form-control" [(ngModel)]="url" [readonly]="!editing" [ngClass]="{ 'is-invalid': submitted && getFormsControls().url.errors }" />
+      <div *ngIf="submitted && getFormsControls().url.errors" class="invalid-feedback">
+        <div *ngIf="getFormsControls().url.errors.required">Username is necesario</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Proyecto</label><br>
+      <input type="text" formControlName="proyecto" [(ngModel)]="proyecto" [readonly]="!editing" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getFormsControls().proyecto.errors }" />
+      <div *ngIf="submitted && getFormsControls().proyecto.errors" class="invalid-feedback">
+        <div *ngIf="getFormsControls().proyecto.errors.required">Username is necesario</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Componente</label><br>
+      <input type="text" formControlName="componente" [(ngModel)]="componente" [readonly]="!editing" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getFormsControls().componente.errors }" />
+      <div *ngIf="submitted && getFormsControls().componente.errors" class="invalid-feedback">
+        <div *ngIf="getFormsControls().componente.errors.required">Username is necesario</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button *ngIf="editing" type="submit">Guardar</button>
+      <button *ngIf="!editing" (click)="cambiarEdicion()">Modificar</button></div>
   </div>
-
 </form>
--->
-
-<form *ngIf="jiraExistente" [formGroup]="registerForm" (ngSubmit)="updateUserJira()">
-    <div class="modificar">
-        <h5 *ngIf="editing">Modificar Jira</h5>
-        <h5 *ngIf="!editing">Cuenta de Jira</h5>
-    <div class="form-group">
-        <label>Email</label>
-        <input type="text" formControlName="username" [(ngModel)]="username" [readonly]="!editing" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().username.errors }" />
-        <div *ngIf="submitted && getFormsControls().username.errors" class="invalid-feedback">
-            <div *ngIf="getFormsControls().username.errors.required">Usuario is necesario</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Password</label>
-        <input type="password" formControlName="password" [(ngModel)]="password" [readonly]="!editing" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().password.errors }" />
-        <div *ngIf="submitted && getFormsControls().password.errors" class="invalid-feedback">
-            <div *ngIf="getFormsControls().password.errors.required">Contraseña es necesaria</div>
-            <div *ngIf="getFormsControls().password.errors.minlength">El tamaño minimo es de 6</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Url</label>
-        <input type="text" formControlName="url" class="form-control" [(ngModel)]="url" [readonly]="!editing" [ngClass]="{ 'is-invalid': submitted && getFormsControls().url.errors }" />
-        <div *ngIf="submitted && getFormsControls().url.errors" class="invalid-feedback">
-            <div *ngIf="getFormsControls().url.errors.required">Username is necesario</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Proyecto</label>
-        <input type="text" formControlName="proyecto" [(ngModel)]="proyecto" [readonly]="!editing" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().proyecto.errors }" />
-        <div *ngIf="submitted && getFormsControls().proyecto.errors" class="invalid-feedback">
-            <div *ngIf="getFormsControls().proyecto.errors.required">Username is necesario</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Componente</label>
-        <input type="text" formControlName="componente" [(ngModel)]="componente" [readonly]="!editing" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().componente.errors }" />
-        <div *ngIf="submitted && getFormsControls().componente.errors" class="invalid-feedback">
-            <div *ngIf="getFormsControls().componente.errors.required">Username is necesario</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <button *ngIf="editing"  (click)="cambiarEdicion()" type="submit">Guardar</button>
-        <button *ngIf="!editing" (click)="cambiarEdicion()">Modificar</button></div>
-    </div>
-</form>
-
