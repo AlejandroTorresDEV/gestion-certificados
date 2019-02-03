@@ -1,9 +1,3 @@
-.grid-container {
-    overflow:scroll;
-    margin: 1em;
-   height: 50vh;
- }
-
  table{
     width: 100%;
  }
@@ -20,7 +14,6 @@
 
   .listadoCertificados{
     display: flex;
-    width: 210vh;
     height: 150vh;
     flex-wrap: wrap;
     justify-content: center;
