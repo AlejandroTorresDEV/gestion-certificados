@@ -10,9 +10,9 @@ export class CertificatesViewComponent implements OnInit {
   colours = [
   {
     alias : "Alias",
-    id_org : "Id_org",
+    id_org : "Id_ordsdsdsdssdsdsddsg",
     cliente: "Cliente",
-    contacto: "Contacto",
+    contacto: "pepeelmejor@gmail.com",
     acciones : "Acciones"
   },
   {

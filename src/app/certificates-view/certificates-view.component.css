@@ -1,59 +1,69 @@
- table{
-    width: 100%;
+ table {
+   width: 100%;
  }
- table, th, td {
-    border-bottom: 2px solid white;
-    text-align: center;
-    border-collapse: collapse;
-    background:#98CB00; 
-  }
-  th, td {
-      color:white;
-    padding: 15px;
-  }
 
-  .listadoCertificados{
-    display: flex;
-    height: 150vh;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow: scroll;
-    text-align: center;
-  }
+ table,
+ th,
+ td {
+   border-bottom: 2px solid white;
+   text-align: center;
+   border-collapse: collapse;
+   background: #98CB00;
+ }
 
-  .certificado{
-    margin: 1em;
-    border-radius: 4px;
-    justify-content: space-evenly;
-    width: 50vh;
-    height: 50vh;
-    background:whitesmoke;
-  }
+ th,
+ td {
+   color: white;
+   padding: 15px;
+ }
 
-  i{
-    color:black;
-    cursor: pointer;
-  }
-  i:hover{
-    transform: scale(1.1);
-  }
+ .listadoCertificados {
+   display: flex;
+   height: 150vh;
+   flex-wrap: wrap;
+   justify-content: center;
+   overflow: scroll;
+   text-align: center;
+ }
 
-  th{
-      color: white;
-      font-size: 1em;
-  }
+ .certificado {
+   margin: 1em;
+   border-radius: 4px;
+   justify-content: space-evenly;
+   width: 50vh;
+   height: 50vh;
+   background: whitesmoke;
+ }
 
-  .grid-container {
-    overflow: scroll;
-    max-height: 60vh;
-    margin:2em 0.4em 0 0.4em;
-    background-color: rgba(255, 255, 255, 0.8);
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    text-align: center;
-}
-.content {
-  display: contents;
-}
+ i {
+   color: black;
+   cursor: pointer;
+ }
+
+ i:hover {
+   transform: scale(1.1);
+ }
+
+ th {
+   color: white;
+   font-size: 1em;
+ }
+
+ .grid-container {
+   overflow: scroll;
+   max-height: 60vh;
+   margin: 2em 0.4em 0 0.4em;
+   background-color: rgba(255, 255, 255, 0.8);
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   border-top: 1px solid black;
+   border-right: 1px solid black;
+   text-align: center;
+ }
+
+ .scrollItemGrid{
+  overflow-x: scroll;
+ }
+ .content {
+    display: contents;
+ }
