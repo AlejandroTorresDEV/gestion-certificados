@@ -1,10 +1,30 @@
 <app-navbar></app-navbar>
 
-<div class="listadoCertificados">
-    <div class="certificado"  *ngFor="let color of colours">
+<div >
+     <!--<div class="certificado"  *ngFor="let color of colours">
       <h5>Certificado</h5>
       <p>{{color.ayuntamiento}}</p>
-      </div>     
+      </div>    
+      class="listadoCertificados"
+      --> 
+
+
+        <div class="grid-container ">
+            <span><strong>Alias</strong></span>
+            <span><strong>ID_ORG</strong></span>
+            <span><strong>Cliente</strong></span>
+            <span><strong>Contacto</strong></span>
+            <span><strong>Acciones</strong></span>
+            <span class="content" *ngFor="let color of colours">
+              <span>{{color.alias}}</span>
+              <span>{{color.id_org}}</span>
+              <span>{{color.cliente}}</span>
+              <span>{{color.contacto}}</span>
+              <span>{{color.acciones}}</span>
+            </span>
+            
+        </div>
+        
 </div>
 
 
