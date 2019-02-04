@@ -68,3 +68,13 @@
  .content {
     display: contents;
  }
+
+ @media (max-width : 420px){
+  span strong{
+    border-bottom: solid 2px black;
+    font-size: 15px;
+  } 
+  span{
+    font-size: 15px;
+  }
+}

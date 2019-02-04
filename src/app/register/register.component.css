@@ -12,7 +12,7 @@ form {
   margin-bottom: 1em;
   margin-top: 2em;
   font-weight: bold;
-  border: solid 3px  #98CB00;
+  border: solid 3px #98CB00;
 }
 
 .form-group button {
@@ -57,13 +57,14 @@ span {
 .goToLogin {
   width: 40vh;
   border-radius: 1em;
-  border: solid 3px  #98CB00;
+  border: solid 3px #98CB00;
   background-color: #f4f5f7;
   text-align: center;
   margin: auto;
   margin-bottom: 2em;
 }
-.goToLogin a{
+
+.goToLogin a {
   padding-left: 1em;
   text-align: center;
 }
