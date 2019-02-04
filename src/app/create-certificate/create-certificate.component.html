@@ -7,7 +7,9 @@
 <form *ngIf="!loanding" (submit)="loginUser()">
   <div class="inputs">
     <h5>Crear certificado</h5>
-    <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
+    <label for="upload-photo">Buscar archivo...</label>
+    <input type="file" id="upload-photo" accept="file/pfx">
+    <input type="text" placeholder="Alias" [(ngModel)]="prubea" name="prueba" />
     <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
     <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
     <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />

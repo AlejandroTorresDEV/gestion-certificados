@@ -9,7 +9,7 @@ form {
     margin: auto;
     margin-bottom: 3em;
     margin-top:2em;
-    font-weight: bold;
+    font-size: 15px;
   }
 
   h5{
@@ -55,6 +55,7 @@ form {
     background-color: whitesmoke;
     border-radius: 5px ;
     align-items: center;
+    min-width: 50vh;
   }
   
 
