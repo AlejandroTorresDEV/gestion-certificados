@@ -62,6 +62,7 @@
  }
 
  .scrollItemGrid{
+   word-wrap: break-word;
   overflow-x: scroll;
  }
  .content {

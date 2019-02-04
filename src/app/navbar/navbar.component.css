@@ -1,3 +1,6 @@
+
+
+
 nav {
     padding: 1em;
     display: flex;
@@ -9,8 +12,9 @@ nav {
     padding-bottom: 0.05em;
     color: white;
     margin: 0.3em;
+    font-size: 20px;
     text-decoration: none;
-  }
+  }  
 
   .logOut {
     color: white !important;
@@ -18,4 +22,13 @@ nav {
   }
   .active {
     border-bottom: solid 4px white;
+  }
+
+  @media (max-width : 420px){
+    a {
+      padding-bottom: 0.05em;
+      margin: 0.3em;
+      font-size: 12px;
+      text-decoration: none;
+    }  
   }
