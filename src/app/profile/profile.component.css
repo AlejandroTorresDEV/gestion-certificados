@@ -45,7 +45,6 @@ form {
     text-align: center;
     width: 20vh;
     align-content: center;
-    margin: 1em 0;
     cursor:pointer;
     color: antiquewhite;
   }
@@ -55,8 +54,6 @@ form {
     border-bottom: 1px solid gray;
     background-color: whitesmoke;
     border-radius: 5px ;
-    margin: 0.5em 0;
-    padding: 0.5em;
     align-items: center;
   }
   
