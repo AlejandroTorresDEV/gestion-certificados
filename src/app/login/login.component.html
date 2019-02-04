@@ -1,11 +1,10 @@
 <!--Imagen spinner de carga-->
-<app-spinner *ngIf="loanding" [src]="assets/spinner.gif"></app-spinner>
+<app-spinner *ngIf="loanding"></app-spinner>
 
 <!--Imagen logo-->
 <div *ngIf="!loanding" class="img">
     <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
   </div>
-
 
 <!--Formulario de registro-->
 <form *ngIf="!loanding" [formGroup]="registerForm" (ngSubmit)="loginUser()">

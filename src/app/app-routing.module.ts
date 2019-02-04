@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { UserViewComponent } from './user-view/user-view.component';
+import { CertificatesViewComponent } from './certificates-view/certificates-view.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RedirectGuard } from "./guards/redirect.guard";
 import { ProfileComponent } from './profile/profile.component';
@@ -23,8 +23,8 @@ const routes: Routes = [
     component: ProfileComponent, canActivate : [AuthGuard],
   },
   {
-    path: 'user-view',
-    component: UserViewComponent,  canActivate : [AuthGuard],
+    path: 'certificates-view',
+    component: CertificatesViewComponent,  canActivate : [AuthGuard],
   },
   {
     path:'create-certificate',

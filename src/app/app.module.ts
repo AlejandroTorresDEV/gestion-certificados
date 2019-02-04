@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'; 
 import { HttpClientModule } from '@angular/common/http'; 
-import { UserViewComponent } from './user-view/user-view.component';
+import { CertificatesViewComponent } from './certificates-view/certificates-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CreateCertificateComponent } from './create-certificate/create-certificate.component';
@@ -20,7 +20,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     RegisterComponent,
     NavbarComponent,
     PageNotFoundComponent,
-    UserViewComponent,
+    CertificatesViewComponent,
     NavbarComponent,
     ProfileComponent,
     CreateCertificateComponent,

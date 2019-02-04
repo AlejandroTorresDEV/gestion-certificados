@@ -12,7 +12,7 @@ export class RedirectGuard implements CanActivate {
 
   canActivate() {
     if (this.authService.getToken()) {
-      this.router.navigate(['/user-view']);
+      this.router.navigate(['/certificates-view']);
       return false;
     }else{
       return true;

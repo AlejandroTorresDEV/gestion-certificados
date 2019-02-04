@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-user-view',
-  templateUrl: './user-view.component.html',
-  styleUrls: ['./user-view.component.css']
+  selector: 'app-certificates-view',
+  templateUrl: './certificates-view.component.html',
+  styleUrls: ['./certificates-view.component.css']
 })
-export class UserViewComponent implements OnInit {
+export class CertificatesViewComponent implements OnInit {
 
   colours = [
     {ayuntamiento : "white"},
