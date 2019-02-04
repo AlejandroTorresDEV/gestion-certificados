@@ -53,7 +53,6 @@ form {
 
 /*Clases de span de registro*/
 .noRegistrado {
-  padding: 1em;
   width: 40vh;
   border: solid 3px  #98CB00;
   border-radius: 1em;
