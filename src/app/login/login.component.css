@@ -6,11 +6,13 @@ form {
   text-align: center;
   align-items: center;
   background-color: #f4f5f7;
-  width: 50vh;
+  width: 40vh;
   margin: auto;
   margin-bottom: 1em;
   margin-top: 2em;
   font-weight: bold;
+  font-size: 15px;
+  border: solid 3px  #98CB00;
 }
 
 .form-group  button {
@@ -52,8 +54,9 @@ form {
 /*Clases de span de registro*/
 .noRegistrado {
   padding: 1em;
-  width: 50vh;
-  border-radius: 2em;
+  width: 40vh;
+  border: solid 3px  #98CB00;
+  border-radius: 1em;
   background-color: #f4f5f7;
   text-align: center;
   margin: auto;
