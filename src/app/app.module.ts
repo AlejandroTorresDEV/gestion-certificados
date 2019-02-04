@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CreateCertificateComponent } from './create-certificate/create-certificate.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     ProfileComponent,
     CreateCertificateComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

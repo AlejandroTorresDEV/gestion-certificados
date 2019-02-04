@@ -61,6 +61,7 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUserJira(){
+    this.cambiarEdicion();
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;

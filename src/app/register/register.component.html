@@ -1,8 +1,5 @@
 <!--Imagen spinner de carga-->
-<div class="spinnerImg" *ngIf="loanding" class="spinnerImg">
-  <img src="assets/spinner.gif" />
-</div>
-
+<app-spinner *ngIf="loanding" [src]="assets/spinner.gif"></app-spinner>
 
 <!--Imagen logo-->
 <div *ngIf="!loanding" class="img">
