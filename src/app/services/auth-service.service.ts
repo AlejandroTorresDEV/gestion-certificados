@@ -7,8 +7,6 @@ import { HttpClient } from '@angular/common/http';
 export class AuthServiceService {
 
   jwt: string = localStorage.getItem('jwt');
-  rol: string = localStorage.getItem('rol');
-  name: string = localStorage.getItem('name');
   
   constructor(private http: HttpClient,private router:Router) {}
 
@@ -19,11 +17,10 @@ export class AuthServiceService {
       this.http
         .post('/api/auth', body)
         .toPromise()
-        .then( (res: {statusCode: number,jwt: string}) => {
+        .then( (res: {statusCode: number,jwt: string,id: string}) => {
           if(res.statusCode === 200){
             this.guardarPlayload(res);
             resolve(res.statusCode);
-            localStorage.setItem('jwt',res.jwt);
           }else if (res.statusCode === 204){
             resolve(res.statusCode);
           }
@@ -35,11 +32,7 @@ export class AuthServiceService {
   }
 
   guardarPlayload(res){
-    let playload = res.jwt.split('.')[1];
-    let obj = JSON.parse(atob(playload));
-    localStorage.setItem('rol',obj.rol);
-    localStorage.setItem('name',obj.name);
-    localStorage.setItem('id',obj.id);
+    localStorage.setItem('id',res.id)
     localStorage.setItem('jwt',res.jwt);
   }
 

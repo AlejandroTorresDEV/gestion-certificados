@@ -2,13 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Jira } from "../interfaces/Jira";
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileJiraService {
 
-  constructor(private http: HttpClient,private router:Router) { }
+   httpOptions = {
+    headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': localStorage.getItem('jwt')
+   })
+};
+  headers = new Headers();
+
+  constructor(private http: HttpClient,private router:Router) {
+   }
 
   saveUserJira(body : Jira) : any{
     return this.http.post('/api/jira', body).toPromise();
@@ -16,7 +26,7 @@ export class ProfileJiraService {
 
   getUserJira(id) :any{
     return new Promise((resolve, reject) => {
-      this.http.get('/api/jira/'+id).toPromise().then((res) => {
+      this.http.get('/api/jira/'+id,this.httpOptions).toPromise().then((res) => {
           resolve(res);
         })
         .catch(() => {
