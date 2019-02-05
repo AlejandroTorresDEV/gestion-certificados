@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Certificate } from 'crypto';
 
 @Component({
   selector: 'app-show-certificates',
@@ -64,7 +65,7 @@ export class ShowCertificatesComponent implements OnInit {
     contacto: "Contacto",
     acciones : "Acciones"
   },{
-    alias : "Alias",
+    alias : "AAAAlias",
     id_org : "Id_org",
     cliente: "Cliente",
     contacto: "Contacto",
@@ -130,7 +131,25 @@ export class ShowCertificatesComponent implements OnInit {
     contacto: "Contacto",
     acciones : "Acciones"
   },{
-    alias : "Alias",
+    alias : "ddsdsdsAlias",
+    id_org : "Id_org",
+    cliente: "Cliente",
+    contacto: "Contacto",
+    acciones : "Acciones"
+  },{
+    alias : "dssddsdsAlias",
+    id_org : "Id_org",
+    cliente: "Cliente",
+    contacto: "Contacto",
+    acciones : "Acciones"
+  },{
+    alias : "zAlias",
+    id_org : "Id_org",
+    cliente: "Cliente",
+    contacto: "Contacto",
+    acciones : "Acciones"
+  },{
+    alias : "gAlias",
     id_org : "Id_org",
     cliente: "Cliente",
     contacto: "Contacto",
@@ -142,25 +161,7 @@ export class ShowCertificatesComponent implements OnInit {
     contacto: "Contacto",
     acciones : "Acciones"
   },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
+    alias : "pepe",
     id_org : "Id_org",
     cliente: "Cliente",
     contacto: "Contacto",
@@ -197,4 +198,9 @@ export class ShowCertificatesComponent implements OnInit {
   ngOnInit() {
   }
 
+  searchAlias(){
+    this.certificates = this.certificates.sort((a,b) =>
+      a.alias > b.alias ? 1 : -1
+    );
+  }
 }
