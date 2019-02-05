@@ -1,24 +1,14 @@
-<div >
-     <!--<div class="certificado"  *ngFor="let color of colours">
-      <h5>Certificado</h5>
-      <p>{{color.ayuntamiento}}</p>
-      </div>    
-      class="listadoCertificados"
-      --> 
-        <div class="grid-container ">
-            <span class="content" *ngFor="let color of certificates">
-              <span class="scrollItemGrid">{{color.alias}}</span>
-              <span class="scrollItemGrid">{{color.id_org}}</span>
-              <span class="scrollItemGrid">{{color.cliente}}</span>
-              <span class="scrollItemGrid">{{color.contacto}}</span>
-              <span>
-                <i class="material-icons">delete</i> 
-                <i class="material-icons">edit</i>
-              </span>
-            </span>
-            
-        </div>
-        
+<div>
+  <div class="grid-container ">
+    <span class="content" *ngFor="let certificado of certificates">
+      <span class="scrollItemGrid">{{certificado.alias}}</span>
+      <span class="scrollItemGrid">{{certificado.id_org}}</span>
+      <span class="scrollItemGrid">{{certificado.cliente}}</span>
+      <span class="scrollItemGrid">{{certificado.contacto}}</span>
+      <span>
+        <i class="material-icons">delete</i>
+        <i class="material-icons">edit</i>
+      </span>
+    </span>
+  </div>
 </div>
-
-

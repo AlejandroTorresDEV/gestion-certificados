@@ -23,10 +23,6 @@ const routes: Routes = [
     component: ProfileComponent, canActivate : [AuthGuard],
   },
   {
-    path: 'certificates-view',
-    component: CertificatesViewComponent,  canActivate : [AuthGuard],
-  },
-  {
     path:'create-certificate',
     component: CreateCertificateComponent , canActivate : [AuthGuard],
   },
