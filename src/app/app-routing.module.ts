@@ -8,7 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { RedirectGuard } from "./guards/redirect.guard";
 import { ProfileComponent } from './profile/profile.component';
 import { CreateCertificateComponent } from './create-certificate/create-certificate.component';
-
+import { ShowCertificatesComponent } from "./show-certificates/show-certificates.component";
 const routes: Routes = [
   {
     path: 'login',
@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path:'create-certificate',
     component: CreateCertificateComponent , canActivate : [AuthGuard],
+  },
+  {
+    path:'show-certificates',
+    component: ShowCertificatesComponent , canActivate : [AuthGuard],
   },
   {
     path: '',
