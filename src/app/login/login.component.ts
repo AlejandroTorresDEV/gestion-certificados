@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.loanding = false;
         console.log(res);
         if(res === 200){
-          this.router.navigate(['/certificates-view']);
+          this.router.navigate(['/show-certificates']);
         }else{
           this.successLogin = true;
         }
