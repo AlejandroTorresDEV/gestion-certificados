@@ -7,15 +7,13 @@
       </div>    
       class="listadoCertificados"
       --> 
-
-
         <div class="grid-container ">
-            <span><strong>Alias</strong></span>
-            <span><strong>ID_ORG</strong></span>
-            <span><strong>Cliente</strong></span>
-            <span><strong>Contacto</strong></span>
-            <span><strong>Acciones</strong></span>
-            <span class="content" *ngFor="let color of colours">
+          <span><strong>Alias</strong></span>
+          <span><strong>ID_ORG</strong></span>
+          <span><strong>Cliente</strong></span>
+          <span><strong>Contacto</strong></span>
+          <span><strong>Acciones</strong></span>
+            <span class="content" *ngFor="let color of certificates">
               <span class="scrollItemGrid">{{color.alias}}</span>
               <span class="scrollItemGrid">{{color.id_org}}</span>
               <span class="scrollItemGrid">{{color.cliente}}</span>

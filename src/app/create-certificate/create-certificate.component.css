@@ -12,9 +12,10 @@ form {
   margin-top: 2em;
 }
 
-.labelInputFile{
+.labelInputFile {
   cursor: pointer;
 }
+
 #upload-photo {
   width: 10vh;
   position: absolute;

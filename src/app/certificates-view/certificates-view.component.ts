@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-certificates-view',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./certificates-view.component.css']
 })
 export class CertificatesViewComponent implements OnInit {
+  @Input() certificates: Certificates;
 
-  colours = [
+  /*
+  certificates = [
   {
     alias : "Alias",
     id_org : "Id_ordsdsdsdssdsdsddsg",
@@ -191,10 +193,12 @@ export class CertificatesViewComponent implements OnInit {
     acciones : "Acciones"
   },
   ];
+  */
 
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }

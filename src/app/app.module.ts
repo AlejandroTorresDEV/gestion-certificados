@@ -13,6 +13,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { CreateCertificateComponent } from './create-certificate/create-certificate.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { AngularFileUploaderModule } from "angular-file-uploader";
+import { ShowCertificatesComponent } from './show-certificates/show-certificates.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +28,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ProfileComponent,
     CreateCertificateComponent,
     SpinnerComponent,
+    ShowCertificatesComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     FormsModule,
     HttpClientModule,
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFileUploaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

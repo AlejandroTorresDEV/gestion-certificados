@@ -12,4 +12,10 @@ export class CreateCertificateComponent implements OnInit {
   ngOnInit() {
   }
 
+  afuConfig = {
+    uploadAPI: {
+      url:"https://example-file-upload-api"
+    }
+};
+
 }
