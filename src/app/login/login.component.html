@@ -3,29 +3,33 @@
 
 <!--Imagen logo-->
 <div *ngIf="!loanding" class="img">
-    <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
-  </div>
+  <img src="assets/gtt1.png" alt="Smiley face" height="200" width="400">
+</div>
 
 <!--Formulario de registro-->
 <form *ngIf="!loanding" [formGroup]="registerForm" (ngSubmit)="loginUser()">
-    <div class="form-group">
-        <label>Usuario</label>
-        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().username.errors }" />
-        <div *ngIf="submitted && getFormsControls().username.errors" class="invalid-feedback">
-            <div *ngIf="getFormsControls().username.errors.required">Usuario is necesario</div>
-        </div>
+  <div class="form-group">
+    <label>Usuario</label>
+    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().username.errors }" />
+    <div *ngIf="submitted && getFormsControls().username.errors" class="invalid-feedback">
+      <div *ngIf="getFormsControls().username.errors.required">Usuario is necesario</div>
     </div>
-    <div class="form-group">
-        <label>Password</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().password.errors }" />
-        <div *ngIf="submitted && getFormsControls().password.errors" class="invalid-feedback">
-            <div *ngIf="getFormsControls().password.errors.required">Contraseña es necesaria</div>
-            <div *ngIf="getFormsControls().password.errors.minlength">El tamaño minimo es de 6</div>
-        </div>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().password.errors }" />
+    <div *ngIf="submitted && getFormsControls().password.errors" class="invalid-feedback">
+      <div *ngIf="getFormsControls().password.errors.required">Contraseña es necesaria</div>
+      <div *ngIf="getFormsControls().password.errors.minlength">El tamaño minimo es de 6</div>
     </div>
-    <div class="form-group">
-        <button class="btn btn-primary">Entrar</button>
-    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary">Entrar</button>
+  </div>
 </form>
 
-<app-show-messages [mens]="mensaggeErrorServer"></app-show-messages>
+<!--Mensajes de información al usuario-->
+<div *ngIf="!loanding">
+  <app-show-messages *ngIf="loginServerError" [mens]="mensaggeErrorServer"></app-show-messages>
+  <app-show-messages *ngIf="loginBadAtributtes" [mens]="mensaggeBadAtributtes"></app-show-messages>
+</div>

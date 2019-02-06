@@ -1,7 +1,8 @@
 .error{
     text-align: center;
     margin: auto;
-    width: 40vh;
-    background: red;
+    width: 60vh;
+    background: #F6CECE;
+    border-radius: 1em;
     margin-bottom: 1em;
 }

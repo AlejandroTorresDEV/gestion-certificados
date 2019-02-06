@@ -11,14 +11,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   username: string;
   password: string;
-  successLogin :boolean;
+  loginServerError :boolean;
+  loginBadAtributtes :boolean;
   loanding: boolean;
   registerForm: FormGroup;
   submitted = false;
-  mensaggeErrorServer = "Ha habido un error."
+  mensaggeErrorServer = "Error de conexión con el servidor";
+  mensaggeBadAtributtes = "Las credenciales son incorrectas";
+
   constructor(private router: Router,private authService:AuthServiceService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.loginServerError = false;
+    this.loginBadAtributtes = false;
     this.generateRegisterFormModel();
   }
 
@@ -38,10 +43,14 @@ export class LoginComponent implements OnInit {
         if(res === 200){
           this.router.navigate(['/show-certificates']);
         }
+        if(res === 204){
+          this.loginBadAtributtes = true;
+        }
       })
       .catch(error => {
+        console.log(error);
         this.loanding = false;
-        this.successLogin = false;
+        this.loginServerError = true;
       });
   }
 
