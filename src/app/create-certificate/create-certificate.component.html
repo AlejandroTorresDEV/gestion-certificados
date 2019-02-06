@@ -10,9 +10,12 @@
     <!--
     <label for="upload-photo">Buscar archivo...</label>
     <input type="file" id="upload-photo" accept="file/pfx">-->
-    <angular-file-uploader
-      [config]="afuConfig">
-    </angular-file-uploader>
+    <angular-file-uploader 
+    [config]="afuConfig"
+    [resetUpload]=resetVar
+    (ApiResponse)="DocUpload($event)">
+  </angular-file-uploader>
+    <br>
     <input type="text" placeholder="Alias" [(ngModel)]="prubea" name="prueba" />
     <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
     <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />

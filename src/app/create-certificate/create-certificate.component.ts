@@ -13,9 +13,15 @@ export class CreateCertificateComponent implements OnInit {
   }
 
   afuConfig = {
-    uploadAPI: {
-      url:"https://example-file-upload-api"
-    }
+    multiple: false,
+    formatsAllowed: ".pfx",
+    maxSize: "10",
+    uploadAPI:  {
+      url:"https://example-file-upload-api",
+      headers: {
+     "Content-Type" : "text/plain;charset=UTF-8",
+      }
+    },
 };
 
 }
