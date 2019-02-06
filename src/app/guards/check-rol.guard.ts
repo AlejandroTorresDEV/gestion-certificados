@@ -13,7 +13,6 @@ export class CheckRolGuard implements CanActivate {
   canActivate(){
     let rolUser = this.authService.getRolUser();
     if (rolUser != 'admin') {
-      console.log("hola");
         return false;
     } 
       return true;
