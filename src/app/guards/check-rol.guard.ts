@@ -11,11 +11,11 @@ export class CheckRolGuard implements CanActivate {
   constructor(private authService: AuthServiceService, private router: Router) { }
 
   canActivate(){
-    if (this.authService.getToken()) {
-        return true;
-    } else {
-      this.router.navigate(['/login']);
-      return false;
-    }
+    let rolUser = this.authService.getRolUser();
+    if (rolUser != 'admin') {
+      console.log("hola");
+        return false;
+    } 
+      return true;
   }
 }

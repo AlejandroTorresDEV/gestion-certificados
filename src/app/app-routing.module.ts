@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { CertificatesViewComponent } from './certificates-view/certificates-view.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RedirectGuard } from "./guards/redirect.guard";
 import { ProfileComponent } from './profile/profile.component';
 import { CreateCertificateComponent } from './create-certificate/create-certificate.component';
 import { ShowCertificatesComponent } from "./show-certificates/show-certificates.component";
+import { CheckRolGuard } from './guards/check-rol.guard';
 const routes: Routes = [
   {
     path: 'login',
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent, canActivate: [AuthGuard],
+    component: RegisterComponent, canActivate: [AuthGuard,CheckRolGuard],
   },
   {
     path: 'profile',
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path:'create-certificate',
-    component: CreateCertificateComponent , canActivate : [AuthGuard],
+    component: CreateCertificateComponent , canActivate : [AuthGuard,CheckRolGuard],
   },
   {
     path:'show-certificates',

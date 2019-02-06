@@ -11,10 +11,11 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthServiceService, private router: Router) { }
 
   canActivate(){
-    let rolUser = this.authService.getRolUser();
-    if (rolUser == 'visor') {
-        return false;
+    if (this.authService.getToken()) {
+        return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
     }
-      return true;
   }
 }
