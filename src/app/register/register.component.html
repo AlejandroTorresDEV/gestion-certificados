@@ -22,7 +22,7 @@
   </div>
   <div class="form-group">
     <label>Rol de usuario : </label>
-    <select  class="selectStyle" [(ngModel)]="selectedRol" (ngModelChange)="editRolUser()" type="text" 
+    <select [(ngModel)]="selectedRol" (ngModelChange)="editRolUser()" type="text" 
     [ngClass]="{ 'is-invalid': submitted && getFormsControls().rolUser.errors }" formControlName="rolUser" class="form-control"    >
       <option  *ngFor="let rol of rolUsers" [ngValue]="rol.type">{{rol.type}}
       </option>
