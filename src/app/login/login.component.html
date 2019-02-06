@@ -28,7 +28,4 @@
     </div>
 </form>
 
-<!--Span de aviso de registro-->
-<div *ngIf="!loanding" class="noRegistrado">
-    <span>No estás registrado? <a class="link" routerLink="/register">Registarse</a></span>
-</div>
+<app-show-messages [mens]="mensaggeErrorServer"></app-show-messages>

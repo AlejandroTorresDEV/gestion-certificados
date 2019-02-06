@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loanding: boolean;
   registerForm: FormGroup;
   submitted = false;
-
+  mensaggeErrorServer = "Ha habido un error."
   constructor(private router: Router,private authService:AuthServiceService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -37,13 +37,11 @@ export class LoginComponent implements OnInit {
         this.loanding = false;
         if(res === 200){
           this.router.navigate(['/show-certificates']);
-        }else{
-          this.successLogin = true;
         }
       })
       .catch(error => {
         this.loanding = false;
-        this.successLogin = true;
+        this.successLogin = false;
       });
   }
 
