@@ -67,3 +67,12 @@ input {
 .inputs {
   padding-top: 0.5em;
 }
+
+
+.invalid-feedback{
+  color:red;
+}
+
+.container{
+  width: 10000vh;
+}

@@ -1,71 +1,140 @@
 form {
-    border-radius: 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f4f5f7;
-    width: 60vh;
-    text-align: center;
-    margin: auto;
-    margin-bottom: 1em;
-    margin-top:2em;
-    font-size: 15px;
-  }
+  border-radius: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f5f7;
+  width: 60vh;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 1em;
+  margin-top: 2em;
+  font-size: 16px;
+}
 
-  h5{
-    margin: 0.5em;
-    font-weight: bold;
-    color: #98CB00;   
-    text-align: center;
-  }
-  
-  .img{
-    margin: 0.8em;
-  }
-  .alert {
-    margin: 1em;
-  }
+h5 {
+  margin: 0.5em;
+  font-weight: bold;
+  color: #98CB00;
+  text-align: center;
+}
 
-  .modificar{
-    text-align: center;
-  }
-  
-  .link:hover { color: #98CB00; }
-  
-  a:visited {
-    color: #9c29a1; 
-  }
-  
-  .form-group button{
-    all: unset;
-    background: #98CB00;
-    border-radius: 1em;
-    flex-direction: column;
-    padding: 0.5em;
-    text-align: center;
-    width: 20vh;
-    align-content: center;
-    cursor:pointer;
-    color: antiquewhite;
-  }
-  
-  .form-group input {
-    all: unset;
-    border-bottom: 1px solid gray;
-    background-color: whitesmoke;
-    border-radius: 5px ;
-    align-items: center;
-    min-width: 50vh;
-  }
-  
+.img {
+  margin: 0.8em;
+}
 
-.inputs{
+.alert {
+  margin: 1em;
+}
+
+.modificar {
+  text-align: center;
+}
+
+.link:hover {
+  color: #98CB00;
+}
+
+a:visited {
+  color: #9c29a1;
+}
+
+.form-group button {
+  all: unset;
+  background: #98CB00;
+  border-radius: 1em;
+  flex-direction: column;
+  padding: 0.5em;
+  text-align: center;
+  width: 20vh;
+  align-content: center;
+  cursor: pointer;
+  color: antiquewhite;
+}
+
+.form-group input {
+  all: unset;
+  border-bottom: 1px solid gray;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  align-items: center;
+  min-width: 50vh;
+}
+
+.input {
+  margin: 4em;
+}
+
+.inputs {
   margin: auto;
   padding-top: 0.5em;
 }
 
-.spinnerImg{
+.spinnerImg {
   padding-top: 10em;
   text-align: center;
 }
-  
+
+h5 {
+  margin: 0.5em;
+  font-weight: bold;
+  color: #98CB00;
+  text-align: center;
+  font-size: 20px;
+}
+
+div {
+  padding: 0.5em;
+}
+
+
+.invalid-feedback {
+  color: red;
+}
+
+.img {
+  margin: 0.8em;
+}
+
+.alert {
+  margin: 1em;
+}
+
+.modificar {
+  text-align: center;
+}
+
+.link:hover {
+  color: #98CB00;
+}
+
+a:visited {
+  color: #9c29a1;
+}
+
+.form-group button {
+  all: unset;
+  background: #98CB00;
+  border-radius: 1em;
+  flex-direction: column;
+  padding: 0.5em;
+  text-align: center;
+  width: 20vh;
+  align-content: center;
+  cursor: pointer;
+  color: antiquewhite;
+}
+
+.form-group input {
+  all: unset;
+  border-bottom: 1px solid gray;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  align-items: center;
+  min-width: 50vh;
+}
+
+.spinnerImg {
+  padding-top: 10em;
+  text-align: center;
+}
