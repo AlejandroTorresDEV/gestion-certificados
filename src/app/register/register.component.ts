@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  username: string;
+  username: string ;
   password: string;
   email: string;
   successLogin: boolean;
@@ -17,11 +17,19 @@ export class RegisterComponent implements OnInit {
   loanding: boolean;
   registerForm: FormGroup;
   submitted = false;
+  selectedRol : string;
+  userRol : string;
+
+  rolUsers = [
+    {type : "visor"},
+    {type: "admin"},
+  ];
 
   constructor(private router: Router, private authService: AuthServiceService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.generateRegisterFormModel();
+    this.selectedRol = 'visor';
   }
 
   registerUser(): void {
@@ -32,10 +40,10 @@ export class RegisterComponent implements OnInit {
     this.email = this.registerForm.value.email;
     this.username = this.registerForm.value.username;
     this.password = this.registerForm.value.password;
-    const { username, email, password } = this;
+    const { username, email, password ,userRol} = this;
     this.loanding = true;
     this.authService
-      .registerUser(username, email, password)
+      .registerUser(username, email, password,userRol)
       .then(res => {
         this.loanding = false;
         console.log(res);
@@ -50,6 +58,7 @@ export class RegisterComponent implements OnInit {
   generateRegisterFormModel() {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
+      rolUser: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -59,4 +68,7 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls;
   }
 
+  editRolUser(){
+    this.userRol = this.selectedRol;
+  }
 }

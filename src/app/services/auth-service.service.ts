@@ -36,8 +36,8 @@ export class AuthServiceService {
     localStorage.setItem('jwt',res.jwt);
   }
 
-  registerUser(username: string,email: string, password: string) : any{
-    const body = { username,email,password };
+  registerUser(username: string,email: string, password: string,rolUser: string) : any{
+    const body = { username,email,password,rolUser };
     return this.http.post('/api/users', body).toPromise();
   }
 
