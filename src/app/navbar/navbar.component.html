@@ -3,8 +3,8 @@
   <div>
     <a routerLink="/show-certificates" routerLinkActive="active">HOME</a>
     <a routerLink="/profile" routerLinkActive="active">Perfil Jira</a>
-    <a routerLink="/register" routerLinkActive="active">Registrar</a>
-    <a routerLink="/create-certificate" routerLinkActive="active">Cargar Certificado</a>
+    <a *ngIf="isAdmin" routerLink="/register" routerLinkActive="active">Registrar</a>
+    <a *ngIf="isAdmin" routerLink="/create-certificate" routerLinkActive="active">Cargar Certificado</a>
   </div>
   <div>
     <a class="logOut" (click)="logOut()">Salir</a>
