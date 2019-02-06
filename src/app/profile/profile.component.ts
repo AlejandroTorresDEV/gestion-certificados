@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   loanding: boolean;
+  mensaggeSaveSuccess =  "Cuenta insertada correctamente.";
 
   constructor(private jiraService: ProfileJiraService,private formBuilder: FormBuilder) { }
 

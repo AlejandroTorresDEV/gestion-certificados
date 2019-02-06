@@ -3,14 +3,6 @@
 <!--Imagen spinner de carga -->
 <app-spinner *ngIf="loanding"></app-spinner>
 
-<!--Mensajes de error -->
-<div *ngIf="errorSave" class="alert alert-danger" role="alert">
-  Error al guardar la cuenta de jira
-</div>
-<div *ngIf="successSave" class="alert alert-success" role="alert">
-  Cuenta de Jira guardada correctamente.
-</div>
-
 <!--Formulario para crear una cuenta de 
     Jira cuando el usaurio no tiene asociada una-->
 <div *ngIf="!loanding">
@@ -116,3 +108,7 @@
   </div>
 </form>
 </div>
+
+<!--Mensajes de información al usuario-->
+
+<app-show-messages *ngIf="successSave" [mens]="mensaggeSaveSuccess"></app-show-messages>
