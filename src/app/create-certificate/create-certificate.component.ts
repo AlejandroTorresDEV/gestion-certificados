@@ -16,12 +16,12 @@ export class CreateCertificateComponent implements OnInit {
     multiple: false,
     formatsAllowed: ".pfx",
     maxSize: "10",
-    uploadAPI:  {
-      url:"https://example-file-upload-api",
+    uploadAPI: {
+      url: "https://example-file-upload-api",
       headers: {
-     "Content-Type" : "text/plain;charset=UTF-8",
+        "Content-Type": "text/plain;charset=UTF-8",
       }
     },
-};
+  };
 
 }

@@ -103,6 +103,14 @@
       </div>
     </div>
     <div class="form-group">
+        <label>Issue</label><br>
+        <input type="text" formControlName="issue" [(ngModel)]="issue" [readonly]="true" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && getFormsControls().issue.errors }" />
+        <div *ngIf="submitted && getFormsControls().issue.errors" class="invalid-feedback">
+          <div *ngIf="getFormsControls().issue.errors.required">Issue es necesario</div>
+        </div>
+      </div>
+    <div class="form-group">
       <button *ngIf="editing" type="submit">Guardar</button>
       <button *ngIf="!editing" (click)="cambiarEdicion()">Modificar</button></div>
   </div>
