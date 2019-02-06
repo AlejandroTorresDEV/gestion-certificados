@@ -49,13 +49,13 @@ export class ShowCertificatesComponent implements OnInit {
   },{
     alias : "Alias",
     id_org : "Id_org",
-    cliente: "Cliente",
+    cliente: "ZCliente",
     contacto: "Contacto",
     acciones : "Acciones"
   },{
     alias : "Alias",
     id_org : "Id_org",
-    cliente: "Cliente",
+    cliente: "ACliente",
     contacto: "Contacto",
     acciones : "Acciones"
   },{
@@ -144,13 +144,13 @@ export class ShowCertificatesComponent implements OnInit {
     acciones : "Acciones"
   },{
     alias : "zAlias",
-    id_org : "Id_org",
+    id_org : "3",
     cliente: "Cliente",
     contacto: "Contacto",
     acciones : "Acciones"
   },{
     alias : "gAlias",
-    id_org : "Id_org",
+    id_org : "2",
     cliente: "Cliente",
     contacto: "Contacto",
     acciones : "Acciones"
@@ -174,7 +174,7 @@ export class ShowCertificatesComponent implements OnInit {
     acciones : "Acciones"
   },{
     alias : "Alias",
-    id_org : "Id_org",
+    id_org : "1",
     cliente: "Cliente",
     contacto: "Contacto",
     acciones : "Acciones"
@@ -198,9 +198,26 @@ export class ShowCertificatesComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchAlias(){
+  orderAlias(){
     this.certificates = this.certificates.sort((a,b) =>
       a.alias > b.alias ? 1 : -1
     );
+  }
+  orderID_ORG(){
+    this.certificates = this.certificates.sort((a,b) =>
+      a.id_org > b.id_org ? 1 : -1
+    );
+  }
+
+  orderClient(){
+    this.certificates = this.certificates.sort((a,b) =>
+      a.cliente > b.cliente ? 1 : -1
+    );
+  }
+
+  orderContact(){
+    this.certificates = this.certificates.sort((a,b) =>
+    a.contacto > b.contacto ? 1 : -1
+  );
   }
 }

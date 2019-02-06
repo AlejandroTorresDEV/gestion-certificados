@@ -53,7 +53,6 @@
    overflow: scroll;
    max-height: 60vh;
    margin: 0em 0.4em 0 0.4em;
-   background-color: rgba(255, 255, 255, 0.8);
    display: grid;
    grid-template-columns: repeat(5, 1fr);
    border-left: 1px solid black;
@@ -64,7 +63,9 @@
 
  .scrollItemGrid{
    word-wrap: break-word;
-  overflow-x: scroll;
+    overflow-x: scroll;
+    background-color: white;
+    opacity: 0.5;
  }
  .content {
     display: contents;
