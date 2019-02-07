@@ -15,7 +15,6 @@ export class CertificatesViewComponent implements OnInit {
   ngOnInit() {
   }
 
-
   dowloadFile(){  
     var contentType = 'file/pfx';
     var byteCharacters = atob(this.fileBase64);
