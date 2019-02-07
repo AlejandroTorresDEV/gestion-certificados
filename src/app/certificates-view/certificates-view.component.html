@@ -6,8 +6,8 @@
       <span class="scrollItemGrid">{{certificado.cliente}}</span>
       <span class="scrollItemGrid">{{certificado.contacto}}</span>
       <span class="scrollItemGrid">
-        <i class="material-icons">delete</i>
-        <i class="material-icons">edit</i>
+        <i *ngIf="isAdmin" class="material-icons">delete</i>
+        <i *ngIf="isAdmin" class="material-icons">edit</i>
         <i class="material-icons" (click)="dowloadFile()">save</i>
       </span>
     </span>
