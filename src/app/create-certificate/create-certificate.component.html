@@ -22,14 +22,18 @@
       <button (click)="dowloadFile()">DOWLOAD</button>
     <input type="file" accept="image/all" (change)="changeListener($event)">
     <input type="text" placeholder="Alias" [(ngModel)]="prubea" name="prueba" />
-    <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
-    <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
-    <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
-    <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
+    <input type="password" placeholder="Contraseña" [(ngModel)]="prubea" name="prueba" />
+    <input type="text" placeholder="ID_ORG" [(ngModel)]="prubea" name="prueba" />
+    <input type="text" placeholder="Cliente" [(ngModel)]="prubea" name="prueba" />
+    <input type="text" placeholder="Integraciones" [(ngModel)]="prubea" name="prueba" />
+    <input type="text" placeholder="Contacto" [(ngModel)]="prubea" name="prueba" />
+    <input type="text" placeholder="Repositorio" [(ngModel)]="prubea" name="prueba" />
+    <input type="text" placeholder="Observaciones" [(ngModel)]="prubea" name="prueba" />
+
+
   </div>
 
   <button type="submit" class="button">Crear</button>
   <div *ngIf="successLogin" class="alert alert-danger" role="alert">
     Error al entrar al sistema
   </div>
-
