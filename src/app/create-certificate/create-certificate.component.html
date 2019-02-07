@@ -4,18 +4,23 @@
   <img src="assets/spinner.gif" />
 </div>
 
-<form *ngIf="!loanding" (submit)="loginUser()">
   <div class="inputs">
-    <h5>Crear certificado</h5>
     <!--
     <label for="upload-photo">Buscar archivo...</label>
-    <input type="file" id="upload-photo" accept="file/pfx">-->
-    <angular-file-uploader 
+    <input type="file" id="upload-photo" accept="file/pfx">
+   <angular-file-uploader 
     [config]="afuConfig"
     [resetUpload]=resetVar
     (ApiResponse)="DocUpload($event)">
   </angular-file-uploader>
+  -->
+
+  <form>
+      <h5>Crear certificado</h5>
     <br>
+    <div>
+      <button (click)="dowloadFile()">DOWLOAD</button>
+    <input type="file" accept="image/all" (change)="changeListener($event)">
     <input type="text" placeholder="Alias" [(ngModel)]="prubea" name="prueba" />
     <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
     <input type="text" placeholder="Prueba" [(ngModel)]="prubea" name="prueba" />
@@ -27,4 +32,4 @@
   <div *ngIf="successLogin" class="alert alert-danger" role="alert">
     Error al entrar al sistema
   </div>
-</form>
+

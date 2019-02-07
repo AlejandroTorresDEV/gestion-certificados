@@ -6,4 +6,5 @@ export interface Jira {
     url: string;
     proyect: string;
     componente: string;
+    issue : string;
   }

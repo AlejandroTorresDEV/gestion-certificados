@@ -49,7 +49,8 @@ export class ProfileComponent implements OnInit {
       password: this.password,
       url: this.url,
       proyect: this.proyecto,
-      componente: this.componente
+      componente: this.componente,
+      issue : this.issue
     }
     this.jiraService.saveUserJira(saveAccountJira).then(res => {
       console.log(res);
@@ -76,7 +77,8 @@ export class ProfileComponent implements OnInit {
       password: this.password,
       url: this.url,
       proyect: this.proyecto,
-      componente: this.componente
+      componente: this.componente,
+      issue : this.issue
     }
     this.jiraService.updateUserJira(this.id,updateAccountJira).then(res => {
       console.log(res);
@@ -102,6 +104,7 @@ export class ProfileComponent implements OnInit {
       this.url = element.url;
       this.proyecto = element.proyect;
       this.componente = element.componente;
+      this.issue = element.issue;
       this.jiraExistente = true;
     })
     .catch( () => {
@@ -117,7 +120,6 @@ export class ProfileComponent implements OnInit {
       url: ['', Validators.required],
       proyecto: ['', Validators.required],
       componente: ['', Validators.required],
-      issue : ['', Validators.required]
     });
   }
 
