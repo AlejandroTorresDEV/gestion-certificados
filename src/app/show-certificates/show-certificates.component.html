@@ -1,4 +1,12 @@
 <app-navbar></app-navbar>
+<div class="selectCertificates">
+    <label>Listado de certifiados </label>
+    <br>
+    <select type="text">
+    <option *ngFor="let rol of certificates" [ngValue]="rol.alias">{{rol.alias}}
+    </option>
+  </select>
+</div>
 <div class="grid-container ">
   <span (click)="orderAlias()"><strong>Alias</strong></span>
   <span (click)="orderID_ORG()"><strong>Subject</strong></span>
@@ -6,4 +14,6 @@
   <span (click)="orderContact()"><strong>Id-Org</strong></span>
   <span><strong>Acciones</strong></span>
 </div>
-<app-certificates-view [certificates]="certificates"></app-certificates-view>
+
+<app-certificates-view [certificates]="certificates">
+</app-certificates-view>

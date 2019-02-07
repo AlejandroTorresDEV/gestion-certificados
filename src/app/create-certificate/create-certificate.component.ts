@@ -8,7 +8,7 @@ import { ProfileJiraService } from ".././services/profile-jira.service";
 })
 export class CreateCertificateComponent implements OnInit {
 
-  image;
+  file;
   url  = "/Users/alejandrotorresruiz/Desktop/certificados/prueba.pfx";
 
   constructor(private profileJiraService: ProfileJiraService) { }
@@ -26,10 +26,10 @@ readThis(inputValue: any): void {
   var myReader:FileReader = new FileReader();
 
   myReader.onloadend = (e) => {
-    this.image = myReader.result;
-    let imageByte = (this.image.replace("data:application/x-pkcs12;base64,",""));
-    console.log(imageByte)
-    this.profileJiraService.saveCertificate(imageByte).then(res => {
+    this.file = myReader.result;
+    let fileByte = (this.file.replace("data:application/x-pkcs12;base64,",""));
+    console.log(fileByte)
+    this.profileJiraService.saveCertificate(fileByte).then(res => {
       console.log(res);
     })
     .catch(error => {

@@ -5,22 +5,11 @@
 </div>
 
   <div class="inputs">
-    <!--
-    <label for="upload-photo">Buscar archivo...</label>
-    <input type="file" id="upload-photo" accept="file/pfx">
-   <angular-file-uploader 
-    [config]="afuConfig"
-    [resetUpload]=resetVar
-    (ApiResponse)="DocUpload($event)">
-  </angular-file-uploader>
-  -->
-
   <form>
       <h5>Crear certificado</h5>
     <br>
     <div>
-      <button (click)="dowloadFile()">DOWLOAD</button>
-    <input type="file" accept="image/all" (change)="changeListener($event)">
+    <input type="file" accept=".p12" (change)="changeListener($event)">
     <input type="text" placeholder="Alias" [(ngModel)]="prubea" name="prueba" />
     <input type="password" placeholder="Contraseña" [(ngModel)]="prubea" name="prueba" />
     <input type="text" placeholder="ID_ORG" [(ngModel)]="prubea" name="prueba" />
@@ -28,9 +17,10 @@
     <input type="text" placeholder="Integraciones" [(ngModel)]="prubea" name="prueba" />
     <input type="text" placeholder="Contacto" [(ngModel)]="prubea" name="prueba" />
     <input type="text" placeholder="Repositorio" [(ngModel)]="prubea" name="prueba" />
-    <input type="text" placeholder="Observaciones" [(ngModel)]="prubea" name="prueba" />
-
-
+    <p>Observaciones</p>
+    <textarea rows="4" cols="50">
+        At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+    </textarea>
   </div>
 
   <button type="submit" class="button">Crear</button>
