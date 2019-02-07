@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Certificates } from './../interfaces/Certificates';
 import { AuthServiceService } from "../services/auth-service.service";
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 @Component({
   selector: 'app-certificates-view',
   templateUrl: './certificates-view.component.html',
@@ -31,11 +32,13 @@ export class CertificatesViewComponent implements OnInit {
   
     var blob = new Blob([byteArray], {type: contentType});
   
-    var arag = document.createElement("a");
+    var atag = document.createElement("a");
+    
   
-    arag.href = URL.createObjectURL(blob);
-    arag.download = "fichero.pfx";
-    arag.click();
+    atag.href = URL.createObjectURL(blob);
+    atag.download = "fichero2.pfx";
+    document.body.appendChild(atag);
+    atag.click();
     console.log(blob);
   }
 
