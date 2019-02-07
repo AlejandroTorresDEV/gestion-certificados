@@ -16,6 +16,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { ShowCertificatesComponent } from './show-certificates/show-certificates.component';
 import { ShowMessagesComponent } from './show-messages/show-messages.component';
+import { BoardComponent } from './board/board.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ShowMessagesComponent } from './show-messages/show-messages.component';
     SpinnerComponent,
     ShowCertificatesComponent,
     ShowMessagesComponent,
+    BoardComponent,
   ],
   imports: [
     BrowserModule,

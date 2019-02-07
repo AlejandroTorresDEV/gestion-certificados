@@ -10,6 +10,7 @@ form {
   margin-bottom: 3em;
   margin-top:2em;
   font-size: 15px;
+  border: solid 3px  #98CB00;
 }
 
 .form-group button {

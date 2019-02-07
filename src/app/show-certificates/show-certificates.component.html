@@ -1,11 +1,13 @@
 <app-navbar></app-navbar>
 <div class="selectCertificates">
-    <label>Listado de certifiados </label>
-    <br>
+  <h4>Listado de certifiados</h4>
+  <div>
+    <input type="text" placeholder="Busqueda">
     <select type="text">
-    <option *ngFor="let rol of certificates" [ngValue]="rol.alias">{{rol.alias}}
-    </option>
-  </select>
+      <option *ngFor="let certificate of certificates" [ngValue]="certificate.alias">{{certificate.alias}}
+      </option>
+    </select>
+  </div>
 </div>
 <div class="grid-container ">
   <span (click)="orderAlias()"><strong>Alias</strong></span>

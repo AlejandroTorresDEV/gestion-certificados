@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProfileJiraService} from '../services/profile-jira.service'
 import { Jira } from "../interfaces/Jira";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -26,7 +27,7 @@ export class ProfileComponent implements OnInit {
   loanding: boolean;
   mensaggeSaveSuccess =  "Cuenta insertada correctamente.";
 
-  constructor(private jiraService: ProfileJiraService,private formBuilder: FormBuilder) { }
+  constructor(private router: Router,private jiraService: ProfileJiraService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.id  = localStorage.getItem('id');
