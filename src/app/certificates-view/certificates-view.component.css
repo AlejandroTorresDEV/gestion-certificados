@@ -67,6 +67,13 @@
     overflow-x: scroll;
     background-color: white;
  }
+
+ .scrollItemGridComplete{
+  word-wrap: break-word;
+   overflow-x: scroll;
+   background-color:whitesmoke;
+   opacity:0.8;
+  }
  .content {
     display: contents;
  }

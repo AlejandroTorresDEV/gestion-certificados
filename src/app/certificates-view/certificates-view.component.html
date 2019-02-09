@@ -1,13 +1,14 @@
 <div>
   <div class="grid-container ">
     <span class="content" *ngFor="let certificado of certificates">
-      <span class="scrollItemGrid">{{certificado.alias}}</span>
-      <span class="scrollItemGrid">{{certificado.subject.split("CN=")[1].split(",")[0]}}</span>
-      <span class="scrollItemGrid">{{certificado.caducidad}}</span>
-      <span class="scrollItemGrid">{{certificado.id_orga}}</span>
-      <span class="scrollItemGrid">
-        <i *ngIf="isAdmin" class="material-icons">delete</i>
-        <i  class="material-icons">search</i>
+      <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.alias}}</span>
+      <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.subject.split("CN=")[1].split(",")[0]}}</span>
+      <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.caducidad}}</span>
+      <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.id_orga}}</span>
+      <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">
+        <i *ngIf="isAdmin && !certificado.eliminado" class="material-icons">delete</i>
+        <i *ngIf="isAdmin && certificado.eliminado" class="material-icons">check</i>
+        <i class="material-icons">search</i>
         <i class="material-icons" (click)="dowloadFile(certificado.nombreFichero,certificado.base64String)">save</i>
       </span>
     </span>
