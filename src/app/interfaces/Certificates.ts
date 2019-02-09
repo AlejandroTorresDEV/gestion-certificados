@@ -10,6 +10,7 @@ export interface Certificates {
     integration_list: string
     base64String: string
     eliminado : boolean
+    nombreFichero : string
 }
 
 /*entidad_emisiora: string

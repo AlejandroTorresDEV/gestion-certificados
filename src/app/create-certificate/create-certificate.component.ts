@@ -12,6 +12,7 @@ export class CreateCertificateComponent implements OnInit {
 
   file;
   fileByte;
+  rutaFichero;
 
   registerForm: FormGroup;
   submitted = false;
@@ -43,7 +44,9 @@ export class CreateCertificateComponent implements OnInit {
     var file: File = inputValue.files[0];
     var myReader: FileReader = new FileReader();
 
-   myReader.onloadend = (e) => {
+    this.rutaFichero = file.name;
+    
+    myReader.onloadend = (e) => {
       this.file = myReader.result;
       this.fileByte = this.file.split(',')[1];
       console.log(this.fileByte)
@@ -86,7 +89,8 @@ export class CreateCertificateComponent implements OnInit {
       observaciones: this.registerForm.value.observaciones,
       integration_list: this.registerForm.value.integration_list,
       base64String: this.fileByte,
-      eliminado : false
+      eliminado : false,
+      nombreFichero : this.rutaFichero
     }
     this.loanding = true;
     this.certificateService.saveCertificates(certificate)
