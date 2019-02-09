@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       .then(res => {
         this.loanding = false;
         if(res === 200){
-          this.router.navigate(['/show-certificates']);
+          this.router.navigate(['/board']);
         }
         if(res === 204){
           this.loginBadAtributtes = true;

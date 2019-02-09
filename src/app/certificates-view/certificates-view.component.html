@@ -6,7 +6,7 @@
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.caducidad}}</span>
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.id_orga}}</span>
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">
-        <i *ngIf="isAdmin && !certificado.eliminado" class="material-icons">delete</i>
+        <i *ngIf="isAdmin && !certificado.eliminado" (click)="deleteCertificate(certificado)" class="material-icons">delete</i>
         <i *ngIf="isAdmin && certificado.eliminado" class="material-icons">check</i>
         <i class="material-icons">search</i>
         <i class="material-icons" (click)="dowloadFile(certificado.nombreFichero,certificado.base64String)">save</i>

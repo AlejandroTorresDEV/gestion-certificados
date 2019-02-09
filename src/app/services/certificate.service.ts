@@ -14,6 +14,12 @@ export class CertificateService {
     return this.http.get('/api/certificate').toPromise();
   }
 
+  deleteCertificate(certificado){
+    console.log(certificado);
+    return this.http.put('/api/certificate/'+certificado.id,certificado).toPromise();
+ 
+  }
+
   saveCertificates(certificate){
     console.log(certificate);
     return this.http.post('/api/certificate',certificate).toPromise();

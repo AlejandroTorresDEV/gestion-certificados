@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Certificates } from './../interfaces/Certificates';
 import { AuthServiceService } from "../services/auth-service.service";
-import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { CertificateService } from "../services/certificate.service";
+
 @Component({
   selector: 'app-certificates-view',
   templateUrl: './certificates-view.component.html',
@@ -11,7 +12,7 @@ export class CertificatesViewComponent implements OnInit {
   @Input() certificates: Certificates;
   isAdmin : boolean;
 
-  constructor(private authService:AuthServiceService) { }
+  constructor(private certificateService: CertificateService,private authService : AuthServiceService) { }
 
   ngOnInit() {
     this.isAdmin = this.authService.isAdmin();
@@ -19,13 +20,20 @@ export class CertificatesViewComponent implements OnInit {
 
   updateFile(file: HTMLInputElement) {
     let name = file.value;
-    
+  }
 
+  deleteCertificate(certificado: Certificates){
+    certificado.eliminado = true;
+    this.certificateService.deleteCertificate(certificado)  
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   dowloadFile(nombreFichero: string , fileStringBase64 : string){  
-    //console.log(fileStringBase64);
-
     let contentType = 'file/pfx';
     let byteCharacters = atob(fileStringBase64);
   
