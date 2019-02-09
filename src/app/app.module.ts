@@ -17,6 +17,7 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
 import { ShowCertificatesComponent } from './show-certificates/show-certificates.component';
 import { ShowMessagesComponent } from './show-messages/show-messages.component';
 import { BoardComponent } from './board/board.component';
+import { DetailCertificateComponent } from './detail-certificate/detail-certificate.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BoardComponent } from './board/board.component';
     ShowCertificatesComponent,
     ShowMessagesComponent,
     BoardComponent,
+    DetailCertificateComponent,
   ],
   imports: [
     BrowserModule,

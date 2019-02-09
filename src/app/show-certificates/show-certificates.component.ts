@@ -30,15 +30,15 @@ export class ShowCertificatesComponent implements OnInit {
       a.alias > b.alias ? 1 : -1
     );
   }
-  orderID_ORG(){
+  orderSubject(){
     this.certificates = this.certificates.sort((a,b) =>
-      a.id_org > b.id_org ? 1 : -1
+      a.subject > b.subject ? 1 : -1
     );
   }
 
-  orderClient(){
+  orderDate(){
     this.certificates = this.certificates.sort((a,b) =>
-      a.cliente > b.cliente ? 1 : -1
+      a.caducidad.split("T")[0] > b.caducidad.split("T")[0] ? 1 : -1
     );
   }
 

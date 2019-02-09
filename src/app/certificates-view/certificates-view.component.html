@@ -3,7 +3,7 @@
     <span class="content" *ngFor="let certificado of certificates">
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.alias}}</span>
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.subject.split("CN=")[1].split(",")[0]}}</span>
-      <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.caducidad}}</span>
+      <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.caducidad.split("T")[0]}}</span>
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.id_orga}}</span>
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">
         <i *ngIf="isAdmin && !certificado.eliminado" (click)="deleteCertificate(certificado)" class="material-icons">delete</i>
