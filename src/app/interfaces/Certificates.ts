@@ -1,10 +1,6 @@
 export interface Certificates {
     id: string
     alias: string
-    entidad_emisiora: string
-    numero_de_serie: string
-    subject: string
-    caducidad: string
     password: string
     id_orga: string
     nombre_cliente: string
@@ -13,4 +9,10 @@ export interface Certificates {
     observaciones: string
     integration_list: string
     base64String: string
+    eliminado : boolean
 }
+
+/*entidad_emisiora: string
+numero_de_serie: string
+subject: string
+caducidad: string*/

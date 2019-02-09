@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { ProfileJiraService } from ".././services/profile-jira.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Certificates } from '../interfaces/Certificates';
 
 @Component({
   selector: 'app-create-certificate',
@@ -63,15 +64,23 @@ export class CreateCertificateComponent implements OnInit {
   }
 
   saveCertificate(){
-    console.log("hola");
-
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;
     }
-
-    console.log("adios");
-    console.log(this.observaciones);
+    const saveCertificate: Certificates = 
+    {  
+      id: undefined,
+      alias: this.registerForm.value.alias,
+      password: this.registerForm.value.password,
+      id_orga: this.registerForm.value.id_orga,
+      nombre_cliente: this.registerForm.value.nombre_cliente,
+      contacto_renovacion: this.registerForm.value.contacto_renovacion,
+      repositorio: this.registerForm.value.repositorio,
+      observaciones: this.registerForm.value.observaciones,
+      integration_list: this.registerForm.value.integration_list,
+      base64String: this.registerForm.value.base64String,
+      eliminado : false
+    }
   }
-
 }
