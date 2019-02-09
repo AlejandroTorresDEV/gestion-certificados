@@ -8,7 +8,7 @@
       <span class="scrollItemGrid">
         <i *ngIf="isAdmin" class="material-icons">delete</i>
         <i  class="material-icons">search</i>
-        <i class="material-icons" (click)="dowloadFile()">save</i>
+        <i class="material-icons" (click)="dowloadFile(certificado.nombreFichero,certificado.base64String)">save</i>
       </span>
     </span>
   </div>
