@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { ProfileJiraService } from ".././services/profile-jira.service";
+import { CertificateService } from ".././services/certificate.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Certificates } from '../interfaces/Certificates';
 
@@ -11,15 +11,28 @@ import { Certificates } from '../interfaces/Certificates';
 export class CreateCertificateComponent implements OnInit {
 
   file;
-  url = "/Users/alejandrotorresruiz/Desktop/certificados/prueba.pfx";
+  fileByte;
+
   registerForm: FormGroup;
   submitted = false;
-  observaciones : string = "hola";
+  observaciones : string;
+  loanding: boolean;
 
-  constructor(private profileJiraService: ProfileJiraService,private formBuilder: FormBuilder) { }
+  SuccesSave : boolean;
+  ServerError :boolean;
+  BadAtributtes :boolean;
+
+  mensaggeSuccesSave = "Certificado guardado correctamente";
+  mensaggeErrorServer = "Error de conexión con el servidor";
+  mensaggeBadAtributtes = "El certificado no es valido";
+
+  constructor(private certificateService: CertificateService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.generateCertificateFormModel();
+    this.SuccesSave = false;
+    this.ServerError = false;
+    this.BadAtributtes = false;
   }
 
   changeListener($event): void {
@@ -30,19 +43,12 @@ export class CreateCertificateComponent implements OnInit {
     var file: File = inputValue.files[0];
     var myReader: FileReader = new FileReader();
 
-   /* myReader.onloadend = (e) => {
+   myReader.onloadend = (e) => {
       this.file = myReader.result;
-      let fileByte = this.file.split(',')[1];
-      //let fileByte = (this.file.replace("data:application/x-pkcs12;base64,",""));
-      console.log(fileByte[1])
-      this.profileJiraService.saveCertificate(fileByte).then(res => {
-        console.log(res);
-      })
-        .catch(error => {
-          console.log(error);
-        });
+      this.fileByte = this.file.split(',')[1];
+      console.log(this.fileByte)
     };
-    myReader.readAsDataURL(file);*/
+    myReader.readAsDataURL(file);
   }
 
   getFormsControls(): any {
@@ -68,7 +74,7 @@ export class CreateCertificateComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    const saveCertificate: Certificates = 
+    const certificate: Certificates = 
     {  
       id: undefined,
       alias: this.registerForm.value.alias,
@@ -79,8 +85,28 @@ export class CreateCertificateComponent implements OnInit {
       repositorio: this.registerForm.value.repositorio,
       observaciones: this.registerForm.value.observaciones,
       integration_list: this.registerForm.value.integration_list,
-      base64String: this.registerForm.value.base64String,
+      base64String: this.fileByte,
       eliminado : false
     }
+    this.loanding = true;
+    this.certificateService.saveCertificates(certificate)
+    .then(
+      (res: { statusCode: number}) => {
+      if(res.statusCode == 201){
+        this.SuccesSave = true;
+      }
+
+      if(res.statusCode == 400){
+        this.BadAtributtes = true;
+      }
+      this.loanding = false;
+
+    })
+    .catch((error: { statusCode: number}) => {
+      this.loanding = false;
+      if(error.statusCode == 500){
+        this.ServerError = true;
+      }
+    });;
   }
 }

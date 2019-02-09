@@ -74,3 +74,10 @@
     <button class="btn btn-primary">Entrar</button>
   </div>
 </form>
+
+<!--Mensajes de información al usuario-->
+<div *ngIf="!loanding">
+    <app-show-messages *ngIf="SuccesSave" [mens]="mensaggeSuccesSave"></app-show-messages>
+  <app-show-messages *ngIf="ServerError" [mens]="mensaggeErrorServer"></app-show-messages>
+  <app-show-messages *ngIf="BadAtributtes" [mens]="mensaggeBadAtributtes"></app-show-messages>
+</div>

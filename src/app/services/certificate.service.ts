@@ -10,8 +10,8 @@ export class CertificateService {
   constructor(private http: HttpClient) { }
 
 
-  saveCertificate(certificate: Certificates){
-    const body = {certificate};
-    return this.http.post('/api/certificate',body).toPromise();
+  saveCertificates(certificate){
+    console.log(certificate);
+    return this.http.post('/api/certificate',certificate).toPromise();
   }
 }
