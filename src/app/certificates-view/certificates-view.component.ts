@@ -33,6 +33,17 @@ export class CertificatesViewComponent implements OnInit {
     });
   }
 
+  activateCertificate(certificado: Certificates){
+    certificado.eliminado = false;
+    this.certificateService.deleteCertificate(certificado)  
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   dowloadFile(nombreFichero: string , fileStringBase64 : string){  
     let contentType = 'file/pfx';
     let byteCharacters = atob(fileStringBase64);
