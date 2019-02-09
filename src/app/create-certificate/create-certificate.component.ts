@@ -1,5 +1,6 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ProfileJiraService } from ".././services/profile-jira.service";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-certificate',
@@ -9,36 +10,62 @@ import { ProfileJiraService } from ".././services/profile-jira.service";
 export class CreateCertificateComponent implements OnInit {
 
   file;
-  url  = "/Users/alejandrotorresruiz/Desktop/certificados/prueba.pfx";
+  url = "/Users/alejandrotorresruiz/Desktop/certificados/prueba.pfx";
+  registerForm: FormGroup;
+  submitted = false;
 
-  constructor(private profileJiraService: ProfileJiraService) { }
+  constructor(private profileJiraService: ProfileJiraService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-  
+    this.generateCertificateFormModel();
   }
 
-  changeListener($event) : void {
-  this.readThis($event.target);
-}
+  changeListener($event): void {
+    this.readThis($event.target);
+  }
 
-readThis(inputValue: any): void {
-  var file:File = inputValue.files[0];
-  var myReader:FileReader = new FileReader();
+  readThis(inputValue: any): void {
+    var file: File = inputValue.files[0];
+    var myReader: FileReader = new FileReader();
 
-  myReader.onloadend = (e) => {
-    this.file = myReader.result;
-    let fileByte = (this.file.replace("data:application/x-pkcs12;base64,",""));
-    console.log(fileByte)
-    this.profileJiraService.saveCertificate(fileByte).then(res => {
-      console.log(res);
-    })
-    .catch(error => {
-        console.log(error);
-    });
+    myReader.onloadend = (e) => {
+      this.file = myReader.result;
+      let fileByte = this.file.split(',')[1];
+      //let fileByte = (this.file.replace("data:application/x-pkcs12;base64,",""));
+      console.log(fileByte[1])
+      this.profileJiraService.saveCertificate(fileByte).then(res => {
+        console.log(res);
+      })
+        .catch(error => {
+          console.log(error);
+        });
     };
-  
-  myReader.readAsDataURL(file);
- 
-}
+    myReader.readAsDataURL(file);
+  }
+
+  getFormsControls(): any {
+    return this.registerForm.controls;
+  }
+
+  generateCertificateFormModel() {
+    this.registerForm = this.formBuilder.group({
+      fileCertificate: ['', Validators.required],
+      alias: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      id_orga: ['', Validators.required, Validators.min(1)],
+      nombre_cliente: ['', Validators.required],
+      contacto_renovacion: ['', Validators.required],
+      repositorio: ['', Validators.required],
+      observaciones: ['', Validators.required],
+      integration_list: ['', Validators.required]
+    });
+  }
+
+  saveCertificate(){
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
+  }
 
 }

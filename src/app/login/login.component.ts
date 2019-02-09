@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
   mensaggeErrorServer = "Error de conexión con el servidor";
   mensaggeBadAtributtes = "Las credenciales son incorrectas";
 
-  constructor(private router: Router,private authService:AuthServiceService,private formBuilder: FormBuilder) { }
+  constructor(private router: Router,private authService:AuthServiceService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.loginServerError = false;

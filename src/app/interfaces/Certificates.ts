@@ -12,5 +12,5 @@ export interface Certificates {
     repositorio: string
     observaciones: string
     integration_list: string
-    user_id: string
+    base64String: string
 }

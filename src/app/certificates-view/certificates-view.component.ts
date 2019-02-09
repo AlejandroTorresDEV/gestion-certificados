@@ -19,6 +19,14 @@ export class CertificatesViewComponent implements OnInit {
     this.isAdmin = this.authService.isAdmin();
   }
 
+  updateFile(file: HTMLInputElement) {
+    let name = file.value;
+    let file2 = name.split(".");
+    console.log(name.split(".")[1]);
+    console.log(name.split(".")[2]);
+
+  }
+
   dowloadFile(){  
     var contentType = 'file/pfx';
     var byteCharacters = atob(this.fileBase64);
@@ -37,6 +45,7 @@ export class CertificatesViewComponent implements OnInit {
   
     atag.href = URL.createObjectURL(blob);
     atag.download = "fichero2.pfx";
+    /* Añadido elemento para descargar el fichero en el navegador mozilla */
     document.body.appendChild(atag);
     atag.click();
     console.log(blob);
