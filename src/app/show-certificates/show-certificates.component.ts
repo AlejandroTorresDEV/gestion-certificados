@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {CertificateService} from '../services/certificate.service'
 @Component({
   selector: 'app-show-certificates',
   templateUrl: './show-certificates.component.html',
@@ -7,194 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowCertificatesComponent implements OnInit {
 
-  certificates = [
-  {
-    alias : "Alias",
-    id_org : "Id_ordsdsdsdssdsdsddsg",
-    cliente: "Cliente",
-    contacto: "pepeelmejor@gmail.com",
-    acciones : "Acciones"
-  },
-  {
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "ZCliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "ACliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "AAAAlias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "ddsdsdsAlias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "dssddsdsAlias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "zAlias",
-    id_org : "3",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "gAlias",
-    id_org : "2",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "pepe",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "1",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },{
-    alias : "Alias",
-    id_org : "Id_org",
-    cliente: "Cliente",
-    contacto: "Contacto",
-    acciones : "Acciones"
-  },
-  ];
+  certificates : any;
 
-  constructor() { }
+  constructor(private certificateService : CertificateService) { }
 
   ngOnInit() {
+    this.getAllCertificates();
+  }
+
+  getAllCertificates(){
+    this.certificateService.getAllCertificates().then(res => {
+      this.certificates = res;
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   orderAlias(){

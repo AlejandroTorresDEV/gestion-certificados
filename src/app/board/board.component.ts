@@ -14,7 +14,7 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
     this.showUsers = false;
-    this.showCertificates = false;
+    this.showCertificates = true;
   }
 
   activateShowCertificate(){

@@ -2,9 +2,9 @@
   <div class="grid-container ">
     <span class="content" *ngFor="let certificado of certificates">
       <span class="scrollItemGrid">{{certificado.alias}}</span>
-      <span class="scrollItemGrid">{{certificado.id_org}}</span>
-      <span class="scrollItemGrid">{{certificado.cliente}}</span>
-      <span class="scrollItemGrid">{{certificado.contacto}}</span>
+      <span class="scrollItemGrid">{{certificado.subject.split("CN=")[1].split(",")[0]}}</span>
+      <span class="scrollItemGrid">{{certificado.caducidad}}</span>
+      <span class="scrollItemGrid">{{certificado.id_orga}}</span>
       <span class="scrollItemGrid">
         <i *ngIf="isAdmin" class="material-icons">delete</i>
         <i  class="material-icons">search</i>
@@ -13,5 +13,3 @@
     </span>
   </div>
 </div>
-
-<input #file type="file" (change)="updateFile(file)">

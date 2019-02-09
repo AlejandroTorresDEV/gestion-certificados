@@ -81,6 +81,10 @@ export class CreateCertificateComponent implements OnInit {
     {  
       id: undefined,
       alias: this.registerForm.value.alias,
+      entidad_emisiora: undefined,
+      numero_de_serie: undefined,
+      subject: undefined,
+      caducidad: undefined,
       password: this.registerForm.value.password,
       id_orga: this.registerForm.value.id_orga,
       nombre_cliente: this.registerForm.value.nombre_cliente,

@@ -1,12 +1,10 @@
 <div class="selectCertificates">
-  <h4>Listado de certifiados</h4>
   <div>
     <input type="text" placeholder="Busqueda">
     <select type="text">
       <option *ngFor="let certificate of certificates" [ngValue]="certificate.alias">{{certificate.alias}}
       </option>
     </select>
-    <br>
     <button>Buscar</button>
   </div>
 </div>
@@ -18,5 +16,4 @@
   <span><strong>Acciones</strong></span>
 </div>
 
-<app-certificates-view [certificates]="certificates">
-</app-certificates-view>
+<app-certificates-view [certificates]="certificates"></app-certificates-view>

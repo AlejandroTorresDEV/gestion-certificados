@@ -22,12 +22,13 @@
   margin: auto;
   border: solid 3px  #98CB00;
   padding: 0.5em;
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 .selectCertificates button{
   all:unset;
   padding: 0.4em;
-  font-size: 20px;
+  font-size: 15px;
+  margin-left: 1em;
   border-radius: 0.5em;
   background: #98CB00;
   margin-top: 0.5em;

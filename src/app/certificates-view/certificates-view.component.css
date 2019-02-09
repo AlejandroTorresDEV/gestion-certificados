@@ -52,7 +52,7 @@
  .grid-container {
    overflow: scroll;
    max-height: 60vh;
-   margin: 0em 0.4em 0 0.4em;
+   margin: 0em 0.4em 2em 0.4em;
    display: grid;
    grid-template-columns: repeat(5, 1fr);
    border-left: 3px solid #98CB00;
