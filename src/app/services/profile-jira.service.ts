@@ -36,11 +36,5 @@ export class ProfileJiraService {
   updateUserJira(id, body: Jira) {
     return this.http.put('/api/jira/' + body.id, body).toPromise();
   }
-
-  saveCertificate(alias){
-    let entidad_emisiora = 22;
-    const body = {alias,entidad_emisiora};
-    return this.http.post('/api/certificate',body).toPromise();
-  }
-
+  
 }
