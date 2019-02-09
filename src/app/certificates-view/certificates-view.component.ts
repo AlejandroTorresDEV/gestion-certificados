@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Certificates } from './../interfaces/Certificates';
 import { AuthServiceService } from "../services/auth-service.service";
 import { CertificateService } from "../services/certificate.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-certificates-view',
@@ -12,14 +13,14 @@ export class CertificatesViewComponent implements OnInit {
   @Input() certificates: Certificates;
   isAdmin : boolean;
 
-  constructor(private certificateService: CertificateService,private authService : AuthServiceService) { }
+  constructor(private router: Router ,private certificateService: CertificateService,private authService : AuthServiceService) { }
 
   ngOnInit() {
     this.isAdmin = this.authService.isAdmin();
   }
 
-  updateFile(file: HTMLInputElement) {
-    let name = file.value;
+  redirectDetailComponent(id){
+    this.router.navigate(['/detail-certificate/',id])
   }
 
   deleteCertificate(certificado: Certificates){

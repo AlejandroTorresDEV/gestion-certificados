@@ -10,6 +10,10 @@ export class CertificateService {
   constructor(private http: HttpClient) { }
 
 
+  getCertificate(id){
+    return this.http.get('/api/certificate/'+id).toPromise();
+  }
+
   getAllCertificates(){
     return this.http.get('/api/certificate').toPromise();
   }

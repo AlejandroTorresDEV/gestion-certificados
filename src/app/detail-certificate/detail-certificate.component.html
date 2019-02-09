@@ -1,3 +1,30 @@
-<p>
-  detail-certificate works!
-</p>
+<app-navbar></app-navbar>
+
+<app-spinner *ngIf="loanding"></app-spinner>
+
+<div *ngIf="!loanding" class="detalleCertificado">
+  <h3>Certificado {{certificate.alias}}</h3>
+  <label>Alias </label>
+  <a>{{certificate.alias}}</a>
+  <label>Entidad emisora</label>
+  <a>{{certificate.entidad_emisiora}}</a>
+  <label>Num serie</label>
+  <a>{{certificate.numero_de_serie}}</a>
+  <label>Subject</label>
+  <a>{{certificate.subject}}</a>
+  <label>Caducidad</label>
+  <a>{{certificate.caducidad}}</a>
+  <label>Id_orga</label>
+  <a>{{certificate.id_orga}}</a>
+  <label>Nombre cliente</label>
+  <a>{{certificate.nombre_cliente}}</a>
+  <label>Contacto</label>
+  <a>{{certificate.contacto_renovacion}}</a>
+  <label>Repositorio</label>
+  <a>{{certificate.repositorio}}</a>
+  <label>Observaciones</label>
+  <a>{{certificate.observaciones}}</a>
+  <label>Lista de integracion</label>
+  <a>{{certificate.integration_list}}</a>
+
+</div>

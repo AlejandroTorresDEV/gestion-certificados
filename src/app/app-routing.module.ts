@@ -10,6 +10,7 @@ import { CreateCertificateComponent } from './create-certificate/create-certific
 import { ShowCertificatesComponent } from "./show-certificates/show-certificates.component";
 import { CheckRolGuard } from './guards/check-rol.guard';
 import { BoardComponent } from './board/board.component';
+import { DetailCertificateComponent } from './detail-certificate/detail-certificate.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path:'board',
     component: BoardComponent , canActivate : [AuthGuard],
+  },
+  {
+    path:'detail-certificate/:id',
+    component: DetailCertificateComponent , canActivate : [AuthGuard],
   },
   {
     path: '',
