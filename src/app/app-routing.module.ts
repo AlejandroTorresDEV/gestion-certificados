@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CreateCertificateComponent } from './create-certificate/create-certificate.component';
 import { ShowCertificatesComponent } from "./show-certificates/show-certificates.component";
 import { CheckRolGuard } from './guards/check-rol.guard';
+import { BoardComponent } from './board/board.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -27,8 +28,8 @@ const routes: Routes = [
     component: CreateCertificateComponent , canActivate : [AuthGuard,CheckRolGuard],
   },
   {
-    path:'show-certificates',
-    component: ShowCertificatesComponent , canActivate : [AuthGuard],
+    path:'board',
+    component: BoardComponent , canActivate : [AuthGuard],
   },
   {
     path: '',

@@ -1,3 +1,10 @@
-<p>
-  board works!
-</p>
+<app-navbar></app-navbar>
+
+<div class="selectView">
+  <div>
+    <button (click)="activateShowCertificate()">Certificados</button>
+    <button (click)="activateShowUsers()">Usuarios</button>
+  </div>
+</div>
+
+<app-show-certificates *ngIf="showCertificates"></app-show-certificates>

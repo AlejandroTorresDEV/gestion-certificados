@@ -1,0 +1,37 @@
+.grid-container {
+    max-height: 60vh;
+    margin: 0.7em 0.4em 0 0.4em;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+  }
+  
+  .grid-container span {
+    border: 2px solid #98CB00;
+  }
+  
+  .selectView {
+    border-radius: 0.7em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f5f7;
+    width: 55vh;
+    text-align: center;
+    margin: auto;
+    border: solid 3px  #98CB00;
+    margin-top: 1em;
+  }
+  .selectView button{
+    all:unset;
+    padding: 0.4em;
+    font-size: 20px;
+    border-radius: 0.5em;
+    background: #98CB00;
+    font-size: 20px;
+    width: 20vh;
+    margin: 0.5em;
+    color:white;
+  }
+  
