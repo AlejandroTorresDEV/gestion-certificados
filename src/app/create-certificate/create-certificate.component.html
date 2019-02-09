@@ -31,7 +31,7 @@
   </div>
   <div class="form-group">
     <label>ID_ORG</label>
-    <input type="id_orga" formControlName="id_orga" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().id_orga.errors }" />
+    <input type="text" formControlName="id_orga" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().id_orga.errors }" />
     <div *ngIf="submitted && getFormsControls().id_orga.errors" class="invalid-feedback">
       <div *ngIf="getFormsControls().id_orga.errors.required">El ID es necesario</div>
       <div *ngIf="getFormsControls().id_orga.errors.pattern">Solo puede ser un número</div>
@@ -39,35 +39,36 @@
   </div>
   <div class="form-group">
     <label>Nombre cliente</label>
-    <input type="id_orga" formControlName="nombre_cliente" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().nombre_cliente.errors }" />
+    <input type="text" formControlName="nombre_cliente" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().nombre_cliente.errors }" />
     <div *ngIf="submitted && getFormsControls().nombre_cliente.errors" class="invalid-feedback">
       <div *ngIf="getFormsControls().nombre_cliente.errors.required">El nombre del cliente es necesario</div>
     </div>
   </div>
   <div class="form-group">
     <label>Contacto</label>
-    <input type="id_orga" formControlName="contacto_renovacion" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().contacto_renovacion.errors }" />
+    <input type="text" formControlName="contacto_renovacion" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().contacto_renovacion.errors }" />
     <div *ngIf="submitted && getFormsControls().contacto_renovacion.errors" class="invalid-feedback">
       <div *ngIf="getFormsControls().contacto_renovacion.errors.required">El contacto es necesario</div>
     </div>
   </div>
   <div class="form-group">
     <label>Lista de integración</label>
-    <input type="id_orga" formControlName="integration_list" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().integration_list.errors }" />
+    <input type="text" formControlName="integration_list" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().integration_list.errors }" />
     <div *ngIf="submitted && getFormsControls().integration_list.errors" class="invalid-feedback">
       <div *ngIf="getFormsControls().integration_list.errors.required">El contacto es necesario</div>
     </div>
   </div>
   <div class="form-group">
     <label>Repositorio</label>
-    <input type="id_orga" formControlName="repositorio" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().repositorio.errors }" />
+    <input type="text" formControlName="repositorio" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().repositorio.errors }" />
     <div *ngIf="submitted && getFormsControls().repositorio.errors" class="invalid-feedback">
       <div *ngIf="getFormsControls().repositorio.errors.required">El repositorio es necesario</div>
     </div>
   </div>
   <div class="form-group">
     <label>Observaciones</label><br>
-    <textarea cols="60" rows="3"></textarea>
+    <textarea type="text" cols="60" rows="3" id="observaciones" 
+    formControlName="observaciones" class="form-control" [(ngModel)]="observaciones" [ngClass]="{ 'is-invalid': submitted && getFormsControls().observaciones.errors }"></textarea>
   </div>
   <div class="form-group">
     <button class="btn btn-primary">Entrar</button>

@@ -13,6 +13,7 @@ export class CreateCertificateComponent implements OnInit {
   url = "/Users/alejandrotorresruiz/Desktop/certificados/prueba.pfx";
   registerForm: FormGroup;
   submitted = false;
+  observaciones : string = "hola";
 
   constructor(private profileJiraService: ProfileJiraService,private formBuilder: FormBuilder) { }
 
@@ -28,7 +29,7 @@ export class CreateCertificateComponent implements OnInit {
     var file: File = inputValue.files[0];
     var myReader: FileReader = new FileReader();
 
-    myReader.onloadend = (e) => {
+   /* myReader.onloadend = (e) => {
       this.file = myReader.result;
       let fileByte = this.file.split(',')[1];
       //let fileByte = (this.file.replace("data:application/x-pkcs12;base64,",""));
@@ -40,7 +41,7 @@ export class CreateCertificateComponent implements OnInit {
           console.log(error);
         });
     };
-    myReader.readAsDataURL(file);
+    myReader.readAsDataURL(file);*/
   }
 
   getFormsControls(): any {
@@ -52,7 +53,7 @@ export class CreateCertificateComponent implements OnInit {
       fileCertificate: ['', Validators.required],
       alias: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      id_orga: ['', Validators.required, Validators.min(1)],
+      id_orga: ['', Validators.required],
       nombre_cliente: ['', Validators.required],
       contacto_renovacion: ['', Validators.required],
       repositorio: ['', Validators.required],
@@ -62,10 +63,15 @@ export class CreateCertificateComponent implements OnInit {
   }
 
   saveCertificate(){
+    console.log("hola");
+
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;
     }
+
+    console.log("adios");
+    console.log(this.observaciones);
   }
 
 }
