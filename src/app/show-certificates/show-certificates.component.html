@@ -1,11 +1,12 @@
 <div class="selectCertificates">
   <div>
-    <input type="text" placeholder="Busqueda">
-    <select type="text">
-      <option *ngFor="let value of findCertificates" [ngValue]="value.name">{{value.name}}
+    <input type="text" [(ngModel)]="textBusqueda" placeholder="Busqueda">
+    <select type="text"  [(ngModel)]="selectedOption">
+      <option *ngFor="let value of findCertificates" 
+       [ngValue]="value.name">{{value.name}}
       </option>
-    </select>
-    <button>Buscar</button>
+    </select>   
+    <button (click)="findCertificate()" >Buscar</button>
   </div>
 </div>
 <div class="grid-container ">
@@ -15,5 +16,7 @@
   <span (click)="orderContact()"><strong>Id-Org</strong></span>
   <span><strong>Acciones</strong></span>
 </div>
+
+ 
 
 <app-certificates-view [certificates]="certificates"></app-certificates-view>
