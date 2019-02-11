@@ -3,28 +3,34 @@
 <app-spinner *ngIf="loanding"></app-spinner>
 
 <div *ngIf="!loanding" class="detalleCertificado">
-  <h3>Certificado {{certificate.alias}}</h3>
-  <label>Alias </label>
-  <a>{{certificate.alias}}</a>
-  <label>Entidad emisora</label>
-  <a>{{certificate.entidad_emisiora}}</a>
-  <label>Num serie</label>
-  <a>{{certificate.numero_de_serie}}</a>
-  <label>Subject</label>
-  <a>{{certificate.subject}}</a>
-  <label>Caducidad</label>
-  <a>{{certificate.caducidad}}</a>
-  <label>Id_orga</label>
-  <a>{{certificate.id_orga}}</a>
-  <label>Nombre cliente</label>
-  <a>{{certificate.nombre_cliente}}</a>
-  <label>Contacto</label>
-  <a>{{certificate.contacto_renovacion}}</a>
-  <label>Repositorio</label>
-  <a>{{certificate.repositorio}}</a>
-  <label>Observaciones</label>
-  <a>{{certificate.observaciones}}</a>
-  <label>Lista de integracion</label>
-  <a>{{certificate.integration_list}}</a>
-
+  <div class="row2">
+    <h4>Datos publicos certificado</h4>
+    <br>
+    <label>Alias </label>
+    <p>{{certificate.alias}}</p>
+    <label>Id_orga</label>
+    <p>{{certificate.id_orga}}</p>
+    <label>Nombre cliente</label>
+    <p>{{certificate.nombre_cliente}}</p>
+    <label>Contacto</label>
+    <p>{{certificate.contacto_renovacion}}</p>
+    <label>Repositorio</label><br>
+    <p>{{certificate.repositorio}}</p>
+    <label>Observaciones</label>
+    <p>{{certificate.observaciones}}</p>
+    <label>Lista de integracion</label>
+    <p>{{certificate.integration_list}}</p>
+  </div>
+  <div class="row1">
+      <h4>Datos privados certificado</h4>
+      <br>
+      <label>Entidad emisora</label>
+      <p>{{certificate.entidad_emisiora}}</p>
+      <label>Num serie</label>
+      <p>{{certificate.numero_de_serie}}</p>
+      <label>Subject</label>
+      <p>{{certificate.subject}}</p>
+      <label>Caducidad</label>
+      <p>{{certificate.caducidad}}</p>
+    </div>
 </div>

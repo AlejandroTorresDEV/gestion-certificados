@@ -1,25 +1,93 @@
 h3 {
-    font-weight: bold;
-    font-size: 22px;
-    color: #98CB00;
-    text-align: center;
-  }
-
-label{
-    margin: 0.5em;
+  font-weight: bold;
+  font-size: 22px;
+  color: #98CB00;
+  text-align: center;
 }
 
-.detalleCertificado{
+label {
+  font-size: 19px;
+  font-weight: bold;
+  margin: 0.2em;
+  border-bottom: solid 2px #98CB00;
+}
+
+p {
+  padding: 0.2em;
+}
+
+.row1 {
+  text-align: center;
+  width: 60vh;
+  word-wrap: break-word;
+}
+
+.row2 {
+  text-align: center;
+  width: 60vh;
+  word-wrap: break-word;
+}
+
+.detalleCertificado {
+  border-radius: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #f4f5f7;
+  max-width: 130vh;
+  margin: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border: solid 3px #98CB00;
+}
+
+@media (max-width : 820px) {
+  .detalleCertificado {
+    border-radius: 2em;
+    display: flex;
+    margin-top: 2em;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f5f7;
+    width: 85vh;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    border: solid 3px #98CB00;
+  }
+
+  label {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width : 540px) {
+  .detalleCertificado {
     border-radius: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #f4f5f7;
-    width: 90vh;
+    width: 60vh;
     margin: auto;
     text-align: center;
     font-size: 15px;
     margin-bottom: 3em;
     margin-top: 2em;
-    border: solid 3px  #98CB00;
+    margin-bottom: 2em;
+    border: solid 3px #98CB00;
+  }
+
+  label {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 11px;
+  }
 }
