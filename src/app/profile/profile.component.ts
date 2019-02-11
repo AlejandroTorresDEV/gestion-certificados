@@ -13,8 +13,8 @@ export class ProfileComponent implements OnInit {
   username : string;
   password : string;
   url: string;
-  proyecto: string;
-  issue: string;
+  proyecto: string = "SIT";
+  issue: string = "Explotación";
   componente: string;
   successSave :boolean;
   errorSave : boolean;
@@ -121,6 +121,7 @@ export class ProfileComponent implements OnInit {
       url: ['', Validators.required],
       proyecto: ['', Validators.required],
       componente: ['', Validators.required],
+      issue : ['', Validators.required]
     });
   }
 

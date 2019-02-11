@@ -9,6 +9,13 @@ export class ShowCertificatesComponent implements OnInit {
 
   certificates : any;
 
+  findCertificates = [
+    {name : "Alias"},
+    {name: "Subject"},
+    {name: "Caducidad"},
+    {name: "Id-Org"}
+  ];
+
   constructor(private certificateService : CertificateService) { }
 
   ngOnInit() {

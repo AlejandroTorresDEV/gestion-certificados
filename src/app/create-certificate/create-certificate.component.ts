@@ -10,15 +10,19 @@ import { Certificates } from '../interfaces/Certificates';
 })
 export class CreateCertificateComponent implements OnInit {
 
+  observaciones : string;
+  loanding: boolean;
+
+  //Variables para manejar el fichero del certificado
   file;
   fileByte;
   rutaFichero;
 
+  //Varables para el formulario.
   registerForm: FormGroup;
   submitted = false;
-  observaciones : string;
-  loanding: boolean;
 
+  //Varaibles para el manejo de errores
   SuccesSave : boolean;
   ServerError :boolean;
   BadAtributtes :boolean;
@@ -36,22 +40,26 @@ export class CreateCertificateComponent implements OnInit {
     this.BadAtributtes = false;
   }
 
+  //Capturamos el evento del input file para recoger los datos del usuario.
   changeListener($event): void {
     this.readThis($event.target);
   }
 
+  //Método para leer los datos del certificado
   readThis(inputValue: any): void {
     var file: File = inputValue.files[0];
     var myReader: FileReader = new FileReader();
 
+    //Obtenemos el nombre del fichero.
     this.rutaFichero = file.name;
     
+    myReader.readAsDataURL(file);
+
+    //Obtenemos el certificado como bytes.
     myReader.onloadend = (e) => {
       this.file = myReader.result;
       this.fileByte = this.file.split(',')[1];
-      console.log(this.fileByte)
     };
-    myReader.readAsDataURL(file);
   }
 
   getFormsControls(): any {

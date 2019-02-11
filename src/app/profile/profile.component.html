@@ -36,12 +36,20 @@
     </div>
     <div class="form-group">
       <label>Proyecto</label><br>
-      <input type="text" formControlName="proyecto" [(ngModel)]="proyecto" class="form-control"
+      <input type="text" formControlName="proyecto" [(ngModel)]="proyecto" [readonly]="true" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && getFormsControls().proyecto.errors }" />
       <div *ngIf="submitted && getFormsControls().proyecto.errors" class="invalid-feedback">
         <div *ngIf="getFormsControls().proyecto.errors.required">Nombre del proyecto es necesario</div>
       </div>
     </div>
+    <div class="form-group">
+        <label>Issue</label><br>
+        <input type="text" formControlName="issue" [(ngModel)]="issue" [readonly]="true" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && getFormsControls().issue.errors }" />
+        <div *ngIf="submitted && getFormsControls().issue.errors" class="invalid-feedback">
+          <div *ngIf="getFormsControls().issue.errors.required">Issue es necesario</div>
+        </div>
+      </div>
     <div class="form-group">
       <label>Componente</label><br>
       <input type="text" formControlName="componente" [(ngModel)]="componente" class="form-control"
@@ -88,12 +96,20 @@
     </div>
     <div class="form-group">
       <label>Proyecto</label><br>
-      <input type="text" formControlName="proyecto" [(ngModel)]="proyecto" [readonly]="!editing" class="form-control"
+      <input type="text" formControlName="proyecto" [(ngModel)]="proyecto" [readonly]="true" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && getFormsControls().proyecto.errors }" />
       <div *ngIf="submitted && getFormsControls().proyecto.errors" class="invalid-feedback">
         <div *ngIf="getFormsControls().proyecto.errors.required">Username is necesario</div>
       </div>
     </div>
+    <div class="form-group">
+        <label>Issue</label><br>
+        <input type="text" formControlName="issue" [(ngModel)]="issue" [readonly]="true" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && getFormsControls().issue.errors }" />
+        <div *ngIf="submitted && getFormsControls().issue.errors" class="invalid-feedback">
+          <div *ngIf="getFormsControls().issue.errors.required">Issue es necesario</div>
+        </div>
+      </div>
     <div class="form-group">
       <label>Componente</label><br>
       <input type="text" formControlName="componente" [(ngModel)]="componente" [readonly]="!editing" class="form-control"

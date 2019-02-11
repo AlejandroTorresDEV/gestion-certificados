@@ -2,7 +2,7 @@
   <div>
     <input type="text" placeholder="Busqueda">
     <select type="text">
-      <option *ngFor="let certificate of certificates" [ngValue]="certificate.alias">{{certificate.alias}}
+      <option *ngFor="let value of findCertificates" [ngValue]="value.name">{{value.name}}
       </option>
     </select>
     <button>Buscar</button>
