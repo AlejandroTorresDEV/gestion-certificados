@@ -7,10 +7,12 @@ import { Certificate } from 'crypto';
   styleUrls: ['./show-certificates.component.css']
 })
 export class ShowCertificatesComponent implements OnInit {
-  selectedOption: string;
-  option: string;
+  
   certificates : any;
   copyDataCertificates = this.certificates;
+
+  selectedOption: string;
+  option: string;
   textBusqueda :string;
 
   findCertificates = [
@@ -19,6 +21,11 @@ export class ShowCertificatesComponent implements OnInit {
     {name: "Id-Org"}
   ];
 
+  orderBooleanAlias : boolean;
+  orderBooleanSubject : boolean;
+  orderBooleanDate : boolean;
+  orderBooleanContact : boolean;
+
   constructor(private certificateService : CertificateService) { }
 
   ngOnInit() {
@@ -26,7 +33,7 @@ export class ShowCertificatesComponent implements OnInit {
     this.selectedOption = this.findCertificates[0].name;
   }
 
-
+  //Método para buscar certificado por filtro
   findCertificate(){
 
     this.option = this.selectedOption;
@@ -70,25 +77,58 @@ export class ShowCertificatesComponent implements OnInit {
   }
 
   orderAlias(){
-    this.certificates = this.certificates.sort((a,b) =>
+    if(this.orderBooleanAlias){
+      this.orderBooleanAlias = false;
+      this.certificates = this.certificates.sort((a,b) =>
       a.alias > b.alias ? 1 : -1
-    );
+      );
+    }else{
+      this.orderBooleanAlias = true;
+      this.certificates = this.certificates.sort((a,b) =>
+        a.alias < b.alias ? 1 : -1
+        );
+    }
   }
+
   orderSubject(){
-    this.certificates = this.certificates.sort((a,b) =>
-      a.subject > b.subject ? 1 : -1
-    );
+    if(this.orderBooleanSubject){
+      this.orderBooleanSubject = false;
+      this.certificates = this.certificates.sort((a,b) =>
+      a.Subject > b.Subject ? 1 : -1
+      );
+    }else{
+      this.orderBooleanSubject = true;
+      this.certificates = this.certificates.sort((a,b) =>
+        a.Subject < b.Subject ? 1 : -1
+        );
+    }
   }
 
   orderDate(){
-    this.certificates = this.certificates.sort((a,b) =>
-      a.caducidad.split("T")[0] > b.caducidad.split("T")[0] ? 1 : -1
-    );
+    if(this.orderBooleanDate){
+      this.orderBooleanDate = false;
+      this.certificates = this.certificates.sort((a,b) =>
+      a.caducidad > b.caducidad ? 1 : -1
+      );
+    }else{
+      this.orderBooleanDate = true;
+      this.certificates = this.certificates.sort((a,b) =>
+        a.caducidad < b.caducidad ? 1 : -1
+        );
+    }
   }
 
   orderContact(){
-    this.certificates = this.certificates.sort((a,b) =>
-    a.contacto > b.contacto ? 1 : -1
-  );
+    if(this.orderBooleanContact){
+      this.orderBooleanContact = false;
+      this.certificates = this.certificates.sort((a,b) =>
+      a.id_orga > b.id_orga ? 1 : -1
+      );
+    }else{
+      this.orderBooleanContact = true;
+      this.certificates = this.certificates.sort((a,b) =>
+        a.id_orga < b.id_orga ? 1 : -1
+        );
+    }
   }
 }
