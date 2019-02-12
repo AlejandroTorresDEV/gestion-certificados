@@ -5,12 +5,12 @@
 </div>
 
 <!--Formulario de creacion de certificados-->
-<form class="formulario" [formGroup]="registerForm" (ngSubmit)="updateCertificate()">
+<form *ngIf="!loanding" class="formulario" [formGroup]="registerForm" (ngSubmit)="updateCertificate()">
   <h3>Actualizar certificado</h3>
   <br>
   <div class="form-group">
     <label>Certificado</label>
-    <input type="file" accept=".p12,.pfx" (change)="changeListener($event)" formControlName="fileCertificate" class="form-control"
+    <input type="file" accept=".p12,.pfx,.crt" (change)="changeListener($event)" formControlName="fileCertificate" class="form-control"
       [ngClass]="{ 'is-invalid': submitted && getFormsControls().fileCertificate.errors }" />
     <div *ngIf="submitted && getFormsControls().fileCertificate.errors" class="invalid-feedback">
       <div *ngIf="getFormsControls().fileCertificate.errors.required">El certificado es necesario</div>

@@ -19,17 +19,14 @@ export class CertificateService {
   }
 
   deleteCertificate(certificado){
-    console.log(certificado);
     return this.http.put('/api/certificate/'+certificado.id,certificado).toPromise();
   }
 
-  activateCertificate(certificado){
-    console.log(certificado);
-    return this.http.put('/api/certificate/'+certificado.id,certificado).toPromise();
+  activateCertificate(certificado,accion){
+    return this.http.put('/api/certificate/'+accion,certificado).toPromise();
   }
 
   saveCertificates(certificate){
-    console.log(certificate);
     return this.http.post('/api/certificate',certificate).toPromise();
   }
 }

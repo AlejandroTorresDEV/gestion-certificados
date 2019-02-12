@@ -12,7 +12,6 @@ import { Certificates } from '../interfaces/Certificates';
 })
 export class UpdateCertificateComponent implements OnInit {
 
-
   //Variables para manejar el fichero del certificado
   file;
   fileByte;
@@ -20,6 +19,7 @@ export class UpdateCertificateComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
+  accion : Number;
 
   certificate: any;
   idCertificado;
@@ -39,6 +39,7 @@ export class UpdateCertificateComponent implements OnInit {
   }
   ngOnInit() {
     this.loanding = false;
+    this.accion = 0;
     this.getCertificate();
     this.generateCertificateFormModel();
   }
@@ -50,6 +51,7 @@ export class UpdateCertificateComponent implements OnInit {
 
   //Método para leer los datos del certificado
   readThis(inputValue: any): void {
+    this.accion = 1;
     var file: File = inputValue.files[0];
     var myReader: FileReader = new FileReader();
 
@@ -80,7 +82,6 @@ export class UpdateCertificateComponent implements OnInit {
       this.repositorio = this.certificate.repositorio;
       this.observaciones = this.certificate.observaciones;
       this.loanding = false;
-      console.log(this.certificate)
     })
       .catch(error => {
         this.loanding = false;
@@ -96,7 +97,7 @@ export class UpdateCertificateComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       fileCertificate: [''],
       alias: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
       id_orga: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       nombre_cliente: ['', Validators.required],
       contacto_renovacion: ['', Validators.required],
@@ -131,7 +132,15 @@ export class UpdateCertificateComponent implements OnInit {
       nombreFichero : this.rutaFichero
     }
     this.loanding = true;
-    console.log(certificatePut);
-    this.certificateService.activateCertificate(certificatePut)
+    this.certificateService.activateCertificate(certificatePut,this.accion).then(
+      (res: { statusCode: number}) => {
+      console.log(res);
+      this.loanding = false;
+
+    })
+    .catch((error: { statusCode: number}) => {
+      console.log(error);
+      this.loanding = false;
+    });;
   }
 }

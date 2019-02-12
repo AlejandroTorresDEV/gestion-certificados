@@ -70,7 +70,7 @@ export class CreateCertificateComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       fileCertificate: ['', Validators.required],
       alias: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(1)]],
       id_orga: ['',  [Validators.required,Validators.pattern("^[0-9]*$")]],
       nombre_cliente: ['', Validators.required],
       contacto_renovacion: ['', Validators.required],
