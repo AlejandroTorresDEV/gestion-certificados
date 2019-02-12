@@ -19,8 +19,7 @@ export class ProfileJiraService {
   constructor(private http: HttpClient, private router: Router) {}
 
   saveUserJira(body: Jira): any {
-    console.log("hola");
-    return this.http.post('/api/jira', body).toPromise();
+    return this.http.post('/api/jira', body, this.httpOptions).toPromise();
   }
 
   getUserJira(id): any {
@@ -34,7 +33,7 @@ export class ProfileJiraService {
   }
 
   updateUserJira(id, body: Jira) {
-    return this.http.put('/api/jira/' + body.id, body).toPromise();
+    return this.http.put('/api/jira/' + body.id, body, this.httpOptions).toPromise();
   }
   
 }
