@@ -19,7 +19,10 @@ export class ShowCertificatesComponent implements OnInit {
   findCertificates = [
     {name : "Alias"},
     {name: "Caducidad"},
-    {name: "Id-Org"}
+    {name: "Id-Org"},
+    {name: "Eliminados"},
+    {name: "No-Eliminados"}
+
   ];
 
   orderBooleanAlias : boolean;
@@ -60,6 +63,20 @@ export class ShowCertificatesComponent implements OnInit {
       case "Id-Org" : {
         const result = this.copyDataCertificates.filter(
           certificate => certificate.id_orga.includes(this.textBusqueda));
+        this.certificates = result;
+        break;
+      }
+
+      case "Eliminados" : {
+        const result = this.copyDataCertificates.filter(
+          certificate => certificate.eliminado === true);
+        this.certificates = result;
+        break;
+      }
+
+      case "No-Eliminados" : {
+        const result = this.copyDataCertificates.filter(
+          certificate => certificate.eliminado === false);
         this.certificates = result;
         break;
       }

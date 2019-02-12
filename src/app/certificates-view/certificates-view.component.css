@@ -65,12 +65,14 @@
  .scrollItemGrid{
    word-wrap: break-word;
     overflow-x: scroll;
+    border-bottom: solid 3px #98CB00;
     background-color: white;
  }
 
  .scrollItemGridComplete{
   word-wrap: break-word;
    overflow-x: scroll;
+   border-bottom: solid 3px #98CB00;
    background-color:whitesmoke;
    opacity:0.8;
   }
@@ -84,6 +86,6 @@
   }
 
   i{
-    font-size: 20px;
+    font-size: 18px;
   }
 }
