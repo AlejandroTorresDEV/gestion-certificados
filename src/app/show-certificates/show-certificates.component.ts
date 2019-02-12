@@ -10,6 +10,8 @@ export class ShowCertificatesComponent implements OnInit {
   certificates : any;
   copyDataCertificates = this.certificates;
 
+  loanding: boolean;
+
   selectedOption: string;
   option: string;
   textBusqueda :string;
@@ -34,7 +36,6 @@ export class ShowCertificatesComponent implements OnInit {
 
   //Método para buscar certificado por filtro
   findCertificate(){
-
     this.option = this.selectedOption;
     if(this.copyDataCertificates == null){
       this.copyDataCertificates = this.certificates;
@@ -66,12 +67,13 @@ export class ShowCertificatesComponent implements OnInit {
   }
 
   getAllCertificates(){
+    this.loanding = true;
     this.certificateService.getAllCertificates().then(res => {
       this.certificates = res;
-      console.log(res);
+      this.loanding = false;
     })
     .catch(error => {
-      console.log(error);
+      this.loanding = false;
     });
   }
 

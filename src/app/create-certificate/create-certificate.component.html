@@ -1,8 +1,7 @@
 <app-navbar></app-navbar>
 
-<div class="spinnerImg" *ngIf="loanding" class="spinnerImg">
-  <img src="assets/spinner.gif" />
-</div>
+<!--Imagen spinner de carga-->
+<app-spinner *ngIf="loanding"></app-spinner>
 
 <!--Formulario de creacion de certificados-->
 <form class="formulario" [formGroup]="registerForm" (ngSubmit)="saveCertificate()">
