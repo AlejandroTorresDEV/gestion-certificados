@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CertificateService} from '../services/certificate.service'
+import { Certificates } from '../interfaces/Certificates';
 @Component({
   selector: 'app-show-certificates',
   templateUrl: './show-certificates.component.html',
@@ -8,6 +9,7 @@ import {CertificateService} from '../services/certificate.service'
 export class ShowCertificatesComponent implements OnInit {
   
   certificates : any;
+  certificatesCaducado : Certificates[] = [];
   copyDataCertificates = this.certificates;
 
   loanding: boolean;
@@ -87,10 +89,22 @@ export class ShowCertificatesComponent implements OnInit {
     this.certificateService.getAllCertificates().then(res => {
       this.certificates = res;
       this.loanding = false;
+      this.getAllCertificatesCaducade();
     })
     .catch(() => {
       this.loanding = false;
     });
+  }
+
+  getAllCertificatesCaducade(){
+    for(let certi of this.certificates){
+        if(certi.caducado){
+          this.certificatesCaducado.push(certi);
+          console.log(certi.alias);
+        }
+    }
+    console.log("Pos vaya");
+    console.log(this.certificatesCaducado);
   }
 
   orderAlias(){
