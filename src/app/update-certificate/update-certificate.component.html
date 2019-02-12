@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+
+<div class="spinnerImg" *ngIf="loanding" class="spinnerImg">
+  <img src="assets/spinner.gif" />
+</div>
+
+<!--Formulario de creacion de certificados-->
+<form class="formulario" [formGroup]="registerForm" (ngSubmit)="updateCertificate()">
+  <h3>Actualizar certificado</h3>
+  <br>
+  <div class="form-group">
+    <label>Certificado</label>
+    <input type="file" accept=".p12,.pfx" (change)="changeListener($event)" formControlName="fileCertificate" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && getFormsControls().fileCertificate.errors }" />
+    <div *ngIf="submitted && getFormsControls().fileCertificate.errors" class="invalid-feedback">
+      <div *ngIf="getFormsControls().fileCertificate.errors.required">El certificado es necesario</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Alias</label>
+    <input type="text" formControlName="alias" [(ngModel)]="alias" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().alias.errors }" />
+    <div *ngIf="submitted && getFormsControls().alias.errors" class="invalid-feedback">
+      <div *ngIf="getFormsControls().alias.errors.required">El alias es necesario</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" formControlName="password" [(ngModel)]="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().password.errors }" />
+    <div *ngIf="submitted && getFormsControls().password.errors" class="invalid-feedback">
+      <div *ngIf="getFormsControls().password.errors.required">Contraseña es necesaria</div>
+      <div *ngIf="getFormsControls().password.errors.minlength">El tamaño minimo es de 6</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>ID_ORG</label>
+    <input type="text" formControlName="id_orga" [(ngModel)]="id_orga"  class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().id_orga.errors }" />
+    <div *ngIf="submitted && getFormsControls().id_orga.errors" class="invalid-feedback">
+      <div *ngIf="getFormsControls().id_orga.errors.required">El ID es necesario</div>
+      <div *ngIf="getFormsControls().id_orga.errors.pattern">Solo puede ser un número</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Nombre cliente</label>
+    <input type="text" formControlName="nombre_cliente" [(ngModel)]="nombre_cliente"  class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().nombre_cliente.errors }" />
+    <div *ngIf="submitted && getFormsControls().nombre_cliente.errors" class="invalid-feedback">
+      <div *ngIf="getFormsControls().nombre_cliente.errors.required">El nombre del cliente es necesario</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Contacto</label>
+    <input type="text" formControlName="contacto_renovacion" [(ngModel)]="contacto"  class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().contacto_renovacion.errors }" />
+    <div *ngIf="submitted && getFormsControls().contacto_renovacion.errors" class="invalid-feedback">
+      <div *ngIf="getFormsControls().contacto_renovacion.errors.required">El contacto es necesario</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Lista de integración</label>
+    <input type="text" formControlName="integration_list" [(ngModel)]="lista_integracion"  class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().integration_list.errors }" />
+    <div *ngIf="submitted && getFormsControls().integration_list.errors" class="invalid-feedback">
+      <div *ngIf="getFormsControls().integration_list.errors.required">El contacto es necesario</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Repositorio</label>
+    <input type="text" formControlName="repositorio" [(ngModel)]="repositorio"  class="form-control" [ngClass]="{ 'is-invalid': submitted && getFormsControls().repositorio.errors }" />
+    <div *ngIf="submitted && getFormsControls().repositorio.errors" class="invalid-feedback">
+      <div *ngIf="getFormsControls().repositorio.errors.required">El repositorio es necesario</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Observaciones</label><br>
+    <textarea type="text" [(ngModel)]="observaciones" cols="60" rows="3" id="observaciones" 
+    formControlName="observaciones" class="form-control" [(ngModel)]="observaciones" [ngClass]="{ 'is-invalid': submitted && getFormsControls().observaciones.errors }"></textarea>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary">Entrar</button>
+  </div>
+</form>
+
+<!--Mensajes de información al usuario-->
+<div *ngIf="!loanding">
+    <app-show-messages *ngIf="SuccesSave" [mens]="mensaggeSuccesSave"></app-show-messages>
+  <app-show-messages *ngIf="ServerError" [mens]="mensaggeErrorServer"></app-show-messages>
+  <app-show-messages *ngIf="BadAtributtes" [mens]="mensaggeBadAtributtes"></app-show-messages>
+</div>

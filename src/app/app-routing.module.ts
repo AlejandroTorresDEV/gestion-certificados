@@ -11,6 +11,7 @@ import { ShowCertificatesComponent } from "./show-certificates/show-certificates
 import { CheckRolGuard } from './guards/check-rol.guard';
 import { BoardComponent } from './board/board.component';
 import { DetailCertificateComponent } from './detail-certificate/detail-certificate.component';
+import { UpdateCertificateComponent } from './update-certificate/update-certificate.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path:'detail-certificate/:id',
     component: DetailCertificateComponent , canActivate : [AuthGuard],
+  },
+  {
+    path:'update-certificate/:id',
+    component: UpdateCertificateComponent , canActivate : [AuthGuard],
   },
   {
     path: '',

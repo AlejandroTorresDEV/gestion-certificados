@@ -18,6 +18,7 @@ import { ShowCertificatesComponent } from './show-certificates/show-certificates
 import { ShowMessagesComponent } from './show-messages/show-messages.component';
 import { BoardComponent } from './board/board.component';
 import { DetailCertificateComponent } from './detail-certificate/detail-certificate.component';
+import { UpdateCertificateComponent } from './update-certificate/update-certificate.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { DetailCertificateComponent } from './detail-certificate/detail-certific
     ShowMessagesComponent,
     BoardComponent,
     DetailCertificateComponent,
+    UpdateCertificateComponent,
   ],
   imports: [
     BrowserModule,

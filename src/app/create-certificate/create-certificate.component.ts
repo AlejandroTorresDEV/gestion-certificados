@@ -71,7 +71,7 @@ export class CreateCertificateComponent implements OnInit {
       fileCertificate: ['', Validators.required],
       alias: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      id_orga: ['', Validators.required],
+      id_orga: ['',  [Validators.required,Validators.pattern("^[0-9]*$")]],
       nombre_cliente: ['', Validators.required],
       contacto_renovacion: ['', Validators.required],
       repositorio: ['', Validators.required],

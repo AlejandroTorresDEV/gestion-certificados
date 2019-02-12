@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {CertificateService} from '../services/certificate.service'
-import { Certificate } from 'crypto';
 @Component({
   selector: 'app-show-certificates',
   templateUrl: './show-certificates.component.html',

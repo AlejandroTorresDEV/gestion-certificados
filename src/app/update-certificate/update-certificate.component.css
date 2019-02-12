@@ -1,0 +1,86 @@
+form {
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f5f7;
+    width: 60vh;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 2em;
+    margin-bottom: 3em;
+    margin-top: 2em;
+    border: solid 3px  #98CB00;
+  }
+  
+  textarea{
+    margin-top: 1em;
+    max-width :50vh;
+    max-height :10vh;
+  }
+  
+  .labelInputFile {
+    cursor: pointer;
+  }
+  
+  #upload-photo {
+    width: 10vh;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .alert {
+    margin: 1em;
+  }
+  
+  .spinnerImg {
+    padding-top: 10em;
+    text-align: center;
+  }
+  
+  
+  h5 {
+    font-weight: bold;
+    font-size: 22px;
+    color: #98CB00;
+    text-align: center;
+  }
+  
+  button {
+    all: unset;
+    background: #98CB00;
+    border-radius: 1em;
+    flex-direction: column;
+    padding: 0.5em;
+    text-align: center;
+    width: 20vh;
+    align-content: center;
+    margin: 1em 0;
+    cursor: pointer;
+    color: antiquewhite;
+  }
+  
+  input {
+    all: unset;
+    border-bottom: 1px solid gray;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    width: 50vh;
+    padding: 0.5em;
+    display: block;
+    text-align: center;
+  }
+  
+  .inputs {
+    padding-top: 0.5em;
+  }
+  
+  
+  .invalid-feedback{
+    color:red;
+  }
+  
+  .container {
+    background-color: red;
+  }

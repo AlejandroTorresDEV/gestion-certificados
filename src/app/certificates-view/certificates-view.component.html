@@ -8,7 +8,7 @@
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">
         <i *ngIf="isAdmin && !certificado.eliminado" (click)="deleteCertificate(certificado)" class="material-icons">delete</i>
         <i *ngIf="isAdmin && certificado.eliminado" (click)="activateCertificate(certificado)"  class="material-icons">check</i>
-        <i *ngIf="isAdmin"  class="material-icons">refresh</i>
+        <i *ngIf="isAdmin"  (click)="updateCertificate(certificado)"  class="material-icons">refresh</i>
         <i class="material-icons" (click)="redirectDetailComponent(certificado.id)" >search</i>
         <i class="material-icons" (click)="dowloadFile(certificado.nombreFichero,certificado.base64String)">save</i>
       </span>
