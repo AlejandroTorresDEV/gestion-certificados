@@ -102,7 +102,9 @@ export class CreateCertificateComponent implements OnInit {
       integration_list: this.registerForm.value.integration_list,
       base64String: this.fileByte,
       eliminado : false,
-      nombreFichero : this.rutaFichero
+      nombreFichero : this.rutaFichero,
+      caducado : false,
+      subido : false
     }
     this.loanding = true;
     this.certificateService.saveCertificates(certificate)

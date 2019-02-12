@@ -33,6 +33,8 @@ export class UpdateCertificateComponent implements OnInit {
   lista_integracion: string;
   repositorio: string;
   observaciones: string;
+  caducado : boolean;
+  subido : boolean;
 
   //Varaibles para el manejo de errores
   SuccesSave : boolean;
@@ -93,6 +95,8 @@ export class UpdateCertificateComponent implements OnInit {
       this.lista_integracion = this.certificate.integration_list;
       this.repositorio = this.certificate.repositorio;
       this.observaciones = this.certificate.observaciones;
+      this.caducado = this.certificate.caducado;
+      this.subido = this.certificate.subido;
       this.loanding = false;
     }).catch(error => {
         this.loanding = false;
@@ -139,7 +143,9 @@ export class UpdateCertificateComponent implements OnInit {
       integration_list: this.registerForm.value.integration_list,
       base64String: this.fileByte,
       eliminado : this.certificate.eliminado,
-      nombreFichero : this.rutaFichero
+      nombreFichero : this.rutaFichero,
+      caducado : this.caducado,
+      subido : this.subido
     }
     this.loanding = true;
     this.certificateService.activateCertificate(certificatePut,this.accion).then(
