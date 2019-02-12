@@ -19,6 +19,13 @@ import { ShowMessagesComponent } from './show-messages/show-messages.component';
 import { BoardComponent } from './board/board.component';
 import { DetailCertificateComponent } from './detail-certificate/detail-certificate.component';
 import { UpdateCertificateComponent } from './update-certificate/update-certificate.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatIconModule
+} from '@angular/material';
+import { JiraCertificatesComponent } from './jira-certificates/jira-certificates.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +44,7 @@ import { UpdateCertificateComponent } from './update-certificate/update-certific
     BoardComponent,
     DetailCertificateComponent,
     UpdateCertificateComponent,
+    JiraCertificatesComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,11 @@ import { UpdateCertificateComponent } from './update-certificate/update-certific
     HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
-    AngularFileUploaderModule
+    AngularFileUploaderModule,
+    BrowserAnimationsModule, 
+    MatToolbarModule, 
+    MatButtonModule, 
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

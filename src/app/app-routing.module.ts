@@ -12,6 +12,7 @@ import { CheckRolGuard } from './guards/check-rol.guard';
 import { BoardComponent } from './board/board.component';
 import { DetailCertificateComponent } from './detail-certificate/detail-certificate.component';
 import { UpdateCertificateComponent } from './update-certificate/update-certificate.component';
+import { JiraCertificatesComponent } from './jira-certificates/jira-certificates.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path:'board',
     component: BoardComponent , canActivate : [AuthGuard],
+  },
+  {
+    path:'jira-certificate',
+    component: JiraCertificatesComponent , canActivate : [AuthGuard],
   },
   {
     path:'detail-certificate/:id',

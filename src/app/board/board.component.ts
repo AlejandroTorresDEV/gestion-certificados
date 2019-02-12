@@ -9,9 +9,20 @@ export class BoardComponent implements OnInit {
     
   showUsers : boolean;
   showCertificates : boolean;
+  badgeCount: number;
 
-  constructor() { }
+  constructor() {
+    this.badgeCount = 5;
+   }
 
+   incrementCount() {
+    this.badgeCount++;
+  }
+
+  clearCount() {
+    this.badgeCount = 0;
+  } 
+  
   ngOnInit() {
     this.showUsers = false;
     this.showCertificates = true;

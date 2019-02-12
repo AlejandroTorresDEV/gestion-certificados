@@ -23,14 +23,5 @@
     border: solid 3px  #98CB00;
     margin-top: 1em;
   }
-  .selectView button{
-    all:unset;
-    font-size: 15px;
-    border-radius: 0.5em;
-    background: #98CB00;
-    font-size: 20px;
-    width: 20vh;
-    margin: 0.5em;
-    color:white;
-  }
+  
   

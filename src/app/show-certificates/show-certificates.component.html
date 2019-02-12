@@ -1,3 +1,4 @@
+
 <div class="selectCertificates">
   <div>
     <input type="text" [(ngModel)]="textBusqueda" placeholder="Busqueda">
@@ -6,7 +7,11 @@
        [ngValue]="value.name">{{value.name}}
       </option>
     </select>   
-    <button (click)="findCertificate()" >Buscar</button>
+    <button class="buttonSearch"  (click)="findCertificate()" >Buscar</button>
+    <button mat-icon-button (click)="redirectCaducadosCertificates()">
+        <mat-icon class="icon">notifications</mat-icon>
+        <span class="badge" *ngIf="badgeCount > 0">{{badgeCount}}</span>
+      </button>
   </div>
 </div>
 <div class="grid-container ">

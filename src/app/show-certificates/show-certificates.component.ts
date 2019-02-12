@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CertificateService} from '../services/certificate.service'
 import { Certificates } from '../interfaces/Certificates';
+import { CanActivate,Router} from '@angular/router';
+
 @Component({
   selector: 'app-show-certificates',
   templateUrl: './show-certificates.component.html',
@@ -13,6 +15,7 @@ export class ShowCertificatesComponent implements OnInit {
   copyDataCertificates = this.certificates;
 
   loanding: boolean;
+  badgeCount: number;
 
   selectedOption: string;
   option: string;
@@ -31,7 +34,7 @@ export class ShowCertificatesComponent implements OnInit {
   orderBooleanDate : boolean;
   orderBooleanContact : boolean;
 
-  constructor(private certificateService : CertificateService) { }
+  constructor(private router: Router ,private certificateService : CertificateService) { }
 
   ngOnInit() {
     this.getAllCertificates();
@@ -103,8 +106,7 @@ export class ShowCertificatesComponent implements OnInit {
           console.log(certi.alias);
         }
     }
-    console.log("Pos vaya");
-    console.log(this.certificatesCaducado);
+    this.badgeCount = this.certificatesCaducado.length;
   }
 
   orderAlias(){
@@ -133,6 +135,10 @@ export class ShowCertificatesComponent implements OnInit {
         a.Subject < b.Subject ? 1 : -1
         );
     }
+  }
+
+  redirectCaducadosCertificates(){
+    this.router.navigate(['/jira-certificate']);
   }
 
   orderDate(){
