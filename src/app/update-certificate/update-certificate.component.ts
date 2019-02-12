@@ -34,12 +34,24 @@ export class UpdateCertificateComponent implements OnInit {
   repositorio: string;
   observaciones: string;
 
+  //Varaibles para el manejo de errores
+  SuccesSave : boolean;
+  ServerError :boolean;
+  BadAtributtes :boolean;
+
+  mensaggeSuccesSave = "Certificado actualizado correctamente";
+  mensaggeErrorServer = "Error de conexión con el servidor";
+  mensaggeBadAtributtes = "El certificado no es valido";
+
   constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private certificateService: CertificateService) {
     this.idCertificado = this.route.snapshot.paramMap.get('id');
   }
   ngOnInit() {
-    this.loanding = false;
     this.accion = 0;
+    this.loanding = false;
+    this.SuccesSave = false;
+    this.ServerError = false;
+    this.BadAtributtes = false;
     this.getCertificate();
     this.generateCertificateFormModel();
   }
@@ -82,8 +94,7 @@ export class UpdateCertificateComponent implements OnInit {
       this.repositorio = this.certificate.repositorio;
       this.observaciones = this.certificate.observaciones;
       this.loanding = false;
-    })
-      .catch(error => {
+    }).catch(error => {
         this.loanding = false;
         console.log(error);
       });;
@@ -95,7 +106,6 @@ export class UpdateCertificateComponent implements OnInit {
 
   generateCertificateFormModel() {
     this.registerForm = this.formBuilder.group({
-      fileCertificate: [''],
       alias: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(4)]],
       id_orga: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
@@ -134,13 +144,23 @@ export class UpdateCertificateComponent implements OnInit {
     this.loanding = true;
     this.certificateService.activateCertificate(certificatePut,this.accion).then(
       (res: { statusCode: number}) => {
-      console.log(res);
+
+      if(res.statusCode === 201){
+        this.SuccesSave = true;
+      }
+
+      if(res.statusCode == 400){
+        this.BadAtributtes = true;
+      }
+      
       this.loanding = false;
 
     })
     .catch((error: { statusCode: number}) => {
-      console.log(error);
       this.loanding = false;
+      if(error.statusCode == 500){
+        this.ServerError = true;
+      }
     });;
   }
 }

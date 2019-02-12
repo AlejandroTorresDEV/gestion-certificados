@@ -22,7 +22,6 @@ export class ShowCertificatesComponent implements OnInit {
     {name: "Id-Org"},
     {name: "Eliminados"},
     {name: "No-Eliminados"}
-
   ];
 
   orderBooleanAlias : boolean;
@@ -89,7 +88,7 @@ export class ShowCertificatesComponent implements OnInit {
       this.certificates = res;
       this.loanding = false;
     })
-    .catch(error => {
+    .catch(() => {
       this.loanding = false;
     });
   }

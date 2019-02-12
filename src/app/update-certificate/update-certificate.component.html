@@ -9,11 +9,8 @@
   <br>
   <div class="form-group">
     <label>Certificado</label>
-    <input type="file" accept=".p12,.pfx,.crt" (change)="changeListener($event)" formControlName="fileCertificate" class="form-control"
-      [ngClass]="{ 'is-invalid': submitted && getFormsControls().fileCertificate.errors }" />
-    <div *ngIf="submitted && getFormsControls().fileCertificate.errors" class="invalid-feedback">
-      <div *ngIf="getFormsControls().fileCertificate.errors.required">El certificado es necesario</div>
-    </div>
+    <input type="file" accept=".p12,.pfx,.crt" (change)="changeListener($event)"/>
+    
   </div>
   <div class="form-group">
     <label>Alias</label>
@@ -72,7 +69,7 @@
     formControlName="observaciones" class="form-control" [(ngModel)]="observaciones" [ngClass]="{ 'is-invalid': submitted && getFormsControls().observaciones.errors }"></textarea>
   </div>
   <div class="form-group">
-    <button class="btn btn-primary">Entrar</button>
+    <button class="btn btn-primary">Actualizar</button>
   </div>
 </form>
 
