@@ -1,0 +1,14 @@
+div{
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f5f7;
+    width: 60vh;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 15em;
+    margin-bottom: 1em;
+    border: solid 3px  #98CB00;
+}
