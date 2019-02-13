@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JiraCertificatesComponent implements OnInit {
 
+
+  colours = [
+    {name : "white"},
+    {name: "blue"},
+    {name: "red"},
+    {name: "yellow"}
+  ];
+  
   constructor() { }
+
 
   ngOnInit() {
   }

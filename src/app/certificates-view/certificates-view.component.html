@@ -1,6 +1,7 @@
 <div>
   <div class="grid-container ">
-    <span class="content" *ngFor="let certificado of certificates">
+    <span class="content" *ngFor="let certificado of certificates"  >
+      <div class="clickItem" (click)="redirectDetailComponent(certificado.id)"> 
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.alias}}</span>
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.subject.split("CN=")[1].split(",")[0]}}</span>
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.caducidad.split("T")[0]}}</span>
@@ -9,9 +10,10 @@
         <i *ngIf="isAdmin && !certificado.eliminado" (click)="deleteCertificate(certificado)" class="material-icons">delete</i>
         <i *ngIf="isAdmin && certificado.eliminado" (click)="activateCertificate(certificado)"  class="material-icons">check</i>
         <i *ngIf="isAdmin"  (click)="updateCertificate(certificado)"  class="material-icons">refresh</i>
-        <i class="material-icons" (click)="redirectDetailComponent(certificado.id)" >search</i>
+        <i class="material-icons arrowIcon" (click)="redirectDetailComponent(certificado.id)" >arrow_downward</i>
         <i class="material-icons" (click)="dowloadFile(certificado.nombreFichero,certificado.base64String)">save</i>
       </span>
+    </div>
     </span>
   </div>
 </div>

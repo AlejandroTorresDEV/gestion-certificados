@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CertificateService} from '../services/certificate.service'
+import { CertificateService } from '../services/certificate.service'
 import { Certificates } from '../interfaces/Certificates';
-import { CanActivate,Router} from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-certificates',
@@ -9,9 +9,9 @@ import { CanActivate,Router} from '@angular/router';
   styleUrls: ['./show-certificates.component.css']
 })
 export class ShowCertificatesComponent implements OnInit {
-  
-  certificates : any;
-  certificatesCaducado : Certificates[] = [];
+
+  certificates: any;
+  certificatesCaducado: Certificates[] = [];
   copyDataCertificates = this.certificates;
 
   loanding: boolean;
@@ -19,22 +19,22 @@ export class ShowCertificatesComponent implements OnInit {
 
   selectedOption: string;
   option: string;
-  textBusqueda :string;
+  textBusqueda: string;
 
   findCertificates = [
-    {name : "Alias"},
-    {name: "Caducidad"},
-    {name: "Id-Org"},
-    {name: "Eliminados"},
-    {name: "No-Eliminados"}
+    { name: "Alias" },
+    { name: "Caducidad" },
+    { name: "Id-Org" },
+    { name: "Eliminados" },
+    { name: "No-Eliminados" }
   ];
 
-  orderBooleanAlias : boolean;
-  orderBooleanSubject : boolean;
-  orderBooleanDate : boolean;
-  orderBooleanContact : boolean;
+  orderBooleanAlias: boolean;
+  orderBooleanSubject: boolean;
+  orderBooleanDate: boolean;
+  orderBooleanContact: boolean;
 
-  constructor(private router: Router ,private certificateService : CertificateService) { }
+  constructor(private router: Router, private certificateService: CertificateService) { }
 
   ngOnInit() {
     this.getAllCertificates();
@@ -42,43 +42,43 @@ export class ShowCertificatesComponent implements OnInit {
   }
 
   //Método para buscar certificado por filtro
-  findCertificate(){
+  findCertificate() {
     this.option = this.selectedOption;
-    if(this.copyDataCertificates == null){
+    if (this.copyDataCertificates == null) {
       this.copyDataCertificates = this.certificates;
     }
 
-    switch(this.option){
+    switch (this.option) {
 
-      case "Alias" : {
+      case "Alias": {
         const result = this.copyDataCertificates.filter(
           certificate => certificate.alias.includes(this.textBusqueda));
         this.certificates = result;
         break;
       }
 
-      case "Caducidad" : {
+      case "Caducidad": {
         const result = this.copyDataCertificates.filter(
           certificate => certificate.caducidad.includes(this.textBusqueda));
         this.certificates = result;
         break;
       }
- 
-      case "Id-Org" : {
+
+      case "Id-Org": {
         const result = this.copyDataCertificates.filter(
           certificate => certificate.id_orga.includes(this.textBusqueda));
         this.certificates = result;
         break;
       }
 
-      case "Eliminados" : {
+      case "Eliminados": {
         const result = this.copyDataCertificates.filter(
           certificate => certificate.eliminado === true);
         this.certificates = result;
         break;
       }
 
-      case "No-Eliminados" : {
+      case "No-Eliminados": {
         const result = this.copyDataCertificates.filter(
           certificate => certificate.eliminado === false);
         this.certificates = result;
@@ -87,85 +87,89 @@ export class ShowCertificatesComponent implements OnInit {
     }
   }
 
-  getAllCertificates(){
+  redirectCaducadosCertificates() {
+    //this.router.navigate(['/jira-certificate']);
+    if (this.copyDataCertificates == null) {
+      this.copyDataCertificates = this.certificates;
+    }
+    const result = this.copyDataCertificates.filter(
+      certificate => certificate.caducado === true);
+    this.certificates = result;
+  }
+
+  getAllCertificates() {
     this.loanding = true;
     this.certificateService.getAllCertificates().then(res => {
       this.certificates = res;
       this.loanding = false;
       this.getAllCertificatesCaducade();
     })
-    .catch(() => {
-      this.loanding = false;
-    });
+      .catch(() => {
+        this.loanding = false;
+      });
   }
 
-  getAllCertificatesCaducade(){
-    for(let certi of this.certificates){
-        if(certi.caducado){
-          this.certificatesCaducado.push(certi);
-          console.log(certi.alias);
-        }
+  getAllCertificatesCaducade() {
+    for (let certi of this.certificates) {
+      if (certi.caducado) {
+        this.certificatesCaducado.push(certi);
+      }
     }
     this.badgeCount = this.certificatesCaducado.length;
   }
 
-  orderAlias(){
-    if(this.orderBooleanAlias){
+  orderAlias() {
+    if (this.orderBooleanAlias) {
       this.orderBooleanAlias = false;
-      this.certificates = this.certificates.sort((a,b) =>
-      a.alias > b.alias ? 1 : -1
+      this.certificates = this.certificates.sort((a, b) =>
+        a.alias > b.alias ? 1 : -1
       );
-    }else{
+    } else {
       this.orderBooleanAlias = true;
-      this.certificates = this.certificates.sort((a,b) =>
+      this.certificates = this.certificates.sort((a, b) =>
         a.alias < b.alias ? 1 : -1
-        );
+      );
     }
   }
 
-  orderSubject(){
-    if(this.orderBooleanSubject){
+  orderSubject() {
+    if (this.orderBooleanSubject) {
       this.orderBooleanSubject = false;
-      this.certificates = this.certificates.sort((a,b) =>
-      a.Subject > b.Subject ? 1 : -1
+      this.certificates = this.certificates.sort((a, b) =>
+        a.Subject > b.Subject ? 1 : -1
       );
-    }else{
+    } else {
       this.orderBooleanSubject = true;
-      this.certificates = this.certificates.sort((a,b) =>
+      this.certificates = this.certificates.sort((a, b) =>
         a.Subject < b.Subject ? 1 : -1
-        );
+      );
     }
   }
 
-  redirectCaducadosCertificates(){
-    this.router.navigate(['/jira-certificate']);
-  }
-
-  orderDate(){
-    if(this.orderBooleanDate){
+  orderDate() {
+    if (this.orderBooleanDate) {
       this.orderBooleanDate = false;
-      this.certificates = this.certificates.sort((a,b) =>
-      a.caducidad > b.caducidad ? 1 : -1
+      this.certificates = this.certificates.sort((a, b) =>
+        a.caducidad > b.caducidad ? 1 : -1
       );
-    }else{
+    } else {
       this.orderBooleanDate = true;
-      this.certificates = this.certificates.sort((a,b) =>
-        a.caducidad < b.caducidad ? 1 : -1
-        );
+      this.certificates = this.certificates.sort((a, b) =>
+        a.caducidad < b.caducidad ? 1 : -1);
     }
   }
 
-  orderContact(){
-    if(this.orderBooleanContact){
+  orderContact() {
+    if (this.orderBooleanContact) {
       this.orderBooleanContact = false;
-      this.certificates = this.certificates.sort((a,b) =>
-      a.id_orga > b.id_orga ? 1 : -1
+      this.certificates = this.certificates.sort((a, b) =>
+        a.id_orga > b.id_orga ? 1 : -1
       );
-    }else{
+    } else {
       this.orderBooleanContact = true;
-      this.certificates = this.certificates.sort((a,b) =>
+      this.certificates = this.certificates.sort((a, b) =>
         a.id_orga < b.id_orga ? 1 : -1
-        );
+      );
     }
   }
 }

@@ -1,0 +1,11 @@
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row;
+}
+
+.certificatesList{
+    font-size: 20px;
+    background-color: whitesmoke;
+}
