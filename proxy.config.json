@@ -4,5 +4,10 @@
         "secure" : false,
         "logLevel" : "debug", 
         "changeOrigin": true
-    }
+    },
+    "/rest":{
+        "target": "https://proyectogeekshubsgtt.atlassian.net",
+        "secure": false,
+        "changeOrigin": true
+        }
 }

@@ -15,7 +15,7 @@ export interface Certificates {
     base64String: string
     eliminado : boolean
     nombreFichero : string
-    caducado : boolean
+    estado : number
     subido : boolean
 }
 

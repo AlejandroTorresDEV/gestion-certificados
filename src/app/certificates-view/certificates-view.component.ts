@@ -23,6 +23,10 @@ export class CertificatesViewComponent implements OnInit {
     this.router.navigate(['/detail-certificate/',id])
   }
 
+  redirectJiraCertificateComponent(id){
+    this.router.navigate(['/jira-certificate/']);
+  }
+
   deleteCertificate(certificado: Certificates){
     certificado.eliminado = true;
     this.certificateService.deleteCertificate(certificado)  
@@ -64,7 +68,6 @@ export class CertificatesViewComponent implements OnInit {
   
     let atag = document.createElement("a");
     
-  
     atag.href = URL.createObjectURL(blob);
     atag.download = nombreFichero;
     /* Añadido elemento para descargar el fichero en el navegador mozilla */

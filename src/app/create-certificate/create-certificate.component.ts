@@ -103,7 +103,7 @@ export class CreateCertificateComponent implements OnInit {
       base64String: this.fileByte,
       eliminado : false,
       nombreFichero : this.rutaFichero,
-      caducado : false,
+      estado : 0,
       subido : false
     }
     this.loanding = true;

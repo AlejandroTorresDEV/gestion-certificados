@@ -6,14 +6,16 @@
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.subject.split("CN=")[1].split(",")[0]}}</span>
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.caducidad.split("T")[0]}}</span>
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">{{certificado.id_orga}}</span>
+    </div>
       <span [ngClass]="!certificado.eliminado ? 'scrollItemGrid' : 'scrollItemGridComplete'">
-        <i *ngIf="isAdmin && certificado.caducado" class="material-icons arrowIcon" (click)="redirectDetailComponent(certificado.id)" >arrow_downward</i>
+        <i *ngIf="isAdmin && certificado.estado == 2" class="material-icons arrowIcon" >arrow_downward</i>
+        <i *ngIf="isAdmin && certificado.estado == 1" class="material-icons arrowIconProxi" (click)="redirectJiraCertificateComponent(certificado.id)">arrow_downward</i>
+        <i *ngIf="isAdmin && certificado.estado == 0" class="material-icons arrowIconOk">arrow_downward</i>
         <i *ngIf="isAdmin && !certificado.eliminado" (click)="deleteCertificate(certificado)" class="material-icons">delete</i>
         <i *ngIf="isAdmin && certificado.eliminado" (click)="activateCertificate(certificado)"  class="material-icons">check</i>
         <i *ngIf="isAdmin" (click)="updateCertificate(certificado)"  class="material-icons">refresh</i>
         <i class="material-icons" (click)="dowloadFile(certificado.nombreFichero,certificado.base64String)">save</i>
       </span>
-    </div>
     </span>
   </div>
 </div>

@@ -17,7 +17,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #f4f5f7;
-  width: 60vh;
+  width: 70vh;
   text-align: center;
   margin: auto;
   border: solid 3px  #98CB00;
@@ -63,10 +63,35 @@
   }
 
   input{
-    font-size: 10px;
+    font-size: 8px;
 
   }
   span {
     font-size: 15px;
+  }
+
+  .selectCertificates {
+    border-radius: 0.7em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f5f7;
+    width: 50vh;
+    text-align: center;
+    margin: auto;
+    border: solid 3px  #98CB00;
+    margin-top: 0.5em;
+  }
+
+  .buttonSearch{
+    all:unset;
+    padding: 0.4em;
+    font-size: 9px;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 0.5em;
+    background: #98CB00;
+    margin-top: 0.5em;
+    color:white;
   }
 }

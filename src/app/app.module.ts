@@ -20,11 +20,7 @@ import { BoardComponent } from './board/board.component';
 import { DetailCertificateComponent } from './detail-certificate/detail-certificate.component';
 import { UpdateCertificateComponent } from './update-certificate/update-certificate.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatIconModule
-} from '@angular/material';
+import {MatToolbarModule,MatButtonModule,MatIconModule} from '@angular/material';
 import { JiraCertificatesComponent } from './jira-certificates/jira-certificates.component';
 
 @NgModule({
@@ -57,7 +53,7 @@ import { JiraCertificatesComponent } from './jira-certificates/jira-certificates
     BrowserAnimationsModule, 
     MatToolbarModule, 
     MatButtonModule, 
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

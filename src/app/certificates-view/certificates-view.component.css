@@ -48,6 +48,15 @@
   color: red !important;
 }
 
+i.arrowIconProxi {
+  color: #d66413 !important;
+}
+
+i.arrowIconOk {
+  color: green !important;
+}
+
+
 .clickItem{
   display: contents;
 }

@@ -1,4 +1,3 @@
-
 <div class="selectCertificates">
   <div>
     <input type="text" [(ngModel)]="textBusqueda" placeholder="Busqueda">
@@ -7,13 +6,14 @@
        [ngValue]="value.name">{{value.name}}
       </option>
     </select>   
-    <button class="buttonSearch"  (click)="findCertificate()" >Buscar</button>
+    <button class="buttonSearch" (click)="findCertificate()" >Buscar</button>
     <button mat-icon-button (click)="redirectCaducadosCertificates()">
         <mat-icon class="icon">notifications</mat-icon>
         <span class="badge" *ngIf="badgeCount > 0">{{badgeCount}}</span>
       </button>
   </div>
 </div>
+
 <div class="grid-container ">
   <span (click)="orderAlias()"><strong>Alias</strong></span>
   <span (click)="orderSubject()"><strong>Subject</strong></span>
@@ -24,6 +24,7 @@
 
 <!--Imagen spinner de carga-->
 <app-spinner *ngIf="loanding"></app-spinner>
+
 
 <!--  -->
 <app-certificates-view *ngIf="!loanding" [certificates]="certificates"></app-certificates-view>

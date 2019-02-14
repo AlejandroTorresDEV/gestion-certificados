@@ -33,7 +33,7 @@ export class UpdateCertificateComponent implements OnInit {
   lista_integracion: string;
   repositorio: string;
   observaciones: string;
-  caducado : boolean;
+  estado : number;
   subido : boolean;
 
   //Varaibles para el manejo de errores
@@ -95,7 +95,7 @@ export class UpdateCertificateComponent implements OnInit {
       this.lista_integracion = this.certificate.integration_list;
       this.repositorio = this.certificate.repositorio;
       this.observaciones = this.certificate.observaciones;
-      this.caducado = this.certificate.caducado;
+      this.estado = this.certificate.estado;
       this.subido = this.certificate.subido;
       this.loanding = false;
     }).catch(error => {
@@ -144,7 +144,7 @@ export class UpdateCertificateComponent implements OnInit {
       base64String: this.fileByte,
       eliminado : this.certificate.eliminado,
       nombreFichero : this.rutaFichero,
-      caducado : this.caducado,
+      estado : 0,
       subido : this.subido
     }
     this.loanding = true;

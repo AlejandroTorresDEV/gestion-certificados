@@ -88,12 +88,11 @@ export class ShowCertificatesComponent implements OnInit {
   }
 
   redirectCaducadosCertificates() {
-    //this.router.navigate(['/jira-certificate']);
     if (this.copyDataCertificates == null) {
       this.copyDataCertificates = this.certificates;
     }
     const result = this.copyDataCertificates.filter(
-      certificate => certificate.caducado === true);
+      certificate => certificate.estado == "1");
     this.certificates = result;
   }
 
@@ -111,7 +110,7 @@ export class ShowCertificatesComponent implements OnInit {
 
   getAllCertificatesCaducade() {
     for (let certi of this.certificates) {
-      if (certi.caducado) {
+      if (certi.estado == 1) {
         this.certificatesCaducado.push(certi);
       }
     }
@@ -157,6 +156,10 @@ export class ShowCertificatesComponent implements OnInit {
       this.certificates = this.certificates.sort((a, b) =>
         a.caducidad < b.caducidad ? 1 : -1);
     }
+  }
+
+  jiraprueba(){
+    this.certificateService.getpRUEBA();
   }
 
   orderContact() {
