@@ -24,7 +24,7 @@ export class JiraCertificatesComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-
+  dataTicket : any;
   username: string;
   password : string;
 
@@ -62,17 +62,6 @@ export class JiraCertificatesComponent implements OnInit {
     });;
   }
 
-  loginJira(){
-    this.profileJiraService.loginJira(this.username,this.password).then((res: { session: any}) => {
-      this.tokenLoginJira = res.session.value;
-      localStorage.setItem('tokenLoginJira',this.tokenLoginJira);
-      this.profileJiraService.postIssueJira(this.username,this.password);
-    })
-    .catch(error => {
-      console.log(error);
-    });;
-  }
-
   createTicket(){
     this.submitted = true;
     if (this.registerForm.invalid) {
@@ -82,10 +71,39 @@ export class JiraCertificatesComponent implements OnInit {
     this.loginJira();
   }
 
+  loginJira(){
+    this.profileJiraService.loginJira(this.username,this.password).then((res: { session: any}) => {
+      this.tokenLoginJira = res.session.value;
+      localStorage.setItem('tokenLoginJira',this.tokenLoginJira);
+      this.createObjectTicket();
+      this.profileJiraService.postIssueJira(this.username,this.password,  this.dataTicket);
+    })
+    .catch(error => {
+      console.log(error);
+    });;
+  }
+
   getFormsControls(): any {
     return this.registerForm.controls;
   }
 
+  createObjectTicket(){
+    this.dataTicket = {
+      "fields": {
+        "project":
+        {
+          "key": this.jiraAccount.proyect
+        },
+        "summary": "Certificado a punto de caducar -> "+this.certificateModel.username,
+        "description": "Incidencia subida por el usuario ID:"+this.idUser+
+        "\n DATOS CERTIFICADO -->"+this.certificateModel.id_orga+"\nID_ORG : "+this.certificateModel.id_orga,
+        "issuetype": {
+          "name": this.jiraAccount.issue
+        }
+      }
+    }
+  }
+  
   generateRegisterFormModel() {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
