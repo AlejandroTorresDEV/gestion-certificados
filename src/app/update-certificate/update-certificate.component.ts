@@ -144,7 +144,7 @@ export class UpdateCertificateComponent implements OnInit {
       base64String: this.fileByte,
       eliminado : this.certificate.eliminado,
       nombreFichero : this.rutaFichero,
-      estado : 0,
+      estado : this.estado,
       subido : this.subido
     }
     this.loanding = true;

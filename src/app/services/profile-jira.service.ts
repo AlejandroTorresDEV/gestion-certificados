@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { Jira } from "../interfaces/Jira";
 import { HttpHeaders } from '@angular/common/http';
 import { Base64 } from 'js-base64';
+import {CertificateService} from '../services/certificate.service';
 import { Certificates } from '../interfaces/Certificates';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +30,7 @@ export class ProfileJiraService {
     })
   };
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private certificateService: CertificateService, private http: HttpClient, private router: Router) { }
 
   loginJira(username: String, password: String) {
     const data = { username, password };
@@ -39,7 +41,7 @@ export class ProfileJiraService {
     return this.http.post('/api/jira', body, this.httpOptions).toPromise();
   }
 
-  postIssueJira(username: String, password: String,dataTicket:any) {
+  postIssueJira(username: String, password: String,dataTicket:any,certificate: Certificates) {
 
     //Codificamos el username y la password para enviarselo por la cabecera Authorization.
     this.objJsonB64 = Base64.encode(username + ":" + password);
@@ -55,9 +57,13 @@ export class ProfileJiraService {
     };
 
     this.http.post('/rest/api/2/issue', dataTicket, httpOptionsJiraPost).toPromise().then(res => {
-      console.log(res);
-    })
-      .catch((error) => {
+      certificate.estado = 0;
+      console.log(certificate);
+      this.certificateService.activateCertificate(certificate,0).then(res => { console.log(res)}).catch((error) => {
+        console.log(error)
+      });;
+
+    }).catch((error) => {
         console.log(error)
       });;
   }

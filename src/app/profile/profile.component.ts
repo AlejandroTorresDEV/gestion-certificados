@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   password : string;
   url: string;
   proyecto: string = "SIT";
-  issue: string = "Explotación";
+  issue: string = "Explotacion";
   componente: string;
   successSave :boolean;
   errorSave : boolean;

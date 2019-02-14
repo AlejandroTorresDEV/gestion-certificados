@@ -4,7 +4,6 @@ import {CertificateService} from '../services/certificate.service';
 import { Jira } from '../interfaces/Jira';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Certificate } from 'crypto';
 import { Certificates } from '../interfaces/Certificates';
 
 @Component({
@@ -76,7 +75,7 @@ export class JiraCertificatesComponent implements OnInit {
       this.tokenLoginJira = res.session.value;
       localStorage.setItem('tokenLoginJira',this.tokenLoginJira);
       this.createObjectTicket();
-      this.profileJiraService.postIssueJira(this.username,this.password,  this.dataTicket);
+      this.profileJiraService.postIssueJira(this.username,this.password,  this.dataTicket,this.certificateModel);
     })
     .catch(error => {
       console.log(error);
