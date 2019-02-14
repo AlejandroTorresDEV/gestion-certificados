@@ -35,7 +35,7 @@ const routes: Routes = [
     component: BoardComponent , canActivate : [AuthGuard],
   },
   {
-    path:'jira-certificate',
+    path:'jira-certificate/:id',
     component: JiraCertificatesComponent , canActivate : [AuthGuard],
   },
   {

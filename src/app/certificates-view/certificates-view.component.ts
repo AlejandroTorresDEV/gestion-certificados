@@ -24,7 +24,7 @@ export class CertificatesViewComponent implements OnInit {
   }
 
   redirectJiraCertificateComponent(id){
-    this.router.navigate(['/jira-certificate/']);
+    this.router.navigate(['/jira-certificate/',id]);
   }
 
   deleteCertificate(certificado: Certificates){
