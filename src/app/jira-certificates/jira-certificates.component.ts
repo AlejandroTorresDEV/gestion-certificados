@@ -66,7 +66,7 @@ export class JiraCertificatesComponent implements OnInit {
     this.profileJiraService.loginJira(this.username,this.password).then((res: { session: any}) => {
       this.tokenLoginJira = res.session.value;
       localStorage.setItem('tokenLoginJira',this.tokenLoginJira);
-      console.log(this.tokenLoginJira);
+      this.profileJiraService.postIssueJira(this.username,this.password);
     })
     .catch(error => {
       console.log(error);

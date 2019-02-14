@@ -3,11 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Jira } from "../interfaces/Jira";
 import { HttpHeaders } from '@angular/common/http';
-
+import { Base64 } from 'js-base64';
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileJiraService {
+
+  data: any;
+
+  objJsonB64;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -27,10 +31,10 @@ export class ProfileJiraService {
 
   httpOptionsJiraPost = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
+      //'Content-Type': 'application/json',
       //'X-Atlassian-Token': 'nocheck',
       'User-Agent': 'xx',
-      'Authorization': localStorage.getItem('tokenLoginJira')
+      "Authorization": 'Basic YWxleC1pbGljaXRhbm8xNUBob3RtYWlsLmNvbTphbGV4MTIzNA=='
     })
   };
 
@@ -46,8 +50,43 @@ export class ProfileJiraService {
     return this.http.post('/api/jira', body, this.httpOptions).toPromise();
   }
 
-  postIssueJira(){
-    
+  postIssueJira(username: String, password: String){
+    username = "alex-ilicitano15@hotmail.com";
+    password = "alex1234";
+
+    console.log("ENCODE");
+    this.objJsonB64 = Base64.encode("alex-ilicitano15@hotmail.com:alex1234");
+    console.log(this.objJsonB64);
+
+    console.log("DECODE");
+    const objJsonB64dECODE = Base64.decode(this.objJsonB64);
+
+    console.log(objJsonB64dECODE);
+
+    console.log('Basic ${this.objJsonB64}');
+
+    this.data = {
+      "fields": {
+         "project":
+      {
+         "key": "SIT"
+      },
+         "summary": "Certificado administración",
+         "description": "Incidencia subida por el usuario [RAMON]",
+         "issuetype": {
+         "name": "Explotacion"
+         }
+         }
+      }
+
+      this.http.post('/rest/api/2/issue', this.data, this.httpOptionsJiraPost).toPromise().then(res => {
+        console.log(res);
+      })
+        .catch((error) => {
+          console.log(error)
+        });;
+  
+      
   }
 
   getUserJira(id): any {
