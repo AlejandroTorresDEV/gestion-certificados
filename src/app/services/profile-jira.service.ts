@@ -16,7 +16,7 @@ export class ProfileJiraService {
     })
   };
 
-  httpOptionsJira = {
+  httpOptionsJiraLogin = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       //'X-Atlassian-Token': 'nocheck',
@@ -25,18 +25,29 @@ export class ProfileJiraService {
     })
   };
 
+  httpOptionsJiraPost = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      //'X-Atlassian-Token': 'nocheck',
+      'User-Agent': 'xx',
+      'Authorization': localStorage.getItem('tokenLoginJira')
+    })
+  };
+
   constructor(private http: HttpClient, private router: Router) {}
 
 
   loginJira(username: String, password: String){
-    username = "ALEX-ILICITANO15@hotmail.com";
-    password = "alex1234"
     const data = {username, password};
-    return this.http.post('/rest/auth/1/session',data, this.httpOptionsJira).toPromise();
+    return this.http.post('/rest/auth/1/session',data, this.httpOptionsJiraLogin).toPromise();
   }
 
   saveUserJira(body: Jira): any {
     return this.http.post('/api/jira', body, this.httpOptions).toPromise();
+  }
+
+  postIssueJira(){
+    
   }
 
   getUserJira(id): any {

@@ -63,8 +63,10 @@ export class JiraCertificatesComponent implements OnInit {
   }
 
   loginJira(){
-    this.profileJiraService.loginJira(this.username,"111").then((res: { session: any}) => {
+    this.profileJiraService.loginJira(this.username,this.password).then((res: { session: any}) => {
       this.tokenLoginJira = res.session.value;
+      localStorage.setItem('tokenLoginJira',this.tokenLoginJira);
+      console.log(this.tokenLoginJira);
     })
     .catch(error => {
       console.log(error);
@@ -76,10 +78,8 @@ export class JiraCertificatesComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-
+    this.password = this.registerForm.value.password;
     this.loginJira();
-
-
   }
 
   getFormsControls(): any {
