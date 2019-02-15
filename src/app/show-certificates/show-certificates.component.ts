@@ -158,10 +158,6 @@ export class ShowCertificatesComponent implements OnInit {
     }
   }
 
-  jiraprueba(){
-    this.certificateService.getpRUEBA();
-  }
-
   orderContact() {
     if (this.orderBooleanContact) {
       this.orderBooleanContact = false;

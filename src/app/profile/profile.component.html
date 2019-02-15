@@ -24,12 +24,12 @@
         [ngClass]="{ 'is-invalid': submitted && getFormsControls().password.errors }"  />
       <div *ngIf="submitted && getFormsControls().password.errors" class="invalid-feedback">
         <div *ngIf="getFormsControls().password.errors.required">Contraseña es necesaria</div>
-        <div *ngIf="getFormsControls().password.errors.minlength">El tamaño minimo es de 6</div>
+        <div *ngIf="getFormsControls().password.errors.minlength">El tamaño minimo es de 1</div>
       </div>
     </div>
     <div class="form-group">
       <label>Url</label><br>
-      <input type="text" formControlName="url" class="form-control" [(ngModel)]="url" [ngClass]="{ 'is-invalid': submitted && getFormsControls().url.errors }" />
+      <input type="text" formControlName="url" class="form-control" [readonly]="true" [(ngModel)]="url" [ngClass]="{ 'is-invalid': submitted && getFormsControls().url.errors }" />
       <div *ngIf="submitted && getFormsControls().url.errors" class="invalid-feedback">
         <div *ngIf="getFormsControls().url.errors.required">La url es necesaria</div>
       </div>
@@ -89,7 +89,7 @@
     </div>
     <div class="form-group">
       <label>Url</label><br>
-      <input type="text" formControlName="url" class="form-control" [(ngModel)]="url" [readonly]="!editing" [ngClass]="{ 'is-invalid': submitted && getFormsControls().url.errors }" />
+      <input type="text" formControlName="url" class="form-control" [(ngModel)]="url" [readonly]="true" [ngClass]="{ 'is-invalid': submitted && getFormsControls().url.errors }" />
       <div *ngIf="submitted && getFormsControls().url.errors" class="invalid-feedback">
         <div *ngIf="getFormsControls().url.errors.required">Username is necesario</div>
       </div>

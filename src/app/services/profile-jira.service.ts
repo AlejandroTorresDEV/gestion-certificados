@@ -57,7 +57,8 @@ export class ProfileJiraService {
     };
 
     this.http.post('/rest/api/2/issue', dataTicket, httpOptionsJiraPost).toPromise().then(res => {
-      certificate.estado = 0;
+      certificate.estado = 3;
+      certificate.eliminado = true;
       console.log(certificate);
       this.certificateService.activateCertificate(certificate,0).then(res => { console.log(res)}).catch((error) => {
         console.log(error)

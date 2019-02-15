@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 export class ProfileComponent implements OnInit {
   username : string;
   password : string;
-  url: string;
+  url: string = "https://proyectogeekshubsgtt.atlassian.net";
   proyecto: string = "SIT";
   issue: string = "Explotacion";
   componente: string;
@@ -53,6 +53,7 @@ export class ProfileComponent implements OnInit {
       componente: this.componente,
       issue : this.issue
     }
+    console.log(saveAccountJira);
     this.jiraService.saveUserJira(saveAccountJira).then(res => {
       console.log(res);
       this.successSave = true;
