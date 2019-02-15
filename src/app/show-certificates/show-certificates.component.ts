@@ -26,7 +26,10 @@ export class ShowCertificatesComponent implements OnInit {
     { name: "Caducidad" },
     { name: "Id-Org" },
     { name: "Eliminados" },
-    { name: "No-Eliminados" }
+    { name: "No-Eliminados" },
+    { name: "Caducados" },
+    { name: "A-punto-de-caducar" },
+
   ];
 
   orderBooleanAlias: boolean;
@@ -81,6 +84,27 @@ export class ShowCertificatesComponent implements OnInit {
       case "No-Eliminados": {
         const result = this.copyDataCertificates.filter(
           certificate => certificate.eliminado === false);
+        this.certificates = result;
+        break;
+      }
+
+      case "Caducados": {
+        const result = this.copyDataCertificates.filter(
+          certificate => certificate.estado === 2);
+        this.certificates = result;
+        break;
+      }
+
+      case "Caducados": {
+        const result = this.copyDataCertificates.filter(
+          certificate => certificate.estado === 2);
+        this.certificates = result;
+        break;
+      }
+
+      case "A-punto-de-caducar": {
+        const result = this.copyDataCertificates.filter(
+          certificate => certificate.estado === 1);
         this.certificates = result;
         break;
       }
