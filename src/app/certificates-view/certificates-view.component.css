@@ -56,6 +56,10 @@ i.arrowIconOk {
   color: green !important;
 }
 
+i.arrowIconLeft {
+  color: orange !important;
+  font-size: 30px;
+}
 
 .clickItem{
   display: contents;

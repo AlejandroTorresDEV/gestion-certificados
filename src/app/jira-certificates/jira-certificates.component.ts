@@ -92,9 +92,9 @@ export class JiraCertificatesComponent implements OnInit {
         {
           "key": this.jiraAccount.proyect
         },
-        "summary": "Certificado a punto de caducar -> "+this.certificateModel.username,
+        "summary": "Certificado a punto de caducar -> "+this.certificateModel.alias,
         "description": "Incidencia subida por el usuario ID:"+this.idUser+
-        "\n DATOS CERTIFICADO -->"+this.certificateModel.id_orga+"\nID_ORG : "+this.certificateModel.id_orga,
+        "\n DATOS CERTIFICADO -->"+this.certificateModel.id_orga+"\nID_ORG : "+this.certificateModel.id_orga+"\nSUBJECT : "+this.certificateModel.subject,
         "issuetype": {
           "name": this.jiraAccount.issue
         }
