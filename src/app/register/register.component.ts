@@ -12,11 +12,12 @@ export class RegisterComponent implements OnInit {
   username: string ;
   password: string;
   email: string;
-  successLogin: boolean;
-  successRegister: boolean;
+
   loanding: boolean;
+
   registerForm: FormGroup;
   submitted = false;
+
   selectedRol : string;
   userRol : string;
 
@@ -24,6 +25,12 @@ export class RegisterComponent implements OnInit {
     {type : "visor"},
     {type: "admin"},
   ];
+
+  errorRegister: boolean;
+  successRegister: boolean;
+  
+  mensaggeSaveSucces = "Usuario creado correctamente.";
+  mensaggeErrorRegister = "Ha ocurrido un error con el registro del usuario.";
 
   constructor(private router: Router, private authService: AuthServiceService, private formBuilder: FormBuilder) { }
 
@@ -44,14 +51,15 @@ export class RegisterComponent implements OnInit {
     this.loanding = true;
     this.authService
       .registerUser(username, email, password,userRol)
-      .then(res => {
+      .then(() => {
         this.loanding = false;
-        console.log(res);
+        this.successRegister = true;
+        this.errorRegister = false;
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
         this.loanding = false;
-        this.successLogin = true;
+        this.successRegister = false;
+        this.errorRegister = true;
       });
   }
 

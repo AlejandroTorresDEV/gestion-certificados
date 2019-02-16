@@ -57,14 +57,14 @@
   <div class="form-group">
     <br>
     <label>Lista de integración</label>
-    <textarea type="text" cols="60" rows="3" id="integration_list" 
-    formControlName="integration_list" class="form-control" [(ngModel)]="integration_list" [ngClass]="{ 'is-invalid': submitted && getFormsControls().integration_list.errors }"></textarea>
+    <textarea type="text" cols="60" rows="3" id="integration_list" formControlName="integration_list" class="form-control"
+      [(ngModel)]="integration_list" [ngClass]="{ 'is-invalid': submitted && getFormsControls().integration_list.errors }"></textarea>
   </div>
   <div class="form-group">
-      <br>
+    <br>
     <label>Observaciones</label><br>
-    <textarea type="text" cols="60" rows="3" id="observaciones" 
-    formControlName="observaciones" class="form-control" [(ngModel)]="observaciones" [ngClass]="{ 'is-invalid': submitted && getFormsControls().observaciones.errors }"></textarea>
+    <textarea type="text" cols="60" rows="3" id="observaciones" formControlName="observaciones" class="form-control"
+      [(ngModel)]="observaciones" [ngClass]="{ 'is-invalid': submitted && getFormsControls().observaciones.errors }"></textarea>
   </div>
   <div class="form-group">
     <button class="btn btn-primary">Entrar</button>
