@@ -7,7 +7,14 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthServiceService {
-  
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('jwt')
+    })
+  };
+
   constructor(private http: HttpClient, private router: Router) { }
   
   loginUser(username: String, password: String): any {
@@ -34,7 +41,7 @@ export class AuthServiceService {
 
   registerUser(username: string, email: string, password: string, rolUser: string): any {
     const body = { username, email, password, rolUser };
-    return this.http.post('/api/users', body).toPromise();
+    return this.http.post('/api/users', body,this.httpOptions).toPromise();
   }
 
   getToken(): boolean {

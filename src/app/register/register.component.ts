@@ -56,7 +56,8 @@ export class RegisterComponent implements OnInit {
         this.successRegister = true;
         this.errorRegister = false;
       })
-      .catch(() => {
+      .catch(error => {
+        console.log(error);
         this.loanding = false;
         this.successRegister = false;
         this.errorRegister = true;

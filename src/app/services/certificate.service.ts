@@ -7,7 +7,6 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class CertificateService {
 
-  data: any;
   URL_CERTIFICATE = '/api/certificate/';
 
   constructor(private http: HttpClient) { }  

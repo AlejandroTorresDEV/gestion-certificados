@@ -52,10 +52,12 @@ export class ProfileComponent implements OnInit {
        this.createNewModelJira();
 
     this.jiraService.saveUserJira(this.AccountJira).then(res => {
+      console.log("SAVE");
       console.log(res);
       this.successSave = true;
     })
     .catch(error => {
+      console.log("NO SAVE");
       console.log(error);
       this.errorSave = true;
     });;

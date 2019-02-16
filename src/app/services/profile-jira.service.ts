@@ -12,7 +12,6 @@ import { Certificates } from '../interfaces/Certificates';
 })
 export class ProfileJiraService {
 
-  data: any;
   objJsonB64: any;
   
   URL_JIRA_BD = '/api/jira/';
