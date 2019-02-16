@@ -10,51 +10,48 @@ import {Router} from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
   username : string;
   password : string;
+
   url: string = "https://proyectogeekshubsgtt.atlassian.net";
   proyecto: string = "SIT";
   issue: string = "Explotacion";
-  componente: string;
-  successSave :boolean;
-  errorSave : boolean;
+  componente: string = "Arquitectura";
+
   editing : boolean;
   jiraExistente :boolean;
   id : string;
   jiraId: string;
   registerForm: FormGroup;
   submitted = false;
+  AccountJira : Jira;
   loanding: boolean;
+
+  successSave :boolean;
+  errorSave : boolean;
+
+  mensaggeError = "Ha ocurrido un error. Vuelva a intentarlo."
   mensaggeSaveSuccess =  "Cuenta insertada correctamente.";
 
   constructor(private router: Router,private jiraService: ProfileJiraService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.id  = localStorage.getItem('id');
-    console.log(this.id);
     this.loanding = true;
     this.getUserJira();
     this.generateRegisterFormModel();
   }
 
+    //Guardamos el Jira del cliente logeado.
   saveUserJira(){
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;
     }
-    const saveAccountJira: Jira = 
-    {  
-      id : this.jiraId,
-      user_id : this.id,
-      username : this.username,
-      password: this.password,
-      url: this.url,
-      proyect: this.proyecto,
-      componente: this.componente,
-      issue : this.issue
-    }
-    console.log(saveAccountJira);
-    this.jiraService.saveUserJira(saveAccountJira).then(res => {
+       this.createNewModelJira();
+
+    this.jiraService.saveUserJira(this.AccountJira).then(res => {
       console.log(res);
       this.successSave = true;
     })
@@ -65,29 +62,18 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  //Actualizamos el Jira del cliente logeado.
   updateUserJira(){
     this.cambiarEdicion();
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;
     }
-    const updateAccountJira: Jira = 
-    {  
-      id : this.jiraId,
-      user_id : this.id,
-      username : this.username,
-      password: this.password,
-      url: this.url,
-      proyect: this.proyecto,
-      componente: this.componente,
-      issue : this.issue
-    }
-    this.jiraService.updateUserJira(this.id,updateAccountJira).then(res => {
-      console.log(res);
+    this.createNewModelJira();
+    this.jiraService.updateUserJira(this.id,this.AccountJira).then(res => {
       this.successSave = true;
     })
     .catch(error => {
-      console.log(error);
       this.errorSave = true;
     });;
   }
@@ -96,6 +82,7 @@ export class ProfileComponent implements OnInit {
     this.editing = !this.editing;
   }
 
+  //Obtenemos los datos de de Jira del cliente logeado.
   getUserJira(){
     this.jiraService.getUserJira(this.id).then(res => {
       this.loanding = false;
@@ -113,6 +100,20 @@ export class ProfileComponent implements OnInit {
       this.loanding = false;
       this.jiraExistente = false;
     });
+  }
+
+  createNewModelJira(){
+    this.AccountJira  = 
+    {  
+      id : this.jiraId,
+      user_id : this.id,
+      username : this.username,
+      password: this.password,
+      url: this.url,
+      proyect: this.proyecto,
+      componente: this.componente,
+      issue : this.issue
+    }
   }
 
   generateRegisterFormModel() {

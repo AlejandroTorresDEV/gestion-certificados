@@ -111,7 +111,7 @@ export class UpdateCertificateComponent implements OnInit {
   generateCertificateFormModel() {
     this.registerForm = this.formBuilder.group({
       alias: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(4)]],
+      password: ['', [Validators.required, Validators.minLength(1)]],
       id_orga: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       nombre_cliente: ['', Validators.required],
       contacto_renovacion: ['', Validators.required],

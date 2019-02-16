@@ -52,7 +52,7 @@
       </div>
     <div class="form-group">
       <label>Componente</label><br>
-      <input type="text" formControlName="componente" [(ngModel)]="componente" class="form-control"
+      <input type="text" formControlName="componente" [(ngModel)]="componente"  [readonly]="true" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && getFormsControls().componente.errors }" />
       <div *ngIf="submitted && getFormsControls().componente.errors" class="invalid-feedback">
         <div *ngIf="getFormsControls().componente.errors.required">Nombre del componente es necesario</div>
@@ -112,7 +112,7 @@
       </div>
     <div class="form-group">
       <label>Componente</label><br>
-      <input type="text" formControlName="componente" [(ngModel)]="componente" [readonly]="!editing" class="form-control"
+      <input type="text" formControlName="componente" [(ngModel)]="componente" [readonly]="true" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && getFormsControls().componente.errors }" />
       <div *ngIf="submitted && getFormsControls().componente.errors" class="invalid-feedback">
         <div *ngIf="getFormsControls().componente.errors.required">Username is necesario</div>
@@ -126,5 +126,5 @@
 </div>
 
 <!--Mensajes de información al usuario-->
-
-<app-show-messages *ngIf="successSave" [mens]="mensaggeSaveSuccess"></app-show-messages>
+<app-show-messages *ngIf="successSave" [mens]="mensaggeError"></app-show-messages>
+<app-show-messages *ngIf="errorSave" [mens]="mensaggeSaveSuccess"></app-show-messages>

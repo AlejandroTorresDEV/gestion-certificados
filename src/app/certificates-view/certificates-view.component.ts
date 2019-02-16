@@ -53,6 +53,7 @@ export class CertificatesViewComponent implements OnInit {
     this.router.navigate(['/update-certificate',certificado.id])
   }
 
+  
   dowloadFile(nombreFichero: string , fileStringBase64 : string){  
     let contentType = 'file/pfx';
     let byteCharacters = atob(fileStringBase64);

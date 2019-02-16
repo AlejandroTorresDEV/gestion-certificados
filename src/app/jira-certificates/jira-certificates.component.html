@@ -22,3 +22,9 @@
     <button class="btn btn-primary">Crear Ticket</button>
   </div>
 </form>
+
+<!--Mensajes de información al usuario-->
+<div *ngIf="!loanding">
+  <app-show-messages *ngIf="loginJiraError" [mens]="mensaggeErrorLogin"></app-show-messages>
+  <app-show-messages *ngIf="createTicketSucces" [mens]="mensaggeSuccesSave"></app-show-messages>
+</div>

@@ -13,7 +13,6 @@ import { Certificates } from '../interfaces/Certificates';
 export class ProfileJiraService {
 
   data: any;
-
   objJsonB64: any;
 
   httpOptions = {
@@ -35,6 +34,10 @@ export class ProfileJiraService {
   loginJira(username: String, password: String) {
     const data = { username, password };
     return this.http.post('/rest/auth/1/session', data, this.httpOptionsJiraLogin).toPromise();
+  }
+
+  updateUserJira(id, body: Jira) {
+    return this.http.put('/api/jira/' + body.id, body, this.httpOptions).toPromise();
   }
 
   saveUserJira(body: Jira): any {
@@ -73,14 +76,10 @@ export class ProfileJiraService {
     return new Promise((resolve, reject) => {
       this.http.get('/api/jira/' + id, this.httpOptions).toPromise().then((res) => {
         resolve(res);
-      }).catch((error) => {
+      }).catch(() => {
         reject(404);
       });
     });
-  }
-
-  updateUserJira(id, body: Jira) {
-    return this.http.put('/api/jira/' + body.id, body, this.httpOptions).toPromise();
   }
 
 }

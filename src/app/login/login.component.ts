@@ -9,13 +9,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   username: string;
   password: string;
+
   loginServerError :boolean;
   loginBadAtributtes :boolean;
+
   loanding: boolean;
+
   registerForm: FormGroup;
   submitted = false;
+  
   mensaggeErrorServer = "Error de conexión con el servidor";
   mensaggeBadAtributtes = "Las credenciales son incorrectas";
 
