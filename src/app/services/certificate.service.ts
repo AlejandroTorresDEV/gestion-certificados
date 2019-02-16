@@ -8,26 +8,27 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 export class CertificateService {
 
   data: any;
+  URL_CERTIFICATE = '/api/certificate/';
 
   constructor(private http: HttpClient) { }  
   
   getCertificate(id) {
-    return this.http.get('/api/certificate/' + id).toPromise();
+    return this.http.get(this.URL_CERTIFICATE + id).toPromise();
   }
 
   getAllCertificates() {
-    return this.http.get('/api/certificate').toPromise();
+    return this.http.get(this.URL_CERTIFICATE).toPromise();
   }
 
   deleteCertificate(certificado) {
-    return this.http.put('/api/certificate/' + certificado.id, certificado).toPromise();
+    return this.http.put(this.URL_CERTIFICATE + certificado.id, certificado).toPromise();
   }
 
   activateCertificate(certificado, accion) {
-    return this.http.put('/api/certificate/' + accion, certificado).toPromise();
+    return this.http.put(this.URL_CERTIFICATE + accion, certificado).toPromise();
   }
 
   saveCertificates(certificate) {
-    return this.http.post('/api/certificate', certificate).toPromise();
+    return this.http.post(this.URL_CERTIFICATE, certificate).toPromise();
   }
 }

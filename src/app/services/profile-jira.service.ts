@@ -14,6 +14,8 @@ export class ProfileJiraService {
 
   data: any;
   objJsonB64: any;
+  
+  URL_JIRA_BD = '/api/jira/';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -37,11 +39,21 @@ export class ProfileJiraService {
   }
 
   updateUserJira(id, body: Jira) {
-    return this.http.put('/api/jira/' + body.id, body, this.httpOptions).toPromise();
+    return this.http.put(this.URL_JIRA_BD + body.id, body, this.httpOptions).toPromise();
   }
 
   saveUserJira(body: Jira): any {
-    return this.http.post('/api/jira', body, this.httpOptions).toPromise();
+    return this.http.post(this.URL_JIRA_BD, body, this.httpOptions).toPromise();
+  }
+
+  getUserJira(id): any {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.URL_JIRA_BD + id, this.httpOptions).toPromise().then((res) => {
+        resolve(res);
+      }).catch(() => {
+        reject(404);
+      });
+    });
   }
 
   postIssueJira(username: String, password: String,dataTicket:any,certificate: Certificates) {
@@ -58,7 +70,8 @@ export class ProfileJiraService {
         "Authorization": `Basic ${this.objJsonB64}`
       })
     };
-
+    
+    //Enviamos la peticion con los datos a la api publica de jira.
     this.http.post('/rest/api/2/issue', dataTicket, httpOptionsJiraPost).toPromise().then(res => {
       certificate.estado = 3;
       certificate.eliminado = true;
@@ -70,16 +83,6 @@ export class ProfileJiraService {
     }).catch((error) => {
         console.log(error)
       });;
-  }
-
-  getUserJira(id): any {
-    return new Promise((resolve, reject) => {
-      this.http.get('/api/jira/' + id, this.httpOptions).toPromise().then((res) => {
-        resolve(res);
-      }).catch(() => {
-        reject(404);
-      });
-    });
   }
 
 }

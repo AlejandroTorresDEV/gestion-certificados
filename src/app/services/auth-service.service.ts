@@ -9,13 +9,6 @@ import { HttpHeaders } from '@angular/common/http';
 export class AuthServiceService {
   
   constructor(private http: HttpClient, private router: Router) { }
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-        })
-  };
-
   
   loginUser(username: String, password: String): any {
     const body = { username, password };
