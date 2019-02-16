@@ -95,3 +95,20 @@ span {
 a:visited {
   color: #9c29a1;
 }
+
+@media (max-width : 520px){
+  form {
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f5f7;
+    width: 50vh;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1em;
+    margin-top:2em;
+    font-size: 15px;
+    border: solid 3px  #98CB00;
+  }
+}

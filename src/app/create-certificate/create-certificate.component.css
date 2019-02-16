@@ -84,3 +84,38 @@ input {
 .container {
   background-color: red;
 }
+
+@media (max-width : 520px){
+  form {
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f5f7;
+    width: 50vh;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 2em;
+    margin-bottom: 1em;
+    margin-top: 2em;
+    border: solid 3px  #98CB00;
+  }
+
+  input {
+    all: unset;
+    border-bottom: 1px solid gray;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    width: 45vh;
+    padding: 0.5em;
+    display: block;
+    text-align: center;
+  }
+
+  textarea{
+    margin-top: 1em;
+    max-width :40vh;
+    max-height :10vh;
+  }
+}
