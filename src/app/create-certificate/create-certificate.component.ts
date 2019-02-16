@@ -11,6 +11,7 @@ import { Certificates } from '../interfaces/Certificates';
 export class CreateCertificateComponent implements OnInit {
 
   observaciones : string;
+  integration_list : string;
   loanding: boolean;
 
   //Variables para manejar el fichero del certificado
@@ -81,6 +82,7 @@ export class CreateCertificateComponent implements OnInit {
   }
 
   saveCertificate(){
+    this.loanding = true;
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;
@@ -111,10 +113,12 @@ export class CreateCertificateComponent implements OnInit {
     .then(
       (res: { statusCode: number}) => {
       if(res.statusCode == 201){
+        this.BadAtributtes = false;
         this.SuccesSave = true;
       }
 
       if(res.statusCode == 400){
+        this.SuccesSave = false;
         this.BadAtributtes = true;
       }
       this.loanding = false;

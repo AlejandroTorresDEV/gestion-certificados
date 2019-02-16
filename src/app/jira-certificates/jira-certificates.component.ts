@@ -46,7 +46,6 @@ export class JiraCertificatesComponent implements OnInit {
     this.loanding = true;
     this.createTicketSucces = false;
     this.loginJiraError = false;
-
   }
 
   //Obtenemos los datos del certificado para poder obtener su informacion.
